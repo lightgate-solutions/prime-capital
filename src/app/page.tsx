@@ -1,73 +1,122 @@
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
+
 import {
   ArrowRight,
-  TrendingUp,
-  Shield,
-  Users,
   BarChart3,
-  Award,
-  Clock,
+  BrainCircuit,
+  ChartCandlestick,
+  Eye,
+  Gem,
+  House,
+  Landmark,
   MapPin,
   Phone,
+  Scale,
+  Shield,
+  ShieldCheck,
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function HomePage() {
   const services = [
     {
-      icon: TrendingUp,
-      title: "Brokerage Services",
+      icon: Shield,
+      title: "Money Market Instruments",
       description:
-        "Access to Nigerian and international markets with competitive rates and expert execution.",
+        "Investments in securities with short-term maturities, such as Treasury Bills (T-Bills), Commercial Papers (CPs), Certificates of Deposit (CDs) and Bankers' Acceptances (BAs).",
+    },
+    {
+      icon: TrendingUp,
+      title: "Fixed Income Securities",
+      description:
+        "Stable income-oriented portfolios investing in government (FGN & State) bonds and high-quality corporate debt.",
     },
     {
       icon: BarChart3,
-      title: "Investment Advisory",
+      title: "Multi-Asset Portfolios",
       description:
-        "Personalized investment strategies tailored to your financial goals and risk profile.",
+        "Balanced strategies dynamically allocating across asset classes to manage risk and capture opportunities.",
     },
     {
-      icon: Shield,
-      title: "Asset Management",
+      icon: Scale,
+      title: "Ethical & Shari'ah-Compliant Products",
       description:
-        "Professional portfolio management with a focus on long-term wealth preservation and growth.",
+        "Solutions aligned with ethical and Islamic investment principles.",
+    },
+    {
+      icon: Landmark,
+      title: "Discretionary & Non-Discretionary Portfolios",
+      description:
+        "Tailored mandates for retail and qualified investors, aligned with individual risk profiles.",
+    },
+    {
+      icon: ChartCandlestick,
+      title: "Alternative Investments",
+      description:
+        "Access to real estate, private equity, venture capital, and infrastructure opportunities for qualified investors.",
     },
   ];
 
-  const stats = [
-    { value: "₦50B+", label: "Assets Under Management" },
-    { value: "5,000+", label: "Active Clients" },
-    { value: "15+", label: "Years Experience" },
-    { value: "98%", label: "Client Satisfaction" },
+  const investmentPillars = [
+    {
+      icon: BrainCircuit,
+      title: "Strategic Discovery & Alignment",
+      description:
+        "We begin with a deep understanding of each client's financial position, objectives, and risk tolerance, ensuring every portfolio is aligned with clear goals.",
+    },
+    {
+      icon: House,
+      title: "Disciplined Asset Allocation",
+      description:
+        "We construct resilient portfolios using a Total Portfolio Approach (TPA), ensuring assets work collectively across equities, fixed income, and alternatives.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Integrated Risk Management",
+      description:
+        "Risk management is a 24/7 commitment. We provide clear, real-time insights and ESG integration to ensure sustainable, long-term returns.",
+    },
+    {
+      icon: Zap,
+      title: "Innovation-Led Stewardship",
+      description:
+        "We enhance human expertise with advanced analytics, AI-enabled insights, and scenario modeling to stress-test portfolios across market cycles.",
+    },
   ];
 
   const whyChooseUs = [
     {
-      icon: Shield,
-      title: "Regulatory Compliance",
+      icon: Gem,
+      title: "Gold Standard Excellence",
       description:
-        "Fully registered and regulated by the Nigerian SEC with strict adherence to compliance standards.",
+        "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
+    },
+    {
+      icon: Eye,
+      title: "Absolute Transparency",
+      description:
+        "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
+    },
+    {
+      icon: Shield,
+      title: "SEC-Regulated Assurance",
+      description:
+        "Managed within a robust regulatory framework, strictly in accordance with the Investments & Securities Act.",
     },
     {
       icon: Users,
-      title: "Expert Team",
+      title: "Client-First Partnerships",
       description:
-        "Seasoned professionals with deep knowledge of Nigerian and global markets.",
-    },
-    {
-      icon: Award,
-      title: "Proven Track Record",
-      description:
-        "Consistent performance and award-winning service over 15 years.",
-    },
-    {
-      icon: Clock,
-      title: "24/7 Support",
-      description:
-        "Dedicated client support team available whenever you need assistance.",
+        "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
   ];
 
@@ -76,104 +125,179 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-muted">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-2 rounded-full mb-6">
+            <div className="animate-in fade-in slide-in-from-left duration-1000">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-2 rounded-full mb-6 border border-primary/20">
                 <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                 SEC Registered & Regulated
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-                Building Wealth Through{" "}
-                <span className="text-primary">Strategic Investments</span>
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
+                Stewardship. <span className="text-primary">Excellence.</span>{" "}
+                <br />
+                Enduring Value.
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed">
-                PrimeCapital offers comprehensive financial services including
-                brokerage, investment advisory, and asset management. Partner
-                with us to achieve your financial goals.
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed max-w-xl">
+                Prime Capital & Investment Limited is a Fund and Portfolio
+                Management firm built on disciplined expertise, unwavering
+                integrity, and a clear commitment to long-term wealth creation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8"
                   asChild
                 >
                   <Link href="/contact">
-                    Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                    Partner With Us <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/services">Our Services</Link>
+                <Button size="lg" variant="outline" asChild className="px-8">
+                  <Link href="/about">Our Philosophy</Link>
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
-              <img
-                src="/professional-financial-graphs-and-charts-on-modern.jpg"
-                alt="Financial Analytics Dashboard"
-                className="relative rounded-3xl shadow-2xl"
-              />
+            <div className="relative animate-in fade-in zoom-in duration-1000">
+              <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
+              <div className="relative rounded-3xl overflow-hidden border border-primary/10 shadow-2xl">
+                <Image
+                  src="/hero.jpg"
+                  width={250}
+                  height={250}
+                  alt="Financial Excellence"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 p-6 bg-background/40 backdrop-blur-md rounded-2xl border border-white/10">
+                  <p className="text-sm font-medium text-primary mb-1 uppercase tracking-wider">
+                    Our Promise
+                  </p>
+                  <p className="text-lg font-semibold">
+                    Transforming financial aspirations into enduring value.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground">
+      {/* About Brief Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.value}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                We exist to help investors navigate complexity with confidence.
+                Through professional fund management, bespoke portfolio
+                solutions, and robust risk governance, we transform financial
+                aspirations into enduring value.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="p-4 rounded-xl bg-muted/50 border border-border">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <div className="h-4 w-4 rounded-full bg-primary" />
+                    </div>
+                    <h4 className="font-bold">Gold</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Represents excellence, confidence, and premium quality in
+                    every mandate.
+                  </p>
                 </div>
-                <div className="text-sm md:text-base text-secondary-foreground/80">
-                  {stat.label}
+                <div className="p-4 rounded-xl bg-white border border-border shadow-sm">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center border border-border">
+                      <div className="h-4 w-4 rounded-full bg-white border border-muted-foreground/20" />
+                    </div>
+                    <h4 className="font-bold">White</h4>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Symbolizes absolute transparency, integrity, and clarity in
+                    every relationship.
+                  </p>
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="h-48 rounded-2xl bg-primary/10 flex flex-col items-center justify-center p-6 text-center">
+                  <Target className="h-10 w-10 text-primary mb-4" />
+                  <h3 className="font-bold">Our Mission</h3>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    Grow and protect client wealth through disciplined
+                    strategies.
+                  </p>
+                </div>
+                <div className="h-64 rounded-2xl bg-muted overflow-hidden relative group">
+                  <Image
+                    src="/mission.jpg"
+                    alt="Growth"
+                    width={250}
+                    height={250}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-primary/20" />
+                </div>
+              </div>
+              <div className="space-y-4 pt-8">
+                <div className="h-64 rounded-2xl bg-muted overflow-hidden relative group">
+                  <Image
+                    src="/vision.jpg"
+                    width={250}
+                    height={250}
+                    alt="Wealth"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/20" />
+                </div>
+                <div className="h-48 rounded-2xl bg-secondary text-secondary-foreground flex flex-col items-center justify-center p-6 text-center">
+                  <Eye className="h-10 w-10 text-primary mb-4" />
+                  <h3 className="font-bold">Our Vision</h3>
+                  <p className="text-xs text-secondary-foreground/70 mt-2">
+                    To be one of the world's most trusted partners in wealth
+                    management.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-              Our Core Services
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Investment Solutions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Comprehensive financial solutions designed to meet the diverse
-              needs of retail and institutional investors.
+            <p className="md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Access a range of professionally managed funds and bespoke
+              portfolios designed for wealth creation and preservation.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
                 <Card
                   key={index}
-                  className="group hover:shadow-lg transition-shadow"
+                  className="group hover:shadow-2xl transition-all duration-300 border-primary/5 hover:border-primary/20 overflow-hidden"
                 >
-                  <CardContent className="pt-6">
-                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="h-6 w-6 text-primary" />
+                  <CardContent className="pt-8">
+                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <Icon className="h-7 w-7" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">
+                    <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-4">
+                    <p className="text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
-                    <Link
-                      href="/services"
-                      className="inline-flex items-center text-sm font-medium text-primary hover:underline"
-                    >
-                      Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
                   </CardContent>
                 </Card>
               );
@@ -182,28 +306,100 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Investment Approach Section */}
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-8">
+                Our Investment Approach
+              </h2>
+              <p className="text-lg text-secondary-foreground/80 mb-12 leading-relaxed">
+                Exceptional wealth management is the result of a rigorous,
+                systematic process that balances data-driven innovation with
+                timeless investment principles. Our approach is anchored on four
+                integrated pillars.
+              </p>
+              <div className="space-y-8">
+                {investmentPillars.map((pillar, index) => {
+                  const Icon = pillar.icon;
+                  return (
+                    <div key={index} className="flex gap-6">
+                      <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/30">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-secondary-foreground/70 leading-relaxed">
+                          {pillar.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-full border-2 border-primary/20 absolute -inset-4 animate-[spin_20s_linear_infinite]" />
+              <div className="aspect-square rounded-full border border-primary/10 absolute -inset-12 animate-[spin_30s_linear_infinite_reverse]" />
+              <div className="relative bg-background/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                    <span className="font-medium">ESG Integration</span>
+                    <ShieldCheck className="text-primary h-5 w-5" />
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                    <span className="font-medium">Dynamic Rebalancing</span>
+                    <TrendingUp className="text-primary h-5 w-5" />
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
+                    <span className="font-medium">AI-Enabled Insights</span>
+                    <BrainCircuit className="text-primary h-5 w-5" />
+                  </div>
+                  <div className="pt-4">
+                    <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                      <div className="h-full bg-primary w-3/4 animate-[progress_2s_ease-in-out_infinite]" />
+                    </div>
+                    <p className="text-xs text-center mt-4 text-secondary-foreground/50">
+                      Continuous Risk Monitoring Active
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-              Why Choose PrimeCapital
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Why Choose Prime Capital
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              We combine expertise, integrity, and innovation to deliver
-              exceptional value to our clients.
+            <p className="md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Choosing a wealth manager is a decision of trust. We build
+              enduring financial partnerships designed to empower confidence,
+              stability, and prosperity.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="text-center">
-                  <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-8 w-8 text-primary" />
+                <div
+                  key={index}
+                  className="group p-8 rounded-3xl bg-muted/50 border border-border hover:bg-white hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <Icon className="h-7 w-7 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
                     {item.description}
                   </p>
                 </div>
@@ -213,213 +409,128 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Recent News Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-                Latest News & Insights
-              </h2>
-              <p className="text-lg text-muted-foreground text-pretty">
-                Stay updated with the latest from PrimeCapital
-              </p>
-            </div>
-            <Button variant="outline" asChild className="hidden sm:flex">
-              <Link href="/news">
-                View More News <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {[
-              {
-                category: "Company News",
-                title:
-                  "PrimeCapital Achieves ₦50 Billion Assets Under Management Milestone",
-                excerpt:
-                  "We are proud to announce that PrimeCapital has reached a significant milestone of ₦50 billion in assets under management.",
-                date: "January 10, 2026",
-                readTime: "3 min read",
-              },
-              {
-                category: "Market Insights",
-                title: "Nigerian Equities Market Outlook for Q1 2026",
-                excerpt:
-                  "Our research team provides comprehensive analysis and outlook for the Nigerian Stock Exchange in the first quarter of 2026.",
-                date: "January 5, 2026",
-                readTime: "5 min read",
-              },
-              {
-                category: "Investment Advisory",
-                title: "Diversification Strategies for Nigerian Investors in 2026",
-                excerpt:
-                  "Learn effective portfolio diversification strategies to manage risk and optimize returns in the current market environment.",
-                date: "December 28, 2025",
-                readTime: "4 min read",
-              },
-            ].map((item, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-lg transition-shadow h-full flex flex-col"
-              >
-                <div className="h-40 bg-gradient-to-br from-primary/20 to-muted" />
-                <CardContent className="pt-6 flex-1 flex flex-col">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-medium text-primary px-2 py-1 rounded bg-primary/10">
-                      {item.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {item.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors text-balance">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                    {item.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">
-                      {item.date}
-                    </span>
-                    <Link
-                      href="/news"
-                      className="inline-flex items-center text-sm font-medium text-primary hover:underline"
-                    >
-                      Read more <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center sm:hidden">
-            <Button variant="outline" asChild>
-              <Link href="/news">
-                View More News <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-            Ready to Start Your Investment Journey?
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Ready to Secure Your Future?
           </h2>
-          <p className="text-lg mb-8 text-secondary-foreground/80 text-pretty">
-            Join thousands of satisfied clients who trust PrimeCapital with
-            their financial future.
+          <p className="text-xl mb-10 text-primary-foreground/90">
+            Join a modern, dependable, and client-focused institution trusted to
+            steward wealth across market cycles.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-              asChild
+            <button
+              type="button"
+              className="bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-full font-bold transition-colors shadow-lg"
             >
-              <Link href="/contact">
-                Open an Account <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/contact" className="flex items-center">
+                Get Started Now <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white/10"
-              asChild
+            </button>
+            <button
+              type="button"
+              className="bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-4 rounded-full font-bold transition-colors"
             >
-              <Link href="/about">Learn About Us</Link>
-            </Button>
+              <Link href="/about">Learn More</Link>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      {/* Contact Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-              Visit Our Office
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Located in the heart of Victoria Island, Lagos. We welcome you to
-              visit us during business hours.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <Card className="overflow-hidden">
-              <div className="h-96 bg-gradient-to-br from-primary/20 to-muted flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2Y5ZmFmYSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiM2YjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5NYXAgV2lsbCBCZSBEaXNwbGF5ZWQgSGVyZTwvdGV4dD48L3N2Zz4=')] bg-cover bg-center opacity-30" />
-                <div className="text-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                Contact Us
+              </h2>
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
+                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <MapPin className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Abuja Office</h4>
+                    <p className="text-muted-foreground">
+                      No. 3, Sankuru Close, Maitama, Abuja, Nigeria
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-6">
+                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <Phone className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Telephone</h4>
+                    <p className="text-muted-foreground">+234 (0) 9 123 4567</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-6">
+                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <Users className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Email</h4>
+                    <p className="text-muted-foreground">
+                      info@primecapital.ng
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="h-100 rounded-3xl bg-muted overflow-hidden relative border border-border">
+              <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-muted flex items-center justify-center">
+                <div className="text-center">
                   <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <p className="text-lg font-semibold mb-2">
-                    123 Investment Plaza, 5th Floor
-                  </p>
-                  <p className="text-muted-foreground">
-                    Victoria Island, Lagos 101241, Nigeria
+                  <p className="text-lg font-bold">Maitama, Abuja</p>
+                  <p className="text-sm text-muted-foreground">
+                    Visit us for a consultation
                   </p>
                 </div>
               </div>
-            </Card>
-            <div className="space-y-6">
-              <Card>
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium">Address</p>
-                        <p className="text-sm text-muted-foreground">
-                          123 Investment Plaza, 5th Floor<br />
-                          Victoria Island, Lagos 101241<br />
-                          Nigeria
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium">Phone</p>
-                        <p className="text-sm text-muted-foreground">
-                          +234 (1) 234-5678<br />
-                          +234 (1) 234-5679 (Hotline)
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Clock className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium">Business Hours</p>
-                        <p className="text-sm text-muted-foreground">
-                          Monday - Friday: 8:00 AM - 5:00 PM<br />
-                          Saturday: 9:00 AM - 1:00 PM<br />
-                          Sunday: Closed
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Disclaimer */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-muted/50">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs text-muted-foreground text-center leading-relaxed">
-            <strong>Disclaimer:</strong> PrimeCapital is registered with the
-            Nigerian Securities and Exchange Commission (SEC). All investments
-            carry risk, and past performance is not indicative of future
-            results. Please read our risk disclosure statement carefully before
-            investing. This website does not constitute investment advice.
-            Always consult with a qualified financial advisor before making
-            investment decisions.
-          </p>
+          <div className="p-8 rounded-3xl bg-muted/50 border border-border">
+            <h4 className="font-bold mb-4 flex items-center gap-2">
+              <ShieldCheck className="h-5 w-5 text-primary" />
+              Important Disclosure & Investor Warning
+            </h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The information provided above is for illustrative purposes and
+              does not constitute an offer to sell or a solicitation of an offer
+              to buy any securities. Investments in the capital market are
+              subject to market risks, and the value of investments can go up or
+              down. Past performance is not a guarantee of future returns.
+              <br />
+              <br />
+              Prospective investors are advised to carefully read the relevant
+              fund prospectus or information memorandum, which contain detailed
+              risk warnings and disclosures, before making any investment
+              decision. The SEC advises the public to always verify the
+              registration status of any entity or investment product with the
+              Commission before dealing with them to avoid investment scams. For
+              verification or further information, please contact the SEC
+              through their official website:{" "}
+              <a
+                href="https://www.sec.gov.ng"
+                className="text-primary hover:underline"
+              >
+                www.sec.gov.ng
+              </a>
+            </p>
+          </div>
         </div>
       </section>
 

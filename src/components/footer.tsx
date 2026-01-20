@@ -1,5 +1,6 @@
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
+import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   const footerLinks = {
@@ -10,10 +11,10 @@ export function Footer() {
       { label: "News", href: "/news" },
     ],
     services: [
-      { label: "Brokerage Services", href: "/services#brokerage" },
-      { label: "Investment Advisory", href: "/services#advisory" },
-      { label: "Asset Management", href: "/services#management" },
-      { label: "Research", href: "/services#research" },
+      { label: "Money Market", href: "/services" },
+      { label: "Fixed Income", href: "/services" },
+      { label: "Multi-Asset", href: "/services" },
+      { label: "Ethical Products", href: "/services" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy" },
@@ -40,11 +41,11 @@ export function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>Lagos, Nigeria</span>
+                <span>Maitama, Abuja</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>+234 xxx xxxx xxx</span>
+                <span>+234 (0) 9 123 4567</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
@@ -74,8 +75,8 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="flex flex-col gap-2 text-sm">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
+              {footerLinks.services.map((link, idx) => (
+                <li key={idx}>
                   <Link
                     href={link.href}
                     className="text-secondary-foreground/80 hover:text-primary transition-colors"
@@ -109,13 +110,13 @@ export function Footer() {
         <div className="pt-8 border-t border-secondary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-foreground/60">
             <p>
-              © {new Date().getFullYear()} PrimeCapital. All rights reserved.
+              © {new Date().getFullYear()} Prime Capital. All rights reserved.
             </p>
             <p className="text-xs max-w-2xl text-center md:text-right">
-              PrimeCapital is registered and regulated by the Nigerian
-              Securities and Exchange Commission (SEC). Investments are subject
-              to market risks. Past performance is not indicative of future
-              results.
+              Prime Capital & Investment Limited is registered and regulated by
+              the Nigerian Securities and Exchange Commission (SEC). Investments
+              are subject to market risks. Past performance is not indicative of
+              future results.
             </p>
           </div>
         </div>

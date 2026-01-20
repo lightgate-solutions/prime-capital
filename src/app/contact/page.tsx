@@ -1,15 +1,15 @@
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
 "use client";
 
+import { Clock, Mail, MapPin, Phone, Send, ShieldCheck } from "lucide-react";
 import type React from "react";
-
-import { Navigation } from "@/components/navigation";
+import { useState } from "react";
 import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -22,9 +22,10 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("[v0] Form submitted:", formData);
-    // Handle form submission here
-    alert("Thank you for contacting us! We will get back to you shortly.");
+    console.log("Form submitted:", formData);
+    alert(
+      "Thank you for contacting Prime Capital. Our team will get back to you shortly.",
+    );
     setFormData({
       name: "",
       email: "",
@@ -46,19 +47,15 @@ export default function ContactPage() {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Visit Us",
-      details: [
-        "123 Investment Plaza, 5th Floor",
-        "Victoria Island, Lagos 101241",
-        "Nigeria",
-      ],
+      title: "Abuja Office",
+      details: ["No. 3, Sankuru Close", "Maitama, Abuja", "Nigeria"],
     },
     {
       icon: Phone,
-      title: "Call Us",
+      title: "Telephone",
       details: [
-        "+234 (1) 234-5678",
-        "+234 (1) 234-5679 (Hotline)",
+        "+234 (0) 9 123 4567",
+        "+234 (0) 800 PRIME CAP",
         "Mon - Fri: 8:00 AM - 5:00 PM",
       ],
     },
@@ -66,9 +63,9 @@ export default function ContactPage() {
       icon: Mail,
       title: "Email Us",
       details: [
-        "info@primecapital.com.ng",
-        "support@primecapital.com.ng",
-        "careers@primecapital.com.ng",
+        "info@primecapital.ng",
+        "advisory@primecapital.ng",
+        "compliance@primecapital.ng",
       ],
     },
     {
@@ -76,32 +73,27 @@ export default function ContactPage() {
       title: "Business Hours",
       details: [
         "Monday - Friday: 8:00 AM - 5:00 PM",
-        "Saturday: 9:00 AM - 1:00 PM",
-        "Sunday: Closed",
+        "Saturday - Sunday: Closed",
+        "Public Holidays: Closed",
       ],
     },
   ];
 
   const departments = [
     {
-      name: "New Clients",
-      email: "newclients@primecapital.com.ng",
-      phone: "+234 (1) 234-5680",
-    },
-    {
-      name: "Existing Clients",
-      email: "clientservices@primecapital.com.ng",
-      phone: "+234 (1) 234-5681",
-    },
-    {
       name: "Investment Advisory",
-      email: "advisory@primecapital.com.ng",
-      phone: "+234 (1) 234-5682",
+      email: "advisory@primecapital.ng",
+      phone: "+234 (0) 9 123 4568",
     },
     {
-      name: "Compliance",
-      email: "compliance@primecapital.com.ng",
-      phone: "+234 (1) 234-5683",
+      name: "Portfolio Management",
+      email: "portfolios@primecapital.ng",
+      phone: "+234 (0) 9 123 4569",
+    },
+    {
+      name: "Compliance & Legal",
+      email: "compliance@primecapital.ng",
+      phone: "+234 (0) 9 123 4570",
     },
   ];
 
@@ -110,164 +102,179 @@ export default function ContactPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-muted">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-            Get In <span className="text-primary">Touch</span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
+            Connect With <span className="text-primary">Us</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Have questions about our services? Want to start investing? Our team
-            is here to help you every step of the way.
+            Whether you are looking to preserve wealth or create a new legacy,
+            our team of experts is ready to guide you through Nigeria's complex
+            financial landscape.
           </p>
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4 text-balance">
-            Send Us a Message
-          </h2>
-          <p className="text-muted-foreground mb-6 leading-relaxed">
-            Fill out the form below and our team will get back to you within 24
-            hours.
-          </p>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Full Name <span className="text-destructive">*</span>
-              </label>
-              <Input
-                id="name"
-                name="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="John Doe"
-                required
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email Address <span className="text-destructive">*</span>
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@example.com"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                  Phone Number
-                </label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+234 XXX XXX XXXX"
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                Subject <span className="text-destructive">*</span>
-              </label>
-              <Input
-                id="subject"
-                name="subject"
-                type="text"
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="How can we help you?"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message <span className="text-destructive">*</span>
-              </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Tell us more about your inquiry..."
-                rows={5}
-                required
-              />
-            </div>
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              Send Message <Send className="ml-2 h-4 w-4" />
-            </Button>
-            <p className="text-xs text-muted-foreground">
-              By submitting this form, you agree to our Privacy Policy and consent
-              to be contacted by PrimeCapital regarding your inquiry.
-            </p>
-          </form>
-        </div>
-      </section>
-
-      {/* Contact Information */}
+      {/* Contact Form & Info */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, index) => {
-              const Icon = info.icon;
-              return (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="pt-6">
-                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-lg mb-3">{info.title}</h3>
-                    <div className="space-y-1 text-sm text-muted-foreground">
-                      {info.details.map((detail, idx) => (
-                        <p key={idx}>{detail}</p>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+              <p className="text-muted-foreground mb-10 text-lg">
+                Fill out the form below and a member of our investment team will
+                contact you within one business day.
+              </p>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      Full Name <span className="text-primary">*</span>
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Enter your full name"
+                      className="bg-muted/30 border-border focus:border-primary"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      Email Address <span className="text-primary">*</span>
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="name@company.com"
+                      className="bg-muted/30 border-border focus:border-primary"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      Phone Number
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+234 ..."
+                      className="bg-muted/30 border-border focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      Inquiry Type <span className="text-primary">*</span>
+                    </label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="e.g. Portfolio Management"
+                      className="bg-muted/30 border-border focus:border-primary"
+                      required
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Message <span className="text-primary">*</span>
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help you achieve your financial goals?"
+                    rows={6}
+                    className="bg-muted/30 border-border focus:border-primary resize-none"
+                    required
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6 text-lg font-bold shadow-lg shadow-primary/20"
+                >
+                  Submit Inquiry <Send className="ml-2 h-5 w-5" />
+                </Button>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/50 p-4 rounded-xl border border-border">
+                  <ShieldCheck className="h-4 w-4 text-primary" />
+                  Your information is handled with absolute confidentiality in
+                  line with our fiduciary duty.
+                </div>
+              </form>
+            </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Department Contacts & Map */}
-            <div className="space-y-8">
+            <div className="space-y-12">
               <div>
-                <h2 className="text-3xl font-bold mb-4 text-balance">
-                  Department Contacts
-                </h2>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Reach out directly to the relevant department for faster
-                  assistance.
-                </p>
+                <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {contactInfo.map((info, index) => {
+                    const Icon = info.icon;
+                    return (
+                      <div key={index} className="group">
+                        <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                          <Icon className="h-6 w-6" />
+                        </div>
+                        <h3 className="font-bold text-lg mb-2">{info.title}</h3>
+                        <div className="space-y-1 text-muted-foreground">
+                          {info.details.map((detail, idx) => (
+                            <p key={idx}>{detail}</p>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-border">
+                <h3 className="text-2xl font-bold mb-6">Departmental Access</h3>
                 <div className="space-y-4">
                   {departments.map((dept, index) => (
-                    <Card key={index}>
-                      <CardContent className="pt-4">
-                        <h4 className="font-semibold mb-2">{dept.name}</h4>
-                        <div className="space-y-1 text-sm text-muted-foreground">
-                          <p className="flex items-center gap-2">
-                            <Mail className="h-4 w-4 text-primary" />
+                    <Card
+                      key={index}
+                      className="border-none bg-muted/30 hover:bg-muted/50 transition-colors"
+                    >
+                      <CardContent className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                          <h4 className="font-bold text-lg">{dept.name}</h4>
+                          <p className="text-sm text-muted-foreground">
                             {dept.email}
                           </p>
-                          <p className="flex items-center gap-2">
-                            <Phone className="h-4 w-4 text-primary" />
-                            {dept.phone}
-                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 text-primary font-medium">
+                          <Phone className="h-4 w-4" />
+                          {dept.phone}
                         </div>
                       </CardContent>
                     </Card>
@@ -275,91 +282,38 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div>
-                <h3 className="text-xl font-bold mb-4">Find Us</h3>
-                <Card className="overflow-hidden">
-                  <div className="h-64 bg-gradient-to-br from-primary/20 to-muted flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-sm text-muted-foreground">
-                        Map showing our office location
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        123 Investment Plaza, Victoria Island
-                      </p>
-                    </div>
+              <div className="rounded-3xl overflow-hidden h-64 relative border border-border shadow-2xl">
+                <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-muted flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
+                    <p className="font-bold">Maitama, Abuja</p>
+                    <p className="text-sm text-muted-foreground">
+                      No. 3, Sankuru Close
+                    </p>
                   </div>
-                </Card>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-muted-foreground text-pretty">
-              Quick answers to common questions
-            </p>
-          </div>
-          <div className="space-y-4">
-            <Card>
-              <CardContent className="pt-6">
-                <h4 className="font-semibold mb-2">
-                  What are your minimum investment requirements?
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Our minimum investment varies by service. For brokerage
-                  accounts, there is typically no minimum. For managed
-                  portfolios, the minimum is ₦5 million. Please contact us for
-                  specific details.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <h4 className="font-semibold mb-2">
-                  How do I open an account?
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  You can start by contacting our New Clients team via email or
-                  phone. We'll guide you through the account opening process,
-                  which includes completing required forms and providing
-                  identification documents.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <h4 className="font-semibold mb-2">
-                  Are you regulated by the SEC?
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Yes, PrimeCapital is fully registered and regulated by the
-                  Nigerian Securities and Exchange Commission (SEC). Our SEC
-                  registration number is available on our About page.
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6">
-                <h4 className="font-semibold mb-2">
-                  What is your response time for inquiries?
-                </h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  We aim to respond to all inquiries within 24 hours during
-                  business days. For urgent matters, please call our hotline for
-                  immediate assistance.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+      {/* SEC Verification */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-muted/50 border-y border-border">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            The SEC advises the public to always verify the registration status
+            of any entity or investment product with the Commission before
+            dealing with them to avoid investment scams. For verification or
+            further information, please contact the SEC through their official
+            website:{" "}
+            <a
+              href="https://www.sec.gov.ng"
+              className="text-primary hover:underline font-medium"
+            >
+              www.sec.gov.ng
+            </a>
+          </p>
         </div>
       </section>
 

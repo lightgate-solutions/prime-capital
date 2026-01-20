@@ -1,128 +1,136 @@
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
+
 import {
-  TrendingUp,
-  BarChart3,
-  Shield,
-  LineChart,
-  DollarSign,
-  PieChart,
-  Briefcase,
   ArrowRight,
+  BarChart3,
+  ChartCandlestick,
   CheckCircle2,
+  Gem,
+  Landmark,
+  Scale,
+  Shield,
+  ShieldCheck,
+  TrendingUp,
+  Zap,
 } from "lucide-react";
 import Link from "next/link";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function ServicesPage() {
   const services = [
     {
-      icon: TrendingUp,
-      title: "Brokerage Services",
+      icon: Shield,
+      title: "Money Market Instruments",
       description:
-        "Access to Nigerian Stock Exchange (NSE) and international markets with competitive commission rates and professional trade execution.",
+        "Investments in securities with short-term maturities, providing liquidity and capital preservation.",
       features: [
-        "Equities trading on NSE and international markets",
-        "Fixed income securities and government bonds",
-        "Mutual funds and ETFs",
-        "Real-time market data and research",
-        "Dedicated relationship managers",
-        "Online and mobile trading platforms",
+        "Treasury Bills (T-Bills)",
+        "Commercial Papers (CPs)",
+        "Certificates of Deposit (CDs)",
+        "Bankers' Acceptances (BAs)",
+        "High liquidity and low risk",
+        "Competitive short-term yields",
+      ],
+    },
+    {
+      icon: TrendingUp,
+      title: "Fixed Income Securities",
+      description:
+        "Stable income-oriented portfolios investing in high-quality debt instruments.",
+      features: [
+        "FGN Bonds & State Bonds",
+        "High-quality corporate debt",
+        "Regular interest income",
+        "Capital preservation focus",
+        "Diversified credit exposure",
+        "Professional duration management",
       ],
     },
     {
       icon: BarChart3,
-      title: "Investment Advisory",
+      title: "Multi-Asset Portfolios",
       description:
-        "Personalized investment strategies and financial planning tailored to your unique goals, risk tolerance, and time horizon.",
+        "Balanced strategies dynamically allocating across asset classes to capture opportunities.",
       features: [
-        "Comprehensive financial planning",
-        "Portfolio construction and asset allocation",
-        "Risk assessment and management",
-        "Retirement planning strategies",
-        "Tax-efficient investment planning",
-        "Regular portfolio reviews and rebalancing",
+        "Dynamic asset allocation",
+        "Equities and fixed income mix",
+        "Risk-adjusted return focus",
+        "Market cycle adaptation",
+        "Diversification across sectors",
+        "Continuous portfolio rebalancing",
       ],
     },
     {
-      icon: Shield,
-      title: "Asset Management",
+      icon: Scale,
+      title: "Ethical & Shari'ah Products",
       description:
-        "Professional discretionary portfolio management focused on long-term wealth preservation, growth, and income generation.",
+        "Investment solutions aligned with ethical and Islamic investment principles.",
       features: [
-        "Discretionary portfolio management",
-        "Customized investment mandates",
-        "Active risk management",
-        "Transparent reporting and performance tracking",
-        "Access to exclusive investment opportunities",
-        "Dedicated portfolio management team",
+        "Shari'ah-compliant screening",
+        "Interest-free instruments",
+        "Ethical sector focus",
+        "Socially responsible investing",
+        "Transparent underlying assets",
+        "Expert Shari'ah advisory oversight",
       ],
     },
     {
-      icon: LineChart,
-      title: "Research & Analysis",
+      icon: Landmark,
+      title: "Discretionary Portfolios",
       description:
-        "In-depth market research, company analysis, and investment insights to support informed decision-making.",
+        "Tailored mandates for retail and qualified investors, aligned with individual risk profiles.",
       features: [
-        "Daily market commentary and updates",
-        "Company-specific research reports",
-        "Sector and industry analysis",
-        "Economic and policy analysis",
-        "Technical analysis and charts",
-        "Investment recommendations",
+        "Bespoke investment strategy",
+        "Professional fund management",
+        "Personalized risk parameters",
+        "Regular performance reporting",
+        "Fiduciary-first approach",
+        "Direct access to fund managers",
       ],
     },
     {
-      icon: DollarSign,
-      title: "Corporate Finance",
+      icon: ChartCandlestick,
+      title: "Alternative Investments",
       description:
-        "Comprehensive corporate finance solutions including mergers & acquisitions advisory, capital raising, and restructuring.",
+        "Access to non-traditional assets for qualified investors seeking enhanced returns.",
       features: [
-        "Mergers and acquisitions advisory",
-        "Capital raising (debt and equity)",
-        "Corporate restructuring",
-        "Valuation services",
-        "Financial advisory for IPOs",
-        "Strategic financial planning",
-      ],
-    },
-    {
-      icon: PieChart,
-      title: "Wealth Management",
-      description:
-        "Holistic wealth management services for high-net-worth individuals and families, including estate planning and legacy strategies.",
-      features: [
-        "High-net-worth client services",
-        "Estate planning and trust services",
-        "Multi-generational wealth transfer",
-        "Philanthropic advisory",
-        "Alternative investments access",
-        "Family office services",
+        "Real estate investments",
+        "Private equity opportunities",
+        "Venture capital access",
+        "Infrastructure projects",
+        "Low correlation with public markets",
+        "Long-term value creation",
       ],
     },
   ];
 
   const whyChoose = [
     {
-      title: "Expert Team",
+      title: "Gold Standard Excellence",
       description:
-        "Seasoned professionals with decades of combined experience in Nigerian and global markets.",
+        "Professional expertise and disciplined research define our premium service delivery.",
+      icon: Gem,
     },
     {
-      title: "Regulatory Compliance",
+      title: "Absolute Transparency",
       description:
-        "Fully registered and regulated by SEC with strict adherence to all compliance requirements.",
+        "Clear reporting and ethical conduct ensure you always understand your investments.",
+      icon: ShieldCheck,
     },
     {
-      title: "Competitive Pricing",
+      title: "SEC-Regulated",
       description:
-        "Transparent fee structure with competitive rates across all our service offerings.",
+        "Strict adherence to the Investments & Securities Act (ISA) 2025 and SEC rules.",
+      icon: Shield,
     },
     {
-      title: "Technology Platform",
+      title: "Innovation-Led",
       description:
-        "Advanced trading and portfolio management platforms accessible 24/7 from any device.",
+        "Leveraging advanced analytics and AI-enabled insights for superior stewardship.",
+      icon: Zap,
     },
   ];
 
@@ -131,14 +139,15 @@ export default function ServicesPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-muted">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-            Our <span className="text-primary">Services</span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
+            Investment <span className="text-primary">Solutions</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Comprehensive financial solutions designed to help you achieve your
-            investment goals and secure your financial future.
+            At Prime Capital & Investment Limited, our solutions are designed to
+            meet diverse client needs for wealth creation and preservation
+            through disciplined strategies.
           </p>
         </div>
       </section>
@@ -152,37 +161,32 @@ export default function ServicesPage() {
               return (
                 <Card
                   key={index}
-                  className="group hover:shadow-xl transition-shadow"
+                  className="group hover:shadow-2xl transition-all duration-300 border-primary/5 hover:border-primary/20"
                 >
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="h-14 w-14 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                        <Icon className="h-7 w-7 text-primary" />
+                  <CardContent className="pt-8">
+                    <div className="flex flex-col md:flex-row items-start gap-6 mb-8">
+                      <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <Icon className="h-8 w-8" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold mb-2">
+                        <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed text-lg">
                           {service.description}
                         </p>
                       </div>
                     </div>
-                    <div className="space-y-3">
-                      <h4 className="font-semibold text-sm uppercase tracking-wide text-primary">
-                        Key Features
-                      </h4>
-                      <ul className="space-y-2">
-                        {service.features.map((feature, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-start gap-2 text-sm text-muted-foreground"
-                          >
-                            <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-muted/30 p-6 rounded-2xl border border-border">
+                      {service.features.map((feature, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-center gap-3 text-sm text-muted-foreground"
+                        >
+                          <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
+                          <span>{feature}</span>
+                        </div>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
@@ -193,143 +197,69 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Our Services */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted/50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-              Why Choose Our Services
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              The Prime Capital Advantage
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              We combine expertise, technology, and personalized service to
-              deliver exceptional value.
+              We combine professional guidance with disciplined automation to
+              deliver a sophisticated investment experience.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChoose.map((item, index) => (
-              <Card key={index}>
-                <CardContent className="pt-6 text-center">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Briefcase className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChoose.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Card
+                  key={index}
+                  className="border-none shadow-lg hover:shadow-xl transition-all"
+                >
+                  <CardContent className="pt-8 text-center">
+                    <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                      <Icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-xl mb-3">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
-        </div>
-      </section>
-
-      {/* Fee Structure */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-              Transparent Fee Structure
-            </h2>
-            <p className="text-lg text-muted-foreground text-pretty">
-              We believe in transparency. Our fees are competitive and clearly
-              communicated.
-            </p>
-          </div>
-          <Card className="border-2 border-primary/20">
-            <CardContent className="pt-6">
-              <div className="space-y-6">
-                <div className="flex justify-between items-start pb-4 border-b">
-                  <div>
-                    <h4 className="font-semibold mb-1">Brokerage Commission</h4>
-                    <p className="text-sm text-muted-foreground">
-                      On equity trades
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-bold text-primary">0.75% - 1.25%</p>
-                    <p className="text-xs text-muted-foreground">
-                      Volume-based
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-between items-start pb-4 border-b">
-                  <div>
-                    <h4 className="font-semibold mb-1">Asset Management Fee</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Annual management fee
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-bold text-primary">1.0% - 2.5%</p>
-                    <p className="text-xs text-muted-foreground">
-                      Portfolio size-based
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-between items-start pb-4 border-b">
-                  <div>
-                    <h4 className="font-semibold mb-1">Investment Advisory</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Consultation and planning
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-bold text-primary">Customized</p>
-                    <p className="text-xs text-muted-foreground">
-                      Based on scope
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="font-semibold mb-1">Corporate Finance</h4>
-                    <p className="text-sm text-muted-foreground">
-                      M&A and capital raising
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-bold text-primary">Negotiable</p>
-                    <p className="text-xs text-muted-foreground">
-                      Transaction-based
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <p className="text-xs text-muted-foreground mt-6 text-center">
-                All fees are subject to applicable taxes. Detailed fee schedules
-                available upon request.
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-            Ready to Get Started?
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-1/4" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Ready to Optimize Your Portfolio?
           </h2>
-          <p className="text-lg mb-8 text-secondary-foreground/80 text-pretty">
-            Contact us today to learn more about how our services can help you
-            achieve your financial goals.
+          <p className="text-xl mb-10 text-secondary-foreground/80">
+            Let our experts help you navigate the complexities of the financial
+            markets with confidence and clarity.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-bold"
               asChild
             >
               <Link href="/contact">
-                Contact Us <ArrowRight className="ml-2 h-5 w-5" />
+                Start Investing <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white/10"
+              className="border-white/20 text-black hover:bg-white/10 px-10 py-6 text-lg font-bold"
               asChild
             >
-              <Link href="/about">Learn About Us</Link>
+              <Link href="/about">Our Approach</Link>
             </Button>
           </div>
         </div>

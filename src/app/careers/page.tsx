@@ -1,17 +1,19 @@
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
+
 import {
-  Users,
-  TrendingUp,
+  ArrowRight,
   Award,
+  Briefcase,
+  Clock,
   Heart,
   MapPin,
-  Clock,
-  Briefcase,
-  ArrowRight,
+  TrendingUp,
+  Users,
 } from "lucide-react";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function CareersPage() {
   const benefits = [
@@ -45,7 +47,7 @@ export default function CareersPage() {
     {
       title: "Senior Investment Analyst",
       department: "Investment Advisory",
-      location: "Lagos, Nigeria",
+      location: "Abuja, Nigeria",
       type: "Full-time",
       description:
         "Seeking an experienced investment analyst to provide research and analysis on Nigerian equities and fixed income securities. CFA charterholder preferred.",
@@ -59,7 +61,7 @@ export default function CareersPage() {
     {
       title: "Portfolio Manager",
       department: "Asset Management",
-      location: "Lagos, Nigeria",
+      location: "Abuja, Nigeria",
       type: "Full-time",
       description:
         "Looking for a skilled portfolio manager to manage client portfolios and develop investment strategies aligned with client objectives.",
@@ -73,7 +75,7 @@ export default function CareersPage() {
     {
       title: "Compliance Officer",
       department: "Compliance & Risk",
-      location: "Lagos, Nigeria",
+      location: "Abuja, Nigeria",
       type: "Full-time",
       description:
         "Join our compliance team to ensure adherence to SEC regulations and internal policies. Experience with Nigerian securities regulations essential.",
@@ -87,7 +89,7 @@ export default function CareersPage() {
     {
       title: "Client Relationship Manager",
       department: "Client Services",
-      location: "Lagos, Nigeria",
+      location: "Abuja, Nigeria",
       type: "Full-time",
       description:
         "Seeking a relationship manager to serve as primary point of contact for high-net-worth clients and develop long-term client relationships.",
@@ -101,7 +103,7 @@ export default function CareersPage() {
     {
       title: "Financial Analyst (Entry Level)",
       department: "Research",
-      location: "Lagos, Nigeria",
+      location: "Abuja, Nigeria",
       type: "Full-time",
       description:
         "Exciting opportunity for recent graduates to join our research team and support market analysis and company research efforts.",
@@ -115,7 +117,7 @@ export default function CareersPage() {
     {
       title: "IT Systems Administrator",
       department: "Technology",
-      location: "Lagos, Nigeria",
+      location: "Abuja, Nigeria",
       type: "Full-time",
       description:
         "Manage and maintain our trading platforms and IT infrastructure. Ensure system reliability and security for our operations.",
@@ -133,11 +135,11 @@ export default function CareersPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-muted">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
             Build Your Career at{" "}
-            <span className="text-primary">PrimeCapital</span>
+            <span className="text-primary">Prime Capital</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
             Join a team of talented professionals committed to excellence in
@@ -186,7 +188,7 @@ export default function CareersPage() {
                         </span>
                       </div>
                     </div>
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 lg:flex-shrink-0">
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 lg:shrink-0">
                       Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
@@ -249,7 +251,7 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits & Perks */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
@@ -332,7 +334,7 @@ export default function CareersPage() {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-balance">
             Our Hiring Process
@@ -393,7 +395,7 @@ export default function CareersPage() {
       {/* CTA */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <Card className="border-2 border-primary/20 bg-gradient-to-br from-background to-muted">
+          <Card className="border-2 border-primary/20 bg-linear-to-br from-background to-primary/5">
             <CardContent className="pt-8 text-center">
               <h3 className="text-2xl md:text-3xl font-bold mb-4 text-balance">
                 Don't See the Right Role?
