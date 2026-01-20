@@ -1,6 +1,7 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
 import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
+import { Logo } from "./logo";
 
 export function Footer() {
   const footerLinks = {
@@ -30,10 +31,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <div className="text-2xl font-bold mb-4">
-              <span className="text-primary">Prime</span>
-              <span className="text-white">Capital</span>
-            </div>
+            <Logo />
             <p className="text-sm text-secondary-foreground/80 mb-4">
               Leading financial services firm offering comprehensive investment
               solutions.

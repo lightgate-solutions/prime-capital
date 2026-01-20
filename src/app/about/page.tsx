@@ -3,7 +3,6 @@
 import {
   Award,
   Briefcase,
-  Building2,
   Eye,
   Scale,
   Shield,
@@ -11,6 +10,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Card, CardContent } from "@/components/ui/card";
@@ -54,16 +54,19 @@ export default function AboutPage() {
       name: "Mounir Haliru Gwarzo",
       role: "Director",
       bio: "A distinguished capital markets professional with over 37 years of experience across regulation, financial services, and corporate leadership.",
+      photo: "/ceo.jpg",
     },
     {
       name: "Bahir Haliru Tahir",
       role: "Non-Executive Director",
       bio: "Contributes strategic oversight, governance insight, and risk management expertise. Founder of a real estate construction company and aviation professional with over 15 years of experience.",
+      photo: "/haliru.jpeg",
     },
     {
       name: "Maryam Ibrahim Buwai",
       role: "Non-Executive Director",
       bio: "Seasoned governance and management professional with over 18 years of leadership experience in institutional administration and executive oversight.",
+      photo: "/maryam.jpeg",
     },
   ];
 
@@ -73,30 +76,35 @@ export default function AboutPage() {
       role: "Chief Executive Officer",
       bio: "Former Director-General of the SEC (2015–2020). Fellow of the Chartered Institute of Stockbrokers of Nigeria. Alumnus of INSEAD and Oxford SAID Business School.",
       icon: Briefcase,
+      photo: "/ceo.jpg",
     },
     {
       name: "Buhari Suleiman Alfa",
       role: "Company Secretary & Compliance Officer",
       bio: "Legal and compliance professional with expertise in corporate governance. Holds an LLM in Business and Commercial Law.",
       icon: Scale,
+      photo: "/buhar.jpeg",
     },
     {
       name: "Saidu Safiyanu",
       role: "IT Officer",
       bio: "Information technology professional with expertise in network design and systems implementation. B.Eng. in Electrical Engineering.",
       icon: Zap,
+      photo: "/saidu.jpg",
     },
     {
       name: "Saadah Sambo",
       role: "Senior Associate, Investment",
       bio: "Investment professional with expertise in research and portfolio management. First-Class Honours in Business Entrepreneurship.",
       icon: Target,
+      photo: "/saadah.jpeg",
     },
     {
       name: "Husseinat Alabi",
       role: "Legal Officer",
       bio: "Legal and compliance professional with experience supporting legal, administrative, and regulatory operations.",
       icon: Scale,
+      photo: "/hussaina.jpeg",
     },
   ];
 
@@ -275,8 +283,14 @@ export default function AboutPage() {
                 className="hover:shadow-xl transition-all duration-300 border-none bg-background"
               >
                 <CardContent className="pt-8">
-                  <div className="h-20 w-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                    <Building2 className="h-10 w-10 text-primary" />
+                  <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <Image
+                      src={leader.photo}
+                      width={200}
+                      height={200}
+                      alt={`photo of ${leader.name}`}
+                      className="rounded-full"
+                    />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{leader.name}</h3>
                   <p className="text-primary font-semibold mb-4">
@@ -300,7 +314,6 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {management.map((leader, index) => {
-              const Icon = leader.icon;
               return (
                 <Card
                   key={index}
@@ -308,8 +321,14 @@ export default function AboutPage() {
                 >
                   <CardContent className="pt-8">
                     <div className="flex items-start gap-6">
-                      <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                        <Icon className="h-7 w-7 text-primary" />
+                      <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <Image
+                          src={leader.photo}
+                          width={200}
+                          height={200}
+                          alt={`photo of ${leader.name}`}
+                          className="rounded-full"
+                        />
                       </div>
                       <div>
                         <h3 className="text-xl font-bold mb-1">
