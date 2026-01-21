@@ -163,7 +163,7 @@ export default function AboutPage() {
                       <div className="h-8 w-8 rounded-full bg-primary shadow-[0_0_15px_rgba(212,175,55,0.5)]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-xl text-white">
+                      <h3 className="font-bold text-xl text-black">
                         Gold Standard
                       </h3>
                       <p className="text-secondary-foreground/70">
@@ -172,11 +172,11 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-6">
-                    <div className="h-16 w-16 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                    <div className="h-16 w-16 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 border border-gray-500">
                       <div className="h-8 w-8 rounded-full bg-white" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-xl text-white">
+                      <h3 className="font-bold text-xl text-black">
                         White Clarity
                       </h3>
                       <p className="text-secondary-foreground/70">
