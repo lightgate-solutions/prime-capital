@@ -11,9 +11,7 @@ interface EditCareerPageProps {
   }>;
 }
 
-export default async function EditCareerPage({
-  params,
-}: EditCareerPageProps) {
+export default async function EditCareerPage({ params }: EditCareerPageProps) {
   const { id } = await params;
   const career = await getCareerById(id);
 

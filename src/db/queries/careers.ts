@@ -14,7 +14,14 @@ export interface GetCareersParams {
 }
 
 export async function getPublishedCareers(params: GetCareersParams = {}) {
-  const { jobType, location, search, featured, limit = 10, offset = 0 } = params;
+  const {
+    jobType,
+    location,
+    search,
+    featured,
+    limit = 10,
+    offset = 0,
+  } = params;
 
   const conditions = [eq(career.status, CareerStatus.PUBLISHED)];
 
@@ -68,9 +75,7 @@ export async function getPublishedCareers(params: GetCareersParams = {}) {
   return careers;
 }
 
-export async function getPublishedCareersCount(
-  params: GetCareersParams = {},
-) {
+export async function getPublishedCareersCount(params: GetCareersParams = {}) {
   const { jobType, location, search } = params;
 
   const conditions = [eq(career.status, CareerStatus.PUBLISHED)];
@@ -315,10 +320,7 @@ export async function getFeaturedCareers(limit = 3) {
     .from(career)
     .leftJoin(user, eq(career.authorId, user.id))
     .where(
-      and(
-        eq(career.status, CareerStatus.PUBLISHED),
-        eq(career.featured, true),
-      ),
+      and(eq(career.status, CareerStatus.PUBLISHED), eq(career.featured, true)),
     )
     .orderBy(desc(career.applicationDeadline), desc(career.publishedAt))
     .limit(limit);

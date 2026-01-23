@@ -34,13 +34,9 @@ export const createArticleSchema = z.object({
     .min(1, "Excerpt is required")
     .max(500, "Excerpt must be less than 500 characters"),
   content: z.string().min(1, "Content is required"),
-  coverImageUrl: z
-    .string()
-    .url("Must be a valid URL")
-    .optional(),
+  coverImageUrl: z.string().url("Must be a valid URL").optional(),
   category: z.enum(ArticleCategories),
-  status: z
-    .enum([ArticleStatus.DRAFT, ArticleStatus.PUBLISHED]),
+  status: z.enum([ArticleStatus.DRAFT, ArticleStatus.PUBLISHED]),
   featured: z.boolean(),
   slug: z.string().optional(),
 });

@@ -15,7 +15,7 @@ export async function GET() {
     console.error("Error fetching recent articles:", error);
     return NextResponse.json(
       { error: "Failed to fetch articles" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

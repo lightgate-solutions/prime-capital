@@ -24,7 +24,11 @@ async function requireAdmin() {
     throw new Error("Unauthorized: Please log in");
   }
 
-  if (session.user.email !== (process.env.ADMIN_EMAIL || "elameendaiyabu@gmail.com") && (session.user as any).role !== "admin") {
+  if (
+    session.user.email !==
+      (process.env.ADMIN_EMAIL || "elameendaiyabu@gmail.com") &&
+    (session.user as any).role !== "admin"
+  ) {
     throw new Error("Forbidden: Admin access required");
   }
 
@@ -175,7 +179,8 @@ export async function updateCareer(data: UpdateCareerInput) {
     }
 
     if (validatedData.applicationDeadline !== undefined) {
-      updateData.applicationDeadline = validatedData.applicationDeadline || null;
+      updateData.applicationDeadline =
+        validatedData.applicationDeadline || null;
     }
 
     if (validatedData.applicationEmail !== undefined) {
@@ -183,7 +188,8 @@ export async function updateCareer(data: UpdateCareerInput) {
     }
 
     if (validatedData.applicationInstructions !== undefined) {
-      updateData.applicationInstructions = validatedData.applicationInstructions || null;
+      updateData.applicationInstructions =
+        validatedData.applicationInstructions || null;
     }
 
     if (validatedData.status !== undefined) {
