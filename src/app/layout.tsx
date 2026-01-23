@@ -17,24 +17,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PrimeCapital - Leading Financial Services in Nigeria",
   description:
-    "PrimeCapital offers brokerage, investment advisory, and asset management services. Regulated by the Nigerian SEC.",
-  generator: "v0.app",
+    "Prime Capital offers brokerage, investment advisory, and asset management services. Regulated by the Nigerian SEC.",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/icon.png",
         media: "(prefers-color-scheme: light)",
       },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
     ],
-    apple: "/apple-icon.png",
   },
 };
 

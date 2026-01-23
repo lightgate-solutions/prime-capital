@@ -25,6 +25,7 @@ import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { InvestmentApproach } from "@/components/investment-approach";
 
 export default function HomePage() {
   const services = [
@@ -128,17 +129,16 @@ export default function HomePage() {
       <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-in fade-in slide-in-from-left duration-1000">
+            <div className="animate-in -mt-96 fade-in slide-in-from-left duration-1000">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-2 rounded-full mb-6 border border-primary/20">
                 <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                 SEC Registered & Regulated
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
-                Stewardship. <span className="text-primary">Excellence.</span>{" "}
-                <br />
-                Enduring Value.
+              <h1 className="text-5xl font-bold mb-6 text-balance leading-tight">
+                Grow and Protect Client Wealth Through Disciplined and
+                Innovative Strategies.
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed max-w-xl">
+              <p className=" text-muted-foreground mb-8 text-pretty leading-relaxed max-w-xl">
                 Prime Capital & Investment Limited is a Fund and Portfolio
                 Management firm built on disciplined expertise, unwavering
                 integrity, and a clear commitment to long-term wealth creation.
@@ -162,21 +162,13 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
               <div className="relative rounded-3xl overflow-hidden border border-primary/10 shadow-2xl">
                 <Image
-                  src="/hero.jpg"
+                  src="/hero.png"
                   width={250}
                   height={250}
                   alt="Financial Excellence"
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 p-6 bg-background/40 backdrop-blur-md rounded-2xl border border-white/10">
-                  <p className="text-sm font-medium text-primary mb-1 uppercase tracking-wider">
-                    Our Promise
-                  </p>
-                  <p className="text-lg font-semibold">
-                    Transforming financial aspirations into enduring value.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -192,8 +184,12 @@ export default function HomePage() {
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 We exist to help investors navigate complexity with confidence.
                 Through professional fund management, bespoke portfolio
-                solutions, and robust risk governance, we transform financial
+                solutions, and robust risk management, we transform financial
                 aspirations into enduring value.
+              </p>
+              <p className=" text-muted-foreground py-2">
+                At the heart of our identity are the colors that define our
+                promise:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="p-4 rounded-xl bg-muted/50 border border-border">
@@ -234,7 +230,7 @@ export default function HomePage() {
                 </div>
                 <div className="h-64 rounded-2xl bg-muted overflow-hidden relative group">
                   <Image
-                    src="/mission.jpg"
+                    src="/mission.png"
                     alt="Growth"
                     width={250}
                     height={250}
@@ -246,7 +242,7 @@ export default function HomePage() {
               <div className="space-y-4 pt-8">
                 <div className="h-64 rounded-2xl bg-muted overflow-hidden relative group">
                   <Image
-                    src="/vision.jpg"
+                    src="/vision.png"
                     width={250}
                     height={250}
                     alt="Wealth"
@@ -258,8 +254,7 @@ export default function HomePage() {
                   <Eye className="h-10 w-10 text-primary mb-4" />
                   <h3 className="font-bold">Our Vision</h3>
                   <p className="text-xs text-secondary-foreground/70 mt-2">
-                    To be one of the world's most trusted partners in wealth
-                    management.
+                    To be one of the most trusted partners in wealth management.
                   </p>
                 </div>
               </div>
@@ -269,11 +264,11 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Investment Solutions
+              Investment Products
             </h2>
             <p className="md:text-xl text-muted-foreground max-w-3xl mx-auto">
               Access a range of professionally managed funds and bespoke
@@ -306,73 +301,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Investment Approach Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Our Investment Approach
-              </h2>
-              <p className="text-lg text-secondary-foreground/80 mb-12 leading-relaxed">
-                Exceptional wealth management is the result of a rigorous,
-                systematic process that balances data-driven innovation with
-                timeless investment principles. Our approach is anchored on four
-                integrated pillars.
-              </p>
-              <div className="space-y-8">
-                {investmentPillars.map((pillar, index) => {
-                  const Icon = pillar.icon;
-                  return (
-                    <div key={index} className="flex gap-6">
-                      <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/30">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-2">
-                          {pillar.title}
-                        </h3>
-                        <p className="text-secondary-foreground/70 leading-relaxed">
-                          {pillar.description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-full border-2 border-primary/20 absolute -inset-4 animate-[spin_20s_linear_infinite]" />
-              <div className="aspect-square rounded-full border border-primary/10 absolute -inset-12 animate-[spin_30s_linear_infinite_reverse]" />
-              <div className="relative bg-background/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
-                    <span className="font-medium">ESG Integration</span>
-                    <ShieldCheck className="text-primary h-5 w-5" />
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
-                    <span className="font-medium">Dynamic Rebalancing</span>
-                    <TrendingUp className="text-primary h-5 w-5" />
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
-                    <span className="font-medium">AI-Enabled Insights</span>
-                    <BrainCircuit className="text-primary h-5 w-5" />
-                  </div>
-                  <div className="pt-4">
-                    <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-3/4 animate-[progress_2s_ease-in-out_infinite]" />
-                    </div>
-                    <p className="text-xs text-center mt-4 text-secondary-foreground/50">
-                      Continuous Risk Monitoring Active
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InvestmentApproach />
 
       {/* Why Choose Us Section */}
       <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">

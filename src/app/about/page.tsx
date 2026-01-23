@@ -116,7 +116,7 @@ export default function AboutPage() {
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
-            About <span className="text-primary">Prime Capital</span>
+            About <span className="">Prime Capital</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
             A Fund and Portfolio Management firm built on disciplined expertise,
@@ -144,7 +144,7 @@ export default function AboutPage() {
                 <p>
                   We exist to help investors navigate complexity with
                   confidence. Through professional fund management, bespoke
-                  portfolio solutions, and robust risk governance, we transform
+                  portfolio solutions, and robust risk management, we transform
                   financial aspirations into enduring value.
                 </p>
                 <p>
@@ -156,6 +156,10 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
+              <p className="text-muted-foreground pb-2">
+                At the heart of our identity are the colors that define our
+                promise:
+              </p>
               <div className="relative bg-secondary rounded-3xl p-10 shadow-2xl border border-white/10">
                 <div className="space-y-8">
                   <div className="flex items-center gap-6">

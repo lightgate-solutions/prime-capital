@@ -67,7 +67,7 @@ export default function ServicesPage() {
       icon: Scale,
       title: "Ethical & Shari'ah Products",
       description:
-        "Investment solutions aligned with ethical and Islamic investment principles.",
+        "Investment Products aligned with ethical and Islamic investment principles.",
       features: [
         "Shari'ah-compliant screening",
         "Interest-free instruments",
@@ -142,13 +142,14 @@ export default function ServicesPage() {
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
-            Investment <span className="text-primary">Solutions</span>
+            Investment <span className="">Products</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            At Prime Capital & Investment Limited, our solutions are designed to
+            At Prime Capital & Investment Limited, our products are designed to
             meet diverse client needs for wealth creation and preservation
             through disciplined strategies.
           </p>
+          <p className="text-muted-foreground">Our Offerings Include:</p>
         </div>
       </section>
 
