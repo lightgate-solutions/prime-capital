@@ -1,6 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Calendar, MapPin, DollarSign, ArrowLeft, Mail, Briefcase } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  DollarSign,
+  ArrowLeft,
+  Mail,
+  Briefcase,
+} from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { JobTypeBadge } from "@/components/careers/job-type-badge";
@@ -92,11 +99,14 @@ export default async function CareerPage({ params }: CareerPageProps) {
                   <Calendar className="h-4 w-4" />
                   <span>
                     Apply by{" "}
-                    {new Date(career.applicationDeadline).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    {new Date(career.applicationDeadline).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      },
+                    )}
                   </span>
                 </div>
               )}
@@ -198,7 +208,9 @@ export default async function CareerPage({ params }: CareerPageProps) {
                     <p className="text-sm text-muted-foreground mt-6">
                       Application deadline:{" "}
                       <strong>
-                        {new Date(career.applicationDeadline).toLocaleDateString("en-US", {
+                        {new Date(
+                          career.applicationDeadline,
+                        ).toLocaleDateString("en-US", {
                           year: "numeric",
                           month: "long",
                           day: "numeric",
@@ -215,11 +227,13 @@ export default async function CareerPage({ params }: CareerPageProps) {
             <section className="mt-12">
               <Card className="border-2 border-muted bg-muted/30">
                 <CardContent className="pt-8 pb-8 text-center">
-                  <h2 className="text-2xl font-bold mb-4">Application Closed</h2>
+                  <h2 className="text-2xl font-bold mb-4">
+                    Application Closed
+                  </h2>
                   <p className="text-muted-foreground mb-6">
-                    The application deadline for this position has passed. Please
-                    check our other open positions or send us your resume for future
-                    opportunities.
+                    The application deadline for this position has passed.
+                    Please check our other open positions or send us your resume
+                    for future opportunities.
                   </p>
                   <Button asChild>
                     <Link href="/careers">View Open Positions</Link>

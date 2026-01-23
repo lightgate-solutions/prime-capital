@@ -2,8 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import type { JobType } from "@/lib/types/careers";
 
 const jobTypeColors: Record<string, string> = {
-  "Full-time":
-    "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+  "Full-time": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
   "Part-time":
     "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
   Contract:

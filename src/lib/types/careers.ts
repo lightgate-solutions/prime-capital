@@ -17,7 +17,10 @@ export const JobTypes = [
 export type JobType = (typeof JobTypes)[number];
 
 export const createCareerSchema = z.object({
-  title: z.string().min(1, "Title is required").max(200, "Title must be less than 200 characters"),
+  title: z
+    .string()
+    .min(1, "Title is required")
+    .max(200, "Title must be less than 200 characters"),
   description: z.string().min(1, "Description is required"),
   location: z.string().min(1, "Location is required"),
   jobType: z.enum(JobTypes),
@@ -27,7 +30,11 @@ export const createCareerSchema = z.object({
   responsibilities: z.string().min(1, "Responsibilities are required"),
   benefits: z.string().optional(),
   applicationDeadline: z.date().optional().nullable(),
-  applicationEmail: z.string().email("Invalid email address").optional().or(z.literal("")),
+  applicationEmail: z
+    .string()
+    .email("Invalid email address")
+    .optional()
+    .or(z.literal("")),
   applicationInstructions: z.string().optional(),
   status: z.enum([CareerStatus.DRAFT, CareerStatus.PUBLISHED]),
   featured: z.boolean(),

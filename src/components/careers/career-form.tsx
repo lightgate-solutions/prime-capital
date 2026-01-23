@@ -162,9 +162,7 @@ export function CareerForm({ career, isEditing = false }: CareerFormProps) {
         </div>
 
         <Field>
-          <FieldLabel htmlFor="salaryRange">
-            Salary Range (Optional)
-          </FieldLabel>
+          <FieldLabel htmlFor="salaryRange">Salary Range (Optional)</FieldLabel>
           <FieldDescription>
             e.g., ₦5M - ₦8M per annum or $80,000 - $120,000
           </FieldDescription>
@@ -207,8 +205,8 @@ export function CareerForm({ career, isEditing = false }: CareerFormProps) {
         <Field>
           <FieldLabel htmlFor="requirements">Requirements</FieldLabel>
           <FieldDescription>
-            List the key requirements for this position (one per line or
-            use bullet points)
+            List the key requirements for this position (one per line or use
+            bullet points)
           </FieldDescription>
           <Controller
             name="requirements"
@@ -363,7 +361,9 @@ export function CareerForm({ career, isEditing = false }: CareerFormProps) {
               />
             )}
           />
-          <FieldError errors={[form.formState.errors.applicationInstructions]} />
+          <FieldError
+            errors={[form.formState.errors.applicationInstructions]}
+          />
         </Field>
 
         <Field>

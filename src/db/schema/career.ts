@@ -37,7 +37,7 @@ export const career = pgTable(
     index("career_location_idx").on(table.location),
     index("career_featured_idx").on(table.featured),
     index("career_deadline_idx").on(table.applicationDeadline),
-  ]
+  ],
 );
 
 export type Career = typeof career.$inferSelect;
