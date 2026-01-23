@@ -1,0 +1,21 @@
+import { NextResponse } from "next/server";
+import { getPublishedArticles } from "@/db/queries/articles";
+
+export async function GET() {
+  try {
+    const articles = await getPublishedArticles({
+      limit: 8,
+      offset: 0,
+      sortBy: "publishedAt",
+      sortOrder: "desc",
+    });
+
+    return NextResponse.json(articles);
+  } catch (error) {
+    console.error("Error fetching recent articles:", error);
+    return NextResponse.json(
+      { error: "Failed to fetch articles" },
+      { status: 500 }
+    );
+  }
+}

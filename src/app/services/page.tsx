@@ -67,7 +67,7 @@ export default function ServicesPage() {
       icon: Scale,
       title: "Ethical & Shari'ah Products",
       description:
-        "Investment solutions aligned with ethical and Islamic investment principles.",
+        "Investment products aligned with ethical and Islamic investment principles.",
       features: [
         "Shari'ah-compliant screening",
         "Interest-free instruments",
@@ -123,7 +123,7 @@ export default function ServicesPage() {
     {
       title: "SEC-Regulated",
       description:
-        "Strict adherence to the Investments & Securities Act (ISA) 2025 and SEC rules.",
+        "Strict adherence to the Investments & Securities Act (ISA) 2025, as amended, and SEC rules.",
       icon: Shield,
     },
     {
@@ -142,18 +142,21 @@ export default function ServicesPage() {
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
-            Investment <span className="text-primary">Solutions</span>
+            Investment Products
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
             At Prime Capital & Investment Limited, our solutions are designed to
-            meet diverse client needs for wealth creation and preservation
-            through disciplined strategies.
+            meet diverse client needs for wealth creation and preservation,
+            blending disciplined investment strategies with innovative and
+            transparent offerings. We provide access to a range of
+            professionally managed funds and bespoke portfolios.
           </p>
+          <p>Our Offerings Include:</p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-4 md:py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => {
@@ -259,7 +262,7 @@ export default function ServicesPage() {
               className="border-white/20 text-black hover:bg-white/10 px-10 py-6 text-lg font-bold"
               asChild
             >
-              <Link href="/about">Our Approach</Link>
+              <Link href="/about">More on us</Link>
             </Button>
           </div>
         </div>

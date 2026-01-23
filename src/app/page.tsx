@@ -1,16 +1,20 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
+"use client";
 
 import {
   ArrowRight,
   BarChart3,
   BrainCircuit,
   ChartCandlestick,
+  ChevronDown,
   Eye,
   Gem,
   House,
   Landmark,
+  Mail,
   MapPin,
+  NotebookTabs,
   Phone,
+  PlayCircle,
   Scale,
   Shield,
   ShieldCheck,
@@ -21,12 +25,36 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { CustomCards } from "@/components/custom-cards";
+import { InvestmentApproach } from "@/components/investment-approach";
+import OrbitalLogos from "@/components/orbiting-logos";
+import { RecentNewsWrapper } from "@/components/recent-news-wrapper";
 
 export default function HomePage() {
+  const [scrollY, setScrollY] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   const services = [
     {
       icon: Shield,
@@ -69,27 +97,39 @@ export default function HomePage() {
   const investmentPillars = [
     {
       icon: BrainCircuit,
-      title: "Strategic Discovery & Alignment",
+      title: "Unwavering Integrity & Transparency ",
       description:
-        "We begin with a deep understanding of each client's financial position, objectives, and risk tolerance, ensuring every portfolio is aligned with clear goals.",
+        "Clear reporting, ethical conduct, and strict regulatory compliance.",
     },
     {
       icon: House,
-      title: "Disciplined Asset Allocation",
+      title: "The Gold Standard of Excellence",
       description:
-        "We construct resilient portfolios using a Total Portfolio Approach (TPA), ensuring assets work collectively across equities, fixed income, and alternatives.",
+        "Professional expertise, disciplined research, and premium service delivery.",
     },
     {
       icon: ShieldCheck,
-      title: "Integrated Risk Management",
+      title: "Disciplined Risk Management ",
       description:
-        "Risk management is a 24/7 commitment. We provide clear, real-time insights and ESG integration to ensure sustainable, long-term returns.",
+        "A long-term, risk-aware investment philosophy focused on capital preservation.",
     },
     {
       icon: Zap,
-      title: "Innovation-Led Stewardship",
+      title: "Client-First Partnerships",
       description:
-        "We enhance human expertise with advanced analytics, AI-enabled insights, and scenario modeling to stress-test portfolios across market cycles.",
+        "Bespoke solutions aligned with individual goals and aspirations.",
+    },
+    {
+      icon: Zap,
+      title: "Future-Ready Innovation",
+      description:
+        "Technology-enabled insights, sustainable practices, and modern portfolio design.",
+    },
+    {
+      icon: Zap,
+      title: "SEC-Regulated Assurance",
+      description:
+        "Confidence that your investments are managed within a robust regulatory framework.",
     },
   ];
 
@@ -120,182 +160,223 @@ export default function HomePage() {
     },
   ];
 
+  const stats = [
+    { value: "₦50B+", label: "Assets Under Management" },
+    { value: "2,500+", label: "Active Clients" },
+    { value: "15+", label: "Years of Excellence" },
+    { value: "98%", label: "Client Retention" },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#0A1628] overflow-x-hidden">
       <Navigation />
-
-      {/* Hero Section */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-in fade-in slide-in-from-left duration-1000">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-medium px-4 py-2 rounded-full mb-6 border border-primary/20">
-                <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                SEC Registered & Regulated
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
-                Stewardship. <span className="text-primary">Excellence.</span>{" "}
-                <br />
-                Enduring Value.
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed max-w-xl">
-                Prime Capital & Investment Limited is a Fund and Portfolio
-                Management firm built on disciplined expertise, unwavering
-                integrity, and a clear commitment to long-term wealth creation.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8"
-                  asChild
-                >
-                  <Link href="/contact">
-                    Partner With Us <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild className="px-8">
-                  <Link href="/about">Our Philosophy</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="relative animate-in fade-in zoom-in duration-1000">
-              <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
-              <div className="relative rounded-3xl overflow-hidden border border-primary/10 shadow-2xl">
-                <Image
-                  src="/hero.jpg"
-                  width={250}
-                  height={250}
-                  alt="Financial Excellence"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-background/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 p-6 bg-background/40 backdrop-blur-md rounded-2xl border border-white/10">
-                  <p className="text-sm font-medium text-primary mb-1 uppercase tracking-wider">
-                    Our Promise
-                  </p>
-                  <p className="text-lg font-semibold">
-                    Transforming financial aspirations into enduring value.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Hero Section - Light & Sophisticated */}
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FDFCFA] via-[#F5F2ED] to-[#FDFCFA]"
+      >
+        {/* Geometric Background Pattern */}
+        <div className="absolute inset-0 z-0 opacity-[0.03]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+              linear-gradient(to right, #0A1628 1px, transparent 1px),
+              linear-gradient(to bottom, #0A1628 1px, transparent 1px)
+            `,
+              backgroundSize: "60px 60px",
+            }}
+          />
         </div>
-      </section>
 
-      {/* About Brief Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                We exist to help investors navigate complexity with confidence.
-                Through professional fund management, bespoke portfolio
-                solutions, and robust risk governance, we transform financial
-                aspirations into enduring value.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="p-4 rounded-xl bg-muted/50 border border-border">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <div className="h-4 w-4 rounded-full bg-primary" />
-                    </div>
-                    <h4 className="font-bold">Gold</h4>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Represents excellence, confidence, and premium quality in
-                    every mandate.
-                  </p>
-                </div>
-                <div className="p-4 rounded-xl bg-white border border-border shadow-sm">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center border border-border">
-                      <div className="h-4 w-4 rounded-full bg-white border border-muted-foreground/20" />
-                    </div>
-                    <h4 className="font-bold">White</h4>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Symbolizes absolute transparency, integrity, and clarity in
-                    every relationship.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="h-48 rounded-2xl bg-primary/10 flex flex-col items-center justify-center p-6 text-center">
-                  <Target className="h-10 w-10 text-primary mb-4" />
-                  <h3 className="font-bold">Our Mission</h3>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    Grow and protect client wealth through disciplined
-                    strategies.
-                  </p>
-                </div>
-                <div className="h-64 rounded-2xl bg-muted overflow-hidden relative group">
-                  <Image
-                    src="/mission.jpg"
-                    alt="Growth"
-                    width={250}
-                    height={250}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-primary/20" />
-                </div>
-              </div>
-              <div className="space-y-4 pt-8">
-                <div className="h-64 rounded-2xl bg-muted overflow-hidden relative group">
-                  <Image
-                    src="/vision.jpg"
-                    width={250}
-                    height={250}
-                    alt="Wealth"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/20" />
-                </div>
-                <div className="h-48 rounded-2xl bg-secondary text-secondary-foreground flex flex-col items-center justify-center p-6 text-center">
-                  <Eye className="h-10 w-10 text-primary mb-4" />
-                  <h3 className="font-bold">Our Vision</h3>
-                  <p className="text-xs text-secondary-foreground/70 mt-2">
-                    To be one of the world's most trusted partners in wealth
-                    management.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Animated Accent Elements */}
+        <div
+          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/8 rounded-full blur-[120px]"
+          style={{
+            transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * 0.015}px)`,
+            transition: "transform 0.5s ease-out",
+          }}
+        />
+        <div
+          className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-[#0A1628]/5 rounded-full blur-[100px]"
+          style={{
+            transform: `translate(${-mousePosition.x * 0.01}px, ${-mousePosition.y * 0.01}px)`,
+            transition: "transform 0.5s ease-out",
+          }}
+        />
 
-      {/* Services Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Investment Solutions
-            </h2>
-            <p className="md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Access a range of professionally managed funds and bespoke
-              portfolios designed for wealth creation and preservation.
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+          <div className="text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-[#0A1628] text-white text-sm font-semibold px-6 py-3 rounded-full mb-8 shadow-elevated">
+              <ShieldCheck className="h-4 w-4" />
+              <span>SEC Registered & Regulated Financial Institution</span>
+            </div>
+
+            {/* Main Headline */}
+            <p>Preserving</p>
+            <h1
+              className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-8 tracking-tight text-[#0A1628]"
+              style={{
+                transform: `translateY(${scrollY * 0.2}px)`,
+                opacity: 1 - scrollY * 0.002,
+              }}
+            >
+              Wealth,
+              <span className="relative inline-block">
+                <span className="relative z-10 ">Trust,</span>
+                <span className="absolute -bottom-2 left-0 right-0 h-3 bg-[#D4AF37]/20 -z-10" />
+              </span>{" "}
+              & Value
+            </h1>
+
+            <p className="text-lg md:text-xl text-[#0A1628]/60 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Prime Capital & Investment Limited is a Fund and Portfolio
+              Management firm built on{" "}
+              <span className="font-semibold">
+                confidentiality, disciplined expertise, unwavering integrity,
+                and a clear commitment to long-term wealth creation and
+                preservation.
+              </span>
             </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+              <Link href="/contact">
+                <button
+                  type="button"
+                  className="group relative hover:cursor-pointer px-10 py-5 bg-[#0A1628] text-white rounded-full font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 shadow-elevated-lg hover:shadow-2xl"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Start Investing
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </button>
+              </Link>
+
+              <Link href="/about">
+                <button
+                  type="button"
+                  className="group hover:cursor-pointer px-10 py-5 border-2 border-[#0A1628]/20 text-[#0A1628] rounded-full font-bold text-lg hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300 flex items-center gap-2"
+                >
+                  <NotebookTabs className="h-5 w-5" />
+                  More about us
+                </button>
+              </Link>
+            </div>
+
+            <p className="text-lg md:text-xl text-[#0A1628]/60 mb-12 max-w-3xl mx-auto leading-relaxed">
+              At the heart of our identity are the colors that define our
+              promise:
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <div className="p-4 shadow shadow-black bg-muted/50 border border-border">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    <div className="h-4 w-4 rounded-full bg-primary" />
+                  </div>
+                  <h4 className="font-bold">Gold</h4>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Represents excellence, confidence, and premium quality in
+                  every mandate.
+                </p>
+              </div>
+
+              <div className="p-4 shadow shadow-black bg-white border border-border shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center border border-border">
+                    <div className="h-4 w-4 rounded-full bg-white border border-muted-foreground/20" />
+                  </div>
+                  <h4 className="font-bold">White</h4>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Symbolizes absolute transparency, integrity, and clarity in
+                  every relationship.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <p className="md:text-lg text-[#0A1628]/60 mb-6 max-w-3xl mx-auto leading-normal text-center mt-12">
+            Together, these values define a modern, dependable, and
+            client-focused institution trusted to steward wealth across market
+            cycles.
+          </p>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <ChevronDown className="h-8 w-8 text-[#0A1628]/40" />
+          </div>
+        </div>
+      </section>
+      <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-white relative">
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 2px 2px, #D4AF37 1px, transparent 0)",
+              backgroundSize: "50px 50px",
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <CustomCards />
+        </div>
+      </section>
+
+      <InvestmentApproach />
+      {/* Services Section - Asymmetric Layout */}
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#0A1628] relative overflow-hidden">
+        {/* Background Decoration */}
+        <div className="absolute top-1/4 right-0 w-1/3 h-96 bg-[#D4AF37]/10 blur-[150px] rounded-full" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-[#D4AF37] text-[#0A1628] text-sm font-bold px-5 py-2 rounded-full mb-6">
+                <Landmark className="h-4 w-4" />
+                Our Investment Products
+              </div>
+              <p className="text-xl text-white/70 leading-relaxed mb-4">
+                At Prime Capital & Investment Limited, our solutions are
+                designed to meet diverse client needs for wealth creation and
+                preservation, blending disciplined investment strategies with
+                innovative and transparent offerings. We provide access to a
+                range of professionally managed funds and bespoke portfolios.
+                <br />
+                <span>Our Offerings Include:</span>
+              </p>
+            </div>
+
+            <div className="relative hidden md:block">
+              <div className="aspect-square rounded-full border-2 border-[#D4AF37]/30 absolute -inset-4 animate-[spin_30s_linear_infinite]" />
+              <div className="aspect-square rounded-full border border-[#D4AF37]/15 absolute -inset-8 animate-[spin_40s_linear_infinite_reverse]" />
+              {/** NOTE: Picture can be added here **/}
+            </div>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
                 <Card
                   key={index}
-                  className="group hover:shadow-2xl transition-all duration-300 border-primary/5 hover:border-primary/20 overflow-hidden"
+                  className="group bg-white/5 border-white/10 hover:border-[#D4AF37] transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm shadow-elevated hover:shadow-elevated-lg"
                 >
                   <CardContent className="pt-8">
-                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                      <Icon className="h-7 w-7" />
+                    <div className="h-14 w-14 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center mb-6 group-hover:bg-[#D4AF37] transition-all duration-300 group-hover:scale-110">
+                      <Icon className="h-7 w-7 text-[#D4AF37] group-hover:text-[#0A1628] transition-colors duration-300" />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-[#D4AF37] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-white/70 leading-relaxed text-sm">
                       {service.description}
                     </p>
                   </CardContent>
@@ -305,103 +386,42 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Investment Approach Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 skew-x-12 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                Our Investment Approach
-              </h2>
-              <p className="text-lg text-secondary-foreground/80 mb-12 leading-relaxed">
-                Exceptional wealth management is the result of a rigorous,
-                systematic process that balances data-driven innovation with
-                timeless investment principles. Our approach is anchored on four
-                integrated pillars.
-              </p>
-              <div className="space-y-8">
-                {investmentPillars.map((pillar, index) => {
-                  const Icon = pillar.icon;
-                  return (
-                    <div key={index} className="flex gap-6">
-                      <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/30">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-2">
-                          {pillar.title}
-                        </h3>
-                        <p className="text-secondary-foreground/70 leading-relaxed">
-                          {pillar.description}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-square rounded-full border-2 border-primary/20 absolute -inset-4 animate-[spin_20s_linear_infinite]" />
-              <div className="aspect-square rounded-full border border-primary/10 absolute -inset-12 animate-[spin_30s_linear_infinite_reverse]" />
-              <div className="relative bg-background/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
-                    <span className="font-medium">ESG Integration</span>
-                    <ShieldCheck className="text-primary h-5 w-5" />
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
-                    <span className="font-medium">Dynamic Rebalancing</span>
-                    <TrendingUp className="text-primary h-5 w-5" />
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10">
-                    <span className="font-medium">AI-Enabled Insights</span>
-                    <BrainCircuit className="text-primary h-5 w-5" />
-                  </div>
-                  <div className="pt-4">
-                    <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-3/4 animate-[progress_2s_ease-in-out_infinite]" />
-                    </div>
-                    <p className="text-xs text-center mt-4 text-secondary-foreground/50">
-                      Continuous Risk Monitoring Active
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Investment Approach - Light Section */}
+      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#D4AF37]/8 rounded-full blur-[150px]" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0A1628]/5 rounded-full blur-[150px]" />
         </div>
-      </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Why Choose Prime Capital
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 bg-[#0A1628] text-white text-sm font-bold px-5 py-2 rounded-full mb-6">
+              Why Us ?
+            </div>
+            <h2 className="font-display text-5xl md:text-7xl font-bold mb-6 text-[#0A1628]">
+              Why Choose Prime Capital & Investment Limited
             </h2>
-            <p className="md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Choosing a wealth manager is a decision of trust. We build
-              enduring financial partnerships designed to empower confidence,
-              stability, and prosperity.
+            <p className="text-xl text-[#0A1628]/60 max-w-4xl mx-auto leading-relaxed">
+              Choosing a wealth manager is a decision of trust. Clients choose
+              Prime Capital & Investment Limited because we offer:
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUs.map((item, index) => {
-              const Icon = item.icon;
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {investmentPillars.map((pillar, index) => {
               return (
                 <div
                   key={index}
-                  className="group p-8 rounded-3xl bg-muted/50 border border-border hover:bg-white hover:shadow-xl transition-all duration-300"
+                  className="group flex gap-6 p-8 rounded-2xl bg-white border border-[#0A1628]/5 hover:border-[#D4AF37] transition-all duration-300 shadow-elevated hover:shadow-elevated-lg hover:-translate-y-1"
                 >
-                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Icon className="h-7 w-7 text-primary" />
+                  <div>
+                    <h3 className="text-2xl font-display font-bold mb-3 text-[#0A1628] group-hover:text-[#D4AF37] transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-[#0A1628]/70 leading-relaxed">
+                      {pillar.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {item.description}
-                  </p>
                 </div>
               );
             })}
@@ -409,105 +429,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to Secure Your Future?
-          </h2>
-          <p className="text-xl mb-10 text-primary-foreground/90">
-            Join a modern, dependable, and client-focused institution trusted to
-            steward wealth across market cycles.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              type="button"
-              className="bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-full font-bold transition-colors shadow-lg"
-            >
-              <Link href="/contact" className="flex items-center">
-                Get Started Now <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </button>
-            <button
-              type="button"
-              className="bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-4 rounded-full font-bold transition-colors"
-            >
-              <Link href="/about">Learn More</Link>
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* Recent News Section */}
+      <RecentNewsWrapper />
 
       {/* Contact Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                Contact Us
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 text-[#0A1628]">
+                Get in <span className="text-[#D4AF37]">Touch</span>
               </h2>
-              <div className="space-y-8">
-                <div className="flex items-start gap-6">
-                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <MapPin className="h-6 w-6 text-primary" />
+              <div className="space-y-4">
+                <div className="flex items-start gap-6 p-6 rounded-xl bg-[#F5F2ED] border border-[#0A1628]/5 hover:border-[#D4AF37] transition-all duration-300 shadow-elevated hover:shadow-elevated-lg">
+                  <div className="h-14 w-14 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+                    <MapPin className="h-7 w-7 text-[#D4AF37]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg mb-1">Abuja Office</h4>
-                    <p className="text-muted-foreground">
+                    <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
+                      Abuja Office
+                    </h4>
+                    <p className="text-[#0A1628]/70">
                       No. 3, Sankuru Close, Maitama, Abuja, Nigeria
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-6">
-                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="h-6 w-6 text-primary" />
+
+                <div className="flex items-start gap-6 p-6 rounded-xl bg-[#F5F2ED] border border-[#0A1628]/5 hover:border-[#D4AF37] transition-all duration-300 shadow-elevated hover:shadow-elevated-lg">
+                  <div className="h-14 w-14 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+                    <Phone className="h-7 w-7 text-[#D4AF37]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg mb-1">Telephone</h4>
-                    <p className="text-muted-foreground">+234 (0) 9 123 4567</p>
+                    <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
+                      Phone
+                    </h4>
+                    <p className="text-[#0A1628]/70">+234 (0) 9 123 4567</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-6">
-                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Users className="h-6 w-6 text-primary" />
+
+                <div className="flex items-start gap-6 p-6 rounded-xl bg-[#F5F2ED] border border-[#0A1628]/5 hover:border-[#D4AF37] transition-all duration-300 shadow-elevated hover:shadow-elevated-lg">
+                  <div className="h-14 w-14 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center shrink-0">
+                    <Mail className="h-7 w-7 text-[#D4AF37]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg mb-1">Email</h4>
-                    <p className="text-muted-foreground">
-                      info@primecapital.ng
-                    </p>
+                    <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
+                      Email
+                    </h4>
+                    <p className="text-[#0A1628]/70">info@primecapital.ng</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="h-100 rounded-3xl bg-muted overflow-hidden relative border border-border">
-              <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-muted flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <p className="text-lg font-bold">Maitama, Abuja</p>
-                  <p className="text-sm text-muted-foreground">
-                    Visit us for a consultation
-                  </p>
-                </div>
-              </div>
+
+            <div className="relative h-[400px] rounded-2xl overflow-hidden border border-[#0A1628]/10 shadow-elevated-lg">
+              <iframe
+                title="maps"
+                width="520"
+                height="400"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight={0}
+                marginWidth={0}
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=No.%203,%20Sankuru%20Close,%20Maitama,%20Abuja%20Abuja+()&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              ></iframe>{" "}
+              <script
+                type="text/javascript"
+                src="https://embedmaps.com/google-maps-authorization/script.js?id=ed8b6f49bccb559e680dc1bbdbbe488b26a5e5e3"
+              ></script>
             </div>
           </div>
         </div>
       </section>
-
       {/* Disclaimer */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 border-t border-[#0A1628]/10 bg-[#F5F2ED]">
         <div className="max-w-7xl mx-auto">
-          <div className="p-8 rounded-3xl bg-muted/50 border border-border">
-            <h4 className="font-bold mb-4 flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-primary" />
+          <div className="p-8 rounded-2xl bg-white border border-[#0A1628]/5 shadow-elevated">
+            <h4 className="font-bold mb-4 flex items-center gap-2 text-[#D4AF37]">
+              <ShieldCheck className="h-5 w-5" />
               Important Disclosure & Investor Warning
             </h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-[#0A1628]/70 leading-relaxed">
               The information provided above is for illustrative purposes and
               does not constitute an offer to sell or a solicitation of an offer
               to buy any securities. Investments in the capital market are
@@ -525,7 +527,7 @@ export default function HomePage() {
               through their official website:{" "}
               <a
                 href="https://www.sec.gov.ng"
-                className="text-primary hover:underline"
+                className="text-[#D4AF37] hover:underline font-semibold"
               >
                 www.sec.gov.ng
               </a>
@@ -533,7 +535,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

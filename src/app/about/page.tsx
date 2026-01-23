@@ -3,6 +3,8 @@
 import {
   Award,
   Briefcase,
+  Check,
+  CheckCheck,
   Eye,
   Scale,
   Shield,
@@ -18,14 +20,20 @@ import { Card, CardContent } from "@/components/ui/card";
 export default function AboutPage() {
   const philosophy = [
     {
+      icon: Check,
+      title: "Confidentiality & Data Sovereignty",
+      description:
+        "We treat client information as sacred capital. Every portfolio detail, transaction, and strategic discussion is protected by strict confidentiality protocols, secure infrastructure, and governance controls. Discretion is not optional—it is a core responsibility.",
+    },
+    {
       icon: Shield,
-      title: "Integrity & Transparency (White)",
+      title: "Integrity & Transparency",
       description:
         "Trust is the foundation of wealth management. We uphold the highest ethical standards, ensuring full transparency in disclosures, reporting, and decision-making.",
     },
     {
       icon: Award,
-      title: "Excellence & Confidence (Gold)",
+      title: "Excellence & Confidence",
       description:
         "We pursue superior outcomes through rigorous research, data-driven analysis and professional expertise. The 'Gold standard' defines our commitment to quality.",
     },
@@ -116,18 +124,18 @@ export default function AboutPage() {
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
-            About <span className="text-primary">Prime Capital</span>
+            About <span className="">Prime Capital</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
             A Fund and Portfolio Management firm built on disciplined expertise,
-            unwavering integrity, and a clear commitment to long-term wealth
-            creation.
+            unwavering integrity, trust, and a clear commitment to long-term
+            wealth creation.
           </p>
         </div>
       </section>
 
       {/* Company Overview */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-4 md:py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -144,7 +152,7 @@ export default function AboutPage() {
                 <p>
                   We exist to help investors navigate complexity with
                   confidence. Through professional fund management, bespoke
-                  portfolio solutions, and robust risk governance, we transform
+                  portfolio solutions, and robust risk management, we transform
                   financial aspirations into enduring value.
                 </p>
                 <p>
@@ -158,6 +166,10 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-linear-to-tr from-primary/20 to-transparent rounded-3xl blur-3xl" />
               <div className="relative bg-secondary rounded-3xl p-10 shadow-2xl border border-white/10">
                 <div className="space-y-8">
+                  <p className="pb-2">
+                    At the heart of our identity are the colors that define our
+                    promise:
+                  </p>
                   <div className="flex items-center gap-6">
                     <div className="h-16 w-16 rounded-2xl bg-primary/20 flex items-center justify-center shrink-0 border border-primary/30">
                       <div className="h-8 w-8 rounded-full bg-primary shadow-[0_0_15px_rgba(212,175,55,0.5)]" />
@@ -194,6 +206,9 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted/50">
         <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Mission & Vision
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="border-none shadow-xl bg-primary text-primary-foreground overflow-hidden relative">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -218,10 +233,9 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-3xl font-bold mb-6">Our Vision</h3>
                 <p className="text-secondary-foreground/90 leading-relaxed text-lg">
-                  To be one of the world's most trusted partners in wealth
-                  management, empowering investors to achieve financial freedom
-                  through smart, sustainable, and resilient investment
-                  solutions.
+                  To be one of the most trusted partners in wealth management,
+                  empowering investors to achieve financial freedom through
+                  smart, sustainable, and resilient investment products.
                 </p>
               </CardContent>
             </Card>
@@ -241,7 +255,7 @@ export default function AboutPage() {
               stewardship, excellence, and responsibility.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {philosophy.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -366,10 +380,10 @@ export default function AboutPage() {
                   <p className="text-muted-foreground leading-relaxed">
                     We are registered with and regulated by the Securities and
                     Exchange Commission (SEC), Nigeria, and operate strictly in
-                    accordance with the Investments & Securities Act (ISA) 2025
-                    and applicable SEC Rules. All pooled and discretionary
-                    products are subject to regulatory approval or “no
-                    objection” where required.
+                    accordance with the Investments & Securities Act (ISA) 2025,
+                    as amended and applicable SEC Rules. All pooled and
+                    discretionary products are subject to regulatory approval or
+                    “no objection” where required.
                   </p>
                 </div>
               </div>

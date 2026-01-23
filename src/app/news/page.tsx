@@ -80,20 +80,6 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
                   className="group"
                 >
                   <Card className="h-full hover:shadow-2xl transition-all duration-300 overflow-hidden border-primary/5 hover:border-primary/20">
-                    {article.coverImageUrl ? (
-                      <div className="h-48 relative overflow-hidden">
-                        {/* biome-ignore lint/performance/noImgElement: External URLs not optimizable with next/image */}
-                        <img
-                          src={article.coverImageUrl}
-                          alt={article.title}
-                          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    ) : (
-                      <div className="h-48 bg-linear-to-br from-primary/20 to-muted relative">
-                        <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors" />
-                      </div>
-                    )}
                     <CardContent className="pt-6">
                       <div className="flex items-center gap-3 mb-4">
                         <CategoryBadge
