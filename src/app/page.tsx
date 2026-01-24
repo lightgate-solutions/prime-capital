@@ -276,12 +276,12 @@ export default function HomePage() {
     const container = whyChooseScrollRef.current;
     const cards = whyChooseCardsRef.current;
     const firstCard = cards.querySelector("article");
-    
+
     if (!firstCard) return;
-    
+
     const slideWidth = firstCard.offsetWidth;
     const targetScroll = index * slideWidth;
-    
+
     container.scrollTo({
       left: targetScroll,
       behavior: "smooth",
@@ -306,14 +306,14 @@ export default function HomePage() {
     const container = whyChooseScrollRef.current;
     const cards = whyChooseCardsRef.current;
     const firstCard = cards.querySelector("article");
-    
+
     if (!firstCard) return;
-    
+
     const handleScroll = () => {
       const slideWidth = firstCard.offsetWidth;
       const scrollLeft = container.scrollLeft;
       const slideIndex = Math.round(scrollLeft / slideWidth);
-      
+
       if (slideIndex >= 0 && slideIndex < whyChooseUs.length) {
         setCurrentSlide(slideIndex);
       }
@@ -389,7 +389,6 @@ export default function HomePage() {
     },
   ];
 
-
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#0A1628] overflow-x-hidden">
       <Navigation />
@@ -433,14 +432,17 @@ export default function HomePage() {
             </div>
 
             {/* Main Headline */}
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-medium mb-4 tracking-tight text-[#D4AF37] drop-shadow-lg">
+              At Prime Capital
+            </h2>
             <h1
-              className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tight text-white leading-tight drop-shadow-2xl"
+              className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight text-white leading-tight drop-shadow-2xl"
               style={{
                 transform: `translateY(${scrollY * 0.1}px)`,
                 opacity: 1 - scrollY * 0.001,
               }}
             >
-              At Prime Capital — We Preserve Trust, Wealth & Value
+              We Preserve Trust, Wealth & Value
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed drop-shadow-lg">
@@ -637,7 +639,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
-              <div className="inline-flex items-center gap-2 bg-[#D4AF37] text-[#0A1628] text-sm font-bold px-5 py-2 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 border-2 border-[#D4AF37] text-[#D4AF37] text-sm font-bold px-5 py-2 rounded-full mb-6">
                 <Landmark className="h-4 w-4" />
                 Our Investment Products
               </div>
@@ -646,16 +648,13 @@ export default function HomePage() {
                 designed to meet diverse client needs for wealth creation and
                 preservation, blending disciplined investment strategies with
                 innovative and transparent offerings. We provide access to a
-                range of professionally managed funds and bespoke portfolios.
-                <br />
-                <span>Our Offerings Include:</span>
+                range of professionally managed funds and bespoke portfolios. Our Offerings Include:
               </p>
             </div>
 
             <div className="relative hidden md:block">
               <div className="aspect-square rounded-full border-2 border-[#D4AF37]/30 absolute -inset-4 animate-[spin_30s_linear_infinite]" />
               <div className="aspect-square rounded-full border border-[#D4AF37]/15 absolute -inset-8 animate-[spin_40s_linear_infinite_reverse]" />
-              {/** NOTE: Picture can be added here **/}
             </div>
           </div>
 
@@ -721,7 +720,7 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-[#0A1628] text-white text-sm font-bold px-5 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#0A1628]/20 border-2 border-[#0A1628] text-[#0A1628] text-sm font-bold px-5 py-2 rounded-full mb-6">
               Why Us ?
             </div>
             <h2 className="font-display text-5xl md:text-7xl font-bold mb-6 text-[#0A1628]">
@@ -833,13 +832,27 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="pt-20 md:pt-32 pb-0 lg:py-0 bg-[#0A1628] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        {/* Mobile & Tablet background image */}
+        <div 
+          className="absolute inset-0 lg:hidden z-0"
+          style={{
+            backgroundImage: "url('/group-ai-phptp.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        {/* Mobile & Tablet background overlay for text readability */}
+        <div className="absolute inset-0 bg-[#0A1628]/80 lg:hidden z-0" />
+        
+        {/* Desktop decorative elements */}
+        <div className="absolute inset-0 opacity-10 hidden lg:block z-0">
           <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-            <div className="px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-20 text-center lg:text-left flex flex-col justify-center">
+            <div className="px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-20 text-center lg:text-left flex flex-col justify-center relative z-10">
               <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
                 Ready to Secure Your Future?
               </h2>
@@ -867,7 +880,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="relative h-[50vh] lg:h-full w-[100vw] left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:w-[calc((100vw-1280px)/2+640px)] lg:translate-x-0">
+            <div className="relative h-[50vh] lg:h-full w-[100vw] left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:w-[calc((100vw-1280px)/2+640px)] lg:translate-x-0 hidden lg:block">
               <Image
                 src="/group-ai-phptp.png"
                 width={1200}

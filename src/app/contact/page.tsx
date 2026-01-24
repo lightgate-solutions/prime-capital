@@ -22,7 +22,6 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     alert(
       "Thank you for contacting Prime Capital. Our team will get back to you shortly.",
     );

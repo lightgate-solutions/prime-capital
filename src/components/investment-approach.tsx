@@ -31,7 +31,7 @@ const defaultFAQs = [
   {
     question: "Innovation-Led Stewardship",
     answer:
-      "We enhance human expertise with advanced analytics, AI-enabled insights, and scenario modeling to stress-test portfolios across market cycles.",
+      "We enhance human expertise with advanced analytics, AI-enabled insights, and scenario modelling to stress-test portfolios across market cycles.",
   },
 ];
 

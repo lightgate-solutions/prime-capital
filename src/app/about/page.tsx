@@ -208,11 +208,11 @@ export default function AboutPage() {
     },
     {
       title: "Disciplined, Risk-Aware Stewardship",
-      note: "We act as fiduciaries first. Our long-term, risk-aware approach balances return optimization with capital preservation, supported by robust governance and continuous risk monitoring.",
+      note: "We act as fiduciaries first. Our long-term, risk-aware approach balances return optimisation with capital preservation, supported by robust governance and continuous risk monitoring.",
     },
     {
       title: "Client-Centric Partnership",
-      note: "Our clients are the center of everything we do. We build enduring partnerships by tailoring strategies to individual goals, risk profiles, and legacy aspirations.",
+      note: "Our clients are the centre of everything we do. We build enduring partnerships by tailoring strategies to individual goals, risk profiles, and legacy aspirations.",
     },
     {
       title: "Innovation for Sustainable Growth",
@@ -339,76 +339,76 @@ export default function AboutPage() {
       </section>
 
       {/* Our Identity, Mission & Vision Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#FDFCFA] via-white to-[#FDFCFA] relative overflow-hidden">
-        {/* Background Effects */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
+        {/* Enhanced Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[200px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#0A1628]/5 rounded-full blur-[200px]" />
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[200px]" />
+          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#0A1628]/8 rounded-full blur-[200px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#D4AF37]/5 to-[#0A1628]/5 rounded-full blur-[250px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Mission & Vision Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Mission Card */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-              <div className="relative h-[450px] md:h-[550px] rounded-3xl overflow-hidden">
-                <div
-                  ref={missionImageRef}
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <Image
-                    src="/mission.png"
-                    alt="Growth"
-                    width={1200}
-                    height={600}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37] md:from-[#D4AF37]/90 via-[#D4AF37]/95 md:via-[#D4AF37]/70 to-[#0A1628]/80 md:to-transparent" />
-                <div
-                  ref={missionCardRef}
-                  className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-10"
-                >
-                  <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                    Our Mission
-                  </h3>
-                  <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
-                    Grow and protect client wealth through disciplined
-                    strategies.
-                  </p>
-                </div>
+        <div className="max-w-7xl mx-auto relative z-10 space-y-32">
+          {/* Mission Section */}
+          <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden group">
+            <div
+              ref={missionImageRef}
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image
+                src="/mission.png"
+                alt="Growth"
+                width={1200}
+                height={600}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            {/* Gradient overlay on the right side to avoid center text */}
+            <div className="absolute inset-0 bg-gradient-to-l from-[#D4AF37] via-[#D4AF37]/95 md:from-[#D4AF37]/95 md:via-[#D4AF37]/80 via-[#D4AF37]/40 to-[#0A1628]/80 md:to-transparent" />
+            {/* Text content positioned on the right to avoid center image text */}
+            <div
+              ref={missionCardRef}
+              className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 flex items-center justify-end p-8 md:p-12 z-10"
+            >
+              <div className="max-w-md text-right lg:text-left">
+                <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+                  Our Mission
+                </h3>
+                <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
+                  Grow and protect client wealth through disciplined
+                  strategies.
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Vision Card */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/10 to-transparent rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-              <div className="relative h-[450px] md:h-[550px] rounded-3xl overflow-hidden">
-                <div
-                  ref={visionImageRef}
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <Image
-                    src="/vision.png"
-                    width={1200}
-                    height={600}
-                    alt="Wealth"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/70 to-transparent" />
-                <div
-                  ref={visionCardRef}
-                  className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-10"
-                >
-                  <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                    Our Vision
-                  </h3>
-                  <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
-                    To be one of the most trusted partners in wealth management.
-                  </p>
-                </div>
+          {/* Vision Section */}
+          <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden group">
+            <div
+              ref={visionImageRef}
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image
+                src="/vision.png"
+                width={1200}
+                height={600}
+                alt="Wealth"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            {/* Gradient overlay that merges text card into image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/80 via-[#0A1628]/40 to-transparent" />
+            {/* Text content positioned on the left */}
+            <div
+              ref={visionCardRef}
+              className="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 flex items-center p-8 md:p-12 z-10"
+            >
+              <div className="max-w-md">
+                <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+                  Our Vision
+                </h3>
+                <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
+                  To be one of the most trusted partners in wealth management.
+                </p>
               </div>
             </div>
           </div>
@@ -431,7 +431,7 @@ export default function AboutPage() {
           ref={philosophyCursorRef}
           className={cn(
             "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50",
-            "w-12 h-12 rounded-full border-2 border-accent bg-accent",
+            "w-12 h-12 rounded-full border-2 border-accent bg-accent/20",
             "transition-opacity duration-300",
             isPhilosophyHovering ? "opacity-100" : "opacity-0",
           )}

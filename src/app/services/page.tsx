@@ -9,13 +9,15 @@ import {
   ArrowRight,
   CheckCircle2,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Gem,
   Shield,
   ShieldCheck,
   Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
@@ -25,6 +27,9 @@ export default function ServicesPage() {
   const [openSubsections, setOpenSubsections] = useState<{
     [key: string]: boolean;
   }>({});
+  const advantageScrollRef = useRef<HTMLDivElement>(null);
+  const advantageCardsRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const toggleSubsection = (serviceIndex: number, subsectionIndex: number) => {
     const key = `${serviceIndex}-${subsectionIndex}`;
@@ -189,32 +194,82 @@ export default function ServicesPage() {
     },
   ];
 
-  const whyChoose = [
+  const whyChooseUs = [
     {
+      image: "/goldbars.png",
       title: "Gold Standard Excellence",
       description:
-        "Professional expertise and disciplined research define our premium service delivery.",
-      icon: Gem,
+        "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
+      image: "/transparency.png",
       title: "Absolute Transparency",
       description:
-        "Clear reporting and ethical conduct ensure you always understand your investments.",
-      icon: ShieldCheck,
+        "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
     },
     {
-      title: "SEC-Regulated",
+      image: "/sec-bird-png.png",
+      title: "SEC-Regulated Assurance",
       description:
-        "Strict adherence to the Investments & Securities Act (ISA) 2025, as amended, and SEC rules.",
-      icon: Shield,
+        "Managed within a robust regulatory framework, strictly in accordance with the Investments & Securities Act.",
     },
     {
-      title: "Innovation-Led",
+      image: "/client-handshake.png",
+      title: "Client-First Partnerships",
       description:
-        "Leveraging advanced analytics and AI-enabled insights for superior stewardship.",
-      icon: Zap,
+        "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
   ];
+
+  // Carousel navigation functions
+  const scrollToSlide = (index: number) => {
+    if (!advantageScrollRef.current || !advantageCardsRef.current) return;
+    const container = advantageScrollRef.current;
+    const cards = advantageCardsRef.current;
+    const firstCard = cards.querySelector("article");
+
+    if (!firstCard) return;
+
+    const slideWidth = firstCard.offsetWidth;
+    const targetScroll = index * slideWidth;
+    
+    container.scrollTo({
+      left: targetScroll,
+      behavior: "smooth",
+    });
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    const nextIndex = (currentSlide + 1) % whyChooseUs.length;
+    scrollToSlide(nextIndex);
+  };
+
+  const prevSlide = () => {
+    const prevIndex = (currentSlide - 1 + whyChooseUs.length) % whyChooseUs.length;
+    scrollToSlide(prevIndex);
+  };
+
+  // Track current slide on scroll
+  useEffect(() => {
+    if (!advantageScrollRef.current || !advantageCardsRef.current) return;
+
+    const container = advantageScrollRef.current;
+    const cards = advantageCardsRef.current;
+    const firstCard = cards.querySelector("article");
+
+    if (!firstCard) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const slideWidth = firstCard.offsetWidth;
+      const currentIndex = Math.round(scrollLeft / slideWidth);
+      setCurrentSlide(currentIndex);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -231,9 +286,8 @@ export default function ServicesPage() {
             meet diverse client needs for wealth creation and preservation,
             blending disciplined investment strategies with innovative and
             transparent offerings. We provide access to a range of
-            professionally managed funds and bespoke portfolios.
+            professionally managed funds and bespoke portfolios. Our Offerings Include:
           </p>
-          <p>Our Offerings Include:</p>
         </div>
       </section>
 
@@ -373,9 +427,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Our Services */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+      <section className="py-20 md:py-32 px-0 md:px-4 lg:px-8 bg-muted/50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               The Prime Capital Advantage
             </h2>
@@ -384,27 +438,98 @@ export default function ServicesPage() {
               deliver a sophisticated investment experience.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChoose.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Card
-                  key={index}
-                  className="border-none shadow-lg hover:shadow-xl transition-all"
-                >
-                  <CardContent className="pt-8 text-center">
-                    <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                      <Icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="font-bold text-xl mb-3">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+        </div>
+
+        {/* Horizontal Scroll Carousel - Full Width */}
+        <div className="relative -mx-4 sm:-mx-6 md:mx-0 overflow-hidden">
+            {/* Navigation Arrows */}
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Carousel Container */}
+            <div
+              ref={advantageScrollRef}
+              className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              <div
+                ref={advantageCardsRef}
+                className="flex w-full"
+              >
+                {/* Slides */}
+                {whyChooseUs.map((item) => {
+                  return (
+                    <article
+                      key={item.title}
+                      className="group relative flex-shrink-0 h-[600px] snap-start"
+                      style={{ minWidth: "100%", width: "100%" }}
+                    >
+                      {/* Card with image as background */}
+                      <div
+                        className="relative w-full h-full carousel-bg-position"
+                        style={{ 
+                          backgroundImage: `url(${item.image})`,
+                          backgroundSize: "cover",
+                          backgroundRepeat: "no-repeat"
+                        }}
+                      >
+                        {/* Stronger gradient overlay for better text visibility */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 via-[#0A1628]/70 to-[#0A1628]/40" />
+
+                        {/* Content overlay */}
+                        <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
+                          <div className="max-w-2xl">
+                            {/* Title */}
+                            <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                              {item.title}
+                            </h3>
+
+                            {/* Divider line */}
+                            <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
+
+                            {/* Description */}
+                            <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Dot Indicators */}
+            <div className="flex justify-center gap-3 mt-8 px-4 sm:px-6 md:px-0">
+              {whyChooseUs.map((item, index) => (
+                <button
+                  type="button"
+                  key={`${item.title}-${index}`}
+                  onClick={() => scrollToSlide(index)}
+                  className={`h-3 rounded-full transition-all duration-300 ${
+                    currentSlide === index
+                      ? "w-8 bg-[#D4AF37]"
+                      : "w-3 bg-[#0A1628]/30 hover:bg-[#0A1628]/50"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
         </div>
       </section>
 
@@ -413,7 +538,7 @@ export default function ServicesPage() {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-1/4" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to Optimize Your Portfolio?
+            Ready to Optimise Your Portfolio?
           </h2>
           <p className="text-xl mb-10 text-secondary-foreground/80">
             Let our experts help you navigate the complexities of the financial

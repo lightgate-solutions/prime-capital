@@ -106,7 +106,7 @@ export function SignalsSection({ articles = [] }: RecentNewsProps) {
           ref={cursorRef}
           className={cn(
             "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50",
-            "w-12 h-12 rounded-full border-2 border-accent bg-accent",
+            "w-12 h-12 rounded-full border-2 border-accent bg-accent/20",
             "transition-opacity duration-300",
             isHovering ? "opacity-100" : "opacity-0",
           )}

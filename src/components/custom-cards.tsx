@@ -22,11 +22,11 @@ const signals = [
   },
   {
     title: "Disciplined, Risk-Aware Stewardship",
-    note: "We act as fiduciaries first. Our long-term, risk-aware approach balances return optimization with capital preservation, supported by robust governance and continuous risk monitoring.",
+    note: "We act as fiduciaries first. Our long-term, risk-aware approach balances return optimisation with capital preservation, supported by robust governance and continuous risk monitoring.",
   },
   {
     title: "Client-Centric Partnership",
-    note: "Our clients are the center of everything we do. We build enduring partnerships by tailoring strategies to individual goals, risk profiles, and legacy aspirations.",
+    note: "Our clients are the centre of everything we do. We build enduring partnerships by tailoring strategies to individual goals, risk profiles, and legacy aspirations.",
   },
   {
     title: "Innovation for Sustainable Growth",
@@ -126,7 +126,7 @@ export function CustomCards() {
         ref={cursorRef}
         className={cn(
           "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50",
-          "w-12 h-12 rounded-full border-2 border-accent bg-accent",
+          "w-12 h-12 rounded-full border-2 border-accent bg-accent/20",
           "transition-opacity duration-300",
           isHovering ? "opacity-100" : "opacity-0",
         )}
