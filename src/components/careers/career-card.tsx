@@ -64,8 +64,7 @@ export function CareerCard({
           </div>
           {salaryRange && (
             <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
-              <DollarSign className="h-4 w-4" />
-              <span>{salaryRange}</span>
+              ₦<span>{salaryRange}</span>
             </div>
           )}
           <p className="text-muted-foreground line-clamp-3">{description}</p>

@@ -1,17 +1,21 @@
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import type React from "react";
 import "./globals.css";
+import { Playfair_Display, Outfit } from "next/font/google";
+import { SmoothScroll } from "@/components/smooth-scroll";
 
-const geistSans = Geist({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  display: "swap",
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const geistMono = Geist_Mono({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  display: "swap",
+  variable: "--font-body",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -34,12 +38,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
-        {children}
-        <Analytics />
+    <html
+      lang="en"
+      className={`${playfair.variable} ${outfit.variable}`}
+      suppressHydrationWarning
+    >
+      <body className={`antialiased font-body`}>
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
