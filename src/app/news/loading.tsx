@@ -1,5 +1,5 @@
-import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function NewsLoading() {

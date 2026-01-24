@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type React from "react";
 import "./globals.css";
-import { Playfair_Display, Outfit } from "next/font/google";
+import { Outfit, Playfair_Display } from "next/font/google";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
 const playfair = Playfair_Display({

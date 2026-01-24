@@ -3,8 +3,8 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export function Navigation() {
@@ -62,14 +62,20 @@ export function Navigation() {
               <div className="absolute inset-0 rounded-full bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
             </div>
             <div>
-              <span className={`font-display text-xl font-bold tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300 ${
-                isHomePage && isOverHero ? "text-white" : "text-[#0A1628]"
-              }`}>
+              <span
+                className={`font-display text-xl font-bold tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300 ${
+                  isHomePage && isOverHero ? "text-white" : "text-[#0A1628]"
+                }`}
+              >
                 Prime Capital
               </span>
-              <p className={`text-[10px] uppercase tracking-widest ${
-                isHomePage && isOverHero ? "text-white/70" : "text-[#0A1628]/50"
-              }`}>
+              <p
+                className={`text-[10px] uppercase tracking-widest ${
+                  isHomePage && isOverHero
+                    ? "text-white/70"
+                    : "text-[#0A1628]/50"
+                }`}
+              >
                 Investment LTD
               </p>
             </div>
@@ -82,13 +88,15 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`group relative text-sm font-semibold transition-colors duration-300 ${
-                  isHomePage && isOverHero 
-                    ? "text-white/90 hover:text-[#D4AF37]" 
+                  isHomePage && isOverHero
+                    ? "text-white/90 hover:text-[#D4AF37]"
                     : "text-[#0A1628]/70 hover:text-[#D4AF37]"
                 }`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-[#D4AF37]`} />
+                <span
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-[#D4AF37]`}
+                />
               </Link>
             ))}
           </div>
@@ -97,8 +105,8 @@ export function Navigation() {
           <div className="hidden lg:block">
             <Button
               className={`group relative px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 overflow-hidden shadow-elevated ${
-                isHomePage && isOverHero 
-                  ? "bg-[#D4AF37] text-[#0A1628] hover:bg-[#D4AF37]/90" 
+                isHomePage && isOverHero
+                  ? "bg-[#D4AF37] text-[#0A1628] hover:bg-[#D4AF37]/90"
                   : "bg-[#0A1628] text-white hover:bg-[#0A1628]/90"
               }`}
               asChild

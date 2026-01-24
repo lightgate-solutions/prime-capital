@@ -1,19 +1,18 @@
-import { Suspense } from "react";
-import Link from "next/link";
 import { Calendar, Clock, Search } from "lucide-react";
-import { Footer } from "@/components/footer";
-import { Navigation } from "@/components/navigation";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Pagination } from "@/components/ui/pagination";
-import { EmptyState } from "@/components/ui/empty-state";
+import Link from "next/link";
+import { Suspense } from "react";
 import { ArticleCard } from "@/components/articles/article-card";
 import { ArticleSearch } from "@/components/articles/article-search";
 import { CategoryBadge } from "@/components/articles/category-badge";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
+import { Card, CardContent } from "@/components/ui/card";
+import { EmptyState } from "@/components/ui/empty-state";
+import { Pagination } from "@/components/ui/pagination";
 import {
+  getFeaturedArticles,
   getPublishedArticles,
   getPublishedArticlesCount,
-  getFeaturedArticles,
 } from "@/db/queries/articles";
 import type { ArticleCategory } from "@/lib/types/articles";
 

@@ -4,13 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import {
-  CareerStatus,
-  JobTypes,
-  createCareerSchema,
-  type CreateCareerInput,
-} from "@/lib/types/careers";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Field,
   FieldDescription,
@@ -19,10 +14,15 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Textarea } from "@/components/ui/textarea";
 import { createCareer, updateCareer } from "@/lib/actions/careers";
+import {
+  CareerStatus,
+  type CreateCareerInput,
+  createCareerSchema,
+  JobTypes,
+} from "@/lib/types/careers";
 
 interface CareerFormProps {
   career?: {
@@ -76,7 +76,7 @@ export function CareerForm({ career, isEditing = false }: CareerFormProps) {
 
   async function onSubmit(data: CreateCareerInput) {
     try {
-      let result;
+      let result: { success: boolean; error?: string };
 
       if (isEditing && career) {
         result = await updateCareer({

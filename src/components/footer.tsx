@@ -1,16 +1,16 @@
 "use client";
 
 import {
+  Facebook,
+  Instagram,
+  Linkedin,
   Mail,
   MapPin,
   Phone,
-  Linkedin,
   Twitter,
-  Instagram,
-  Facebook,
 } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   const footerLinks = {

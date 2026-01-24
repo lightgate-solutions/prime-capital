@@ -1,16 +1,33 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import type { Article } from "@/lib/types/articles";
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
+export interface ArticleSummary {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  coverImageUrl: string | null;
+  category: string;
+  featured: boolean;
+  readTime: string | null;
+  publishedAt: Date | null;
+  createdAt: Date;
+  author: {
+    id: string;
+    name: string | null;
+    image: string | null;
+  } | null;
+}
+
 interface RecentNewsProps {
-  articles: Article[];
+  articles: ArticleSummary[];
 }
 
 export function SignalsSection({ articles = [] }: RecentNewsProps) {
@@ -100,7 +117,11 @@ export function SignalsSection({ articles = [] }: RecentNewsProps) {
   }, []);
 
   return (
-    <section id="signals" ref={sectionRef} className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section
+      id="signals"
+      ref={sectionRef}
+      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto">
         <div
           ref={cursorRef}
@@ -146,7 +167,13 @@ export function SignalsSection({ articles = [] }: RecentNewsProps) {
   );
 }
 
-function NewsCard({ article, index }: { article: Article; index: number }) {
+function NewsCard({
+  article,
+  index,
+}: {
+  article: ArticleSummary;
+  index: number;
+}) {
   const formattedDate = article.publishedAt
     ? new Date(article.publishedAt)
         .toLocaleDateString("en-US", {

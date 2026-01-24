@@ -4,14 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import {
-  ArticleCategories,
-  ArticleStatus,
-  createArticleSchema,
-  type CreateArticleInput,
-  type ArticleCategory,
-} from "@/lib/types/articles";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Field,
   FieldDescription,
@@ -20,12 +14,18 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { ArticleEditor } from "./article-editor";
+import { Textarea } from "@/components/ui/textarea";
 import { createArticle, updateArticle } from "@/lib/actions/articles";
 import type { Article } from "@/lib/types/articles";
+import {
+  ArticleCategories,
+  type ArticleCategory,
+  ArticleStatus,
+  type CreateArticleInput,
+  createArticleSchema,
+} from "@/lib/types/articles";
+import { ArticleEditor } from "./article-editor";
 
 interface ArticleFormProps {
   article?: Article;
@@ -54,7 +54,7 @@ export function ArticleForm({ article, isEditing = false }: ArticleFormProps) {
 
   async function onSubmit(data: CreateArticleInput) {
     try {
-      let result;
+      let result: { success: boolean; error?: string };
 
       if (isEditing && article) {
         result = await updateArticle({

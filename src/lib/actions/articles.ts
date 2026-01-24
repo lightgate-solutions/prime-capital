@@ -1,21 +1,20 @@
 "use server";
 
+import { and, eq, like, not } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { db } from "@/db";
 import { article } from "@/db/schema";
 import { auth } from "@/lib/auth";
 import {
   ArticleStatus,
+  type CreateArticleInput,
   calculateReadTime,
   createArticleSchema,
-  updateArticleSchema,
-  type CreateArticleInput,
   type UpdateArticleInput,
+  updateArticleSchema,
 } from "@/lib/types/articles";
 import { ensureUniqueSlug, generateSlug } from "@/lib/utils/slug";
-import { and, eq, like, not, sql } from "drizzle-orm";
-import { headers } from "next/headers";
-import { revalidatePath } from "next/cache";
-import { checkSlugExists } from "@/db/queries/articles";
 
 async function requireAdmin() {
   const session = await auth.api.getSession({

@@ -1,5 +1,7 @@
 "use client";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   ArrowRight,
   BarChart3,
@@ -19,14 +21,13 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-import { Footer } from "@/components/footer";
-import { Navigation } from "@/components/navigation";
+
 import { CustomCards } from "@/components/custom-cards";
+import { Footer } from "@/components/footer";
 import { InvestmentApproach } from "@/components/investment-approach";
+import { Navigation } from "@/components/navigation";
 import { RecentNewsWrapper } from "@/components/recent-news-wrapper";
 
 export default function HomePage() {
@@ -295,7 +296,8 @@ export default function HomePage() {
   };
 
   const prevSlide = () => {
-    const prevIndex = (currentSlide - 1 + whyChooseUs.length) % whyChooseUs.length;
+    const prevIndex =
+      (currentSlide - 1 + whyChooseUs.length) % whyChooseUs.length;
     scrollToSlide(prevIndex);
   };
 
@@ -413,7 +415,7 @@ export default function HomePage() {
     }, 5000); // 5 seconds - standard carousel timing
 
     return () => clearInterval(interval);
-  }, [whyChooseUs.length]);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#0A1628] overflow-x-hidden">
@@ -475,7 +477,8 @@ export default function HomePage() {
               Prime Capital & Investment Limited is a Fund and Portfolio
               Management firm built on{" "}
               <span className="font-semibold text-white">
-                disciplined expertise, unwavering integrity, and a clear commitment to long-term wealth creation.
+                disciplined expertise, unwavering integrity, and a clear
+                commitment to long-term wealth creation.
               </span>
             </p>
 
@@ -523,9 +526,9 @@ export default function HomePage() {
             </h2>
             <p className="text-xl md:text-2xl text-[#0A1628]/70 leading-relaxed mb-8 font-light">
               We exist to help investors navigate complexity with confidence.
-              Through professional fund management, bespoke portfolio
-              solutions, and robust risk management, we transform financial
-              aspirations into enduring value.
+              Through professional fund management, bespoke portfolio solutions,
+              and robust risk management, we transform financial aspirations
+              into enduring value.
             </p>
             <p className="text-lg text-[#0A1628]/60 mb-12">
               At the heart of our identity are the colors that define our
@@ -537,7 +540,9 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#D4AF37] to-[#D4AF37]/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <div className="h-6 w-6 rounded-full bg-white" />
                   </div>
-                  <h4 className="font-display text-2xl font-bold text-[#0A1628]">Gold</h4>
+                  <h4 className="font-display text-2xl font-bold text-[#0A1628]">
+                    Gold
+                  </h4>
                 </div>
                 <p className="text-base text-[#0A1628]/70 leading-relaxed">
                   Represents excellence, confidence, and premium quality in
@@ -549,7 +554,9 @@ export default function HomePage() {
                   <div className="h-12 w-12 rounded-2xl bg-white border-2 border-[#0A1628]/30 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <div className="h-6 w-6 rounded-full bg-[#0A1628]/10 border-2 border-[#0A1628]/30" />
                   </div>
-                  <h4 className="font-display text-2xl font-bold text-[#0A1628]">White</h4>
+                  <h4 className="font-display text-2xl font-bold text-[#0A1628]">
+                    White
+                  </h4>
                 </div>
                 <p className="text-base text-[#0A1628]/70 leading-relaxed">
                   Symbolizes absolute transparency, integrity, and clarity in
@@ -585,8 +592,7 @@ export default function HomePage() {
                   Our Mission
                 </h3>
                 <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
-                  Grow and protect client wealth through disciplined
-                  strategies.
+                  Grow and protect client wealth through disciplined strategies.
                 </p>
               </div>
             </div>
@@ -671,7 +677,8 @@ export default function HomePage() {
                 designed to meet diverse client needs for wealth creation and
                 preservation, blending disciplined investment strategies with
                 innovative and transparent offerings. We provide access to a
-                range of professionally managed funds and bespoke portfolios. Our Offerings Include:
+                range of professionally managed funds and bespoke portfolios.
+                Our Offerings Include:
               </p>
             </div>
 
@@ -756,95 +763,92 @@ export default function HomePage() {
 
         {/* Horizontal Scroll Carousel - Full Width */}
         <div className="relative -mx-4 sm:-mx-6 md:mx-0 overflow-hidden">
-            {/* Navigation Arrows */}
-            <button
-              type="button"
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              type="button"
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
+          {/* Navigation Arrows */}
+          <button
+            type="button"
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            type="button"
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
 
-            {/* Carousel Container */}
-            <div
-              ref={whyChooseScrollRef}
-              className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            >
-              <div
-                ref={whyChooseCardsRef}
-                className="flex w-full"
-              >
-                {/* Slides */}
-                {whyChooseUs.map((item) => {
-                  return (
-                    <article
-                      key={item.title}
-                      className="group relative flex-shrink-0 h-[600px] snap-start"
-                      style={{ minWidth: "100%", width: "100%" }}
+          {/* Carousel Container */}
+          <div
+            ref={whyChooseScrollRef}
+            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            <div ref={whyChooseCardsRef} className="flex w-full">
+              {/* Slides */}
+              {whyChooseUs.map((item) => {
+                return (
+                  <article
+                    key={item.title}
+                    className="group relative flex-shrink-0 h-[600px] snap-start"
+                    style={{ minWidth: "100%", width: "100%" }}
+                  >
+                    {/* Card with image as background */}
+                    <div
+                      className="relative w-full h-full carousel-bg-position"
+                      style={{
+                        backgroundImage: `url(${item.image})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                      }}
                     >
-                      {/* Card with image as background */}
-                      <div
-                        className="relative w-full h-full carousel-bg-position"
-                        style={{ 
-                          backgroundImage: `url(${item.image})`,
-                          backgroundSize: "cover",
-                          backgroundRepeat: "no-repeat"
-                        }}
-                      >
-                        {/* Stronger gradient overlay for better text visibility */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 via-[#0A1628]/70 to-[#0A1628]/40" />
+                      {/* Stronger gradient overlay for better text visibility */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 via-[#0A1628]/70 to-[#0A1628]/40" />
 
-                        {/* Content overlay */}
-                        <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
-                          <div className="max-w-2xl">
-                            {/* Title */}
-                            <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
-                              {item.title}
-                            </h3>
+                      {/* Content overlay */}
+                      <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
+                        <div className="max-w-2xl">
+                          {/* Title */}
+                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                            {item.title}
+                          </h3>
 
-                            {/* Divider line */}
-                            <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
+                          {/* Divider line */}
+                          <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
 
-                            {/* Description */}
-                            <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
-                              {item.description}
-                            </p>
-                          </div>
+                          {/* Description */}
+                          <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
+                            {item.description}
+                          </p>
                         </div>
                       </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Dot Indicators */}
-            <div className="flex justify-center gap-3 mt-8 px-4 sm:px-6 md:px-0">
-              {whyChooseUs.map((item, index) => (
-                <button
-                  type="button"
-                  key={`${item.title}-${index}`}
-                  onClick={() => scrollToSlide(index)}
-                  className={`h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === index
-                      ? "w-8 bg-[#D4AF37]"
-                      : "w-3 bg-[#0A1628]/30 hover:bg-[#0A1628]/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
+
+          {/* Dot Indicators */}
+          <div className="flex justify-center gap-3 mt-8 px-4 sm:px-6 md:px-0">
+            {whyChooseUs.map((item, index) => (
+              <button
+                type="button"
+                key={`${item.title}-${index}`}
+                onClick={() => scrollToSlide(index)}
+                className={`h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? "w-8 bg-[#D4AF37]"
+                    : "w-3 bg-[#0A1628]/30 hover:bg-[#0A1628]/50"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Recent News Section */}
@@ -853,7 +857,7 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="pt-20 md:pt-32 pb-0 lg:py-0 bg-[#0A1628] text-white relative overflow-hidden">
         {/* Mobile & Tablet background image */}
-        <div 
+        <div
           className="absolute inset-0 lg:hidden z-0"
           style={{
             backgroundImage: "url('/group-ai-phptp.png')",
@@ -864,7 +868,7 @@ export default function HomePage() {
         />
         {/* Mobile & Tablet background overlay for text readability */}
         <div className="absolute inset-0 bg-[#0A1628]/80 lg:hidden z-0" />
-        
+
         {/* Desktop decorative elements */}
         <div className="absolute inset-0 opacity-10 hidden lg:block z-0">
           <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -877,8 +881,8 @@ export default function HomePage() {
                 Ready to Secure Your Future?
               </h2>
               <p className="text-xl mb-10 text-white/90">
-                Join a modern, dependable, and client-focused institution trusted to
-                steward wealth across market cycles.
+                Join a modern, dependable, and client-focused institution
+                trusted to steward wealth across market cycles.
               </p>
               <div className="flex flex-row flex-wrap gap-6 justify-center lg:justify-start">
                 <Link href="/contact">
