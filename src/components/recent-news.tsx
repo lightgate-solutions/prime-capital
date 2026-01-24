@@ -100,45 +100,47 @@ export function SignalsSection({ articles = [] }: RecentNewsProps) {
   }, []);
 
   return (
-    <section id="signals" ref={sectionRef} className="relative pl-4 ">
-      <div
-        ref={cursorRef}
-        className={cn(
-          "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50",
-          "w-12 h-12 rounded-full border-2 border-accent bg-accent",
-          "transition-opacity duration-300",
-          isHovering ? "opacity-100" : "opacity-0",
-        )}
-      />
+    <section id="signals" ref={sectionRef} className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div
+          ref={cursorRef}
+          className={cn(
+            "pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50",
+            "w-12 h-12 rounded-full border-2 border-accent bg-accent",
+            "transition-opacity duration-300",
+            isHovering ? "opacity-100" : "opacity-0",
+          )}
+        />
 
-      {/* Section header */}
-      <div ref={headerRef} className="mb-2 pr-6 ">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          Recent News
-        </span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
-          LATEST UPDATES
-        </h2>
-      </div>
+        {/* Section header */}
+        <div ref={headerRef} className="mb-12">
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+            Recent News
+          </span>
+          <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
+            LATEST UPDATES
+          </h2>
+        </div>
 
-      {/* Horizontal scroll container */}
-      <div
-        ref={(el) => {
-          scrollRef.current = el;
-          cardsRef.current = el;
-        }}
-        className="flex gap-8 overflow-x-auto pb-8 pr-12 scrollbar-hide"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {articles.length > 0 ? (
-          articles.map((article, index) => (
-            <NewsCard key={article.id} article={article} index={index} />
-          ))
-        ) : (
-          <p className="font-mono text-sm text-muted-foreground">
-            No recent news available
-          </p>
-        )}
+        {/* Horizontal scroll container */}
+        <div
+          ref={(el) => {
+            scrollRef.current = el;
+            cardsRef.current = el;
+          }}
+          className="flex gap-8 overflow-x-auto pb-8 pr-4 scrollbar-hide"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {articles.length > 0 ? (
+            articles.map((article, index) => (
+              <NewsCard key={article.id} article={article} index={index} />
+            ))
+          ) : (
+            <p className="font-mono text-sm text-muted-foreground">
+              No recent news available
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );

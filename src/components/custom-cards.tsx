@@ -141,7 +141,7 @@ export function CustomCards() {
           Built on Trust
         </h2>
 
-        <p className="font-mono text-[12px] mt-4 max-w-140  text-left">
+        <p className="text-base md:text-lg text-[#0A1628]/70 mt-4 max-w-2xl leading-relaxed">
           Our philosophy goes beyond asset management; it is a covenant of
           stewardship, excellence, and responsibility. Our core tenets are:
         </p>
@@ -153,11 +153,10 @@ export function CustomCards() {
           scrollRef.current = el;
           cardsRef.current = el;
         }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-x-auto pb-8 scrollbar-hide"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8"
       >
-        {signals.map((signal, index) => (
-          <SignalCard key={index} signal={signal} index={index} />
+        {signals.map((signal) => (
+          <SignalCard key={signal.title} signal={signal} />
         ))}
       </div>
     </section>
@@ -166,15 +165,13 @@ export function CustomCards() {
 
 function SignalCard({
   signal,
-  index,
 }: {
   signal: { date: string; title: string; note: string };
-  index: number;
 }) {
   return (
     <article
       className={cn(
-        "group relative flex-shrink-0 w-96 md:w-80",
+        "group relative w-full md:w-80",
         "transition-transform duration-500 ease-out",
         "hover:-translate-y-2",
       )}

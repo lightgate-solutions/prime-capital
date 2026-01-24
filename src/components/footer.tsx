@@ -4,7 +4,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  ArrowRight,
   Linkedin,
   Twitter,
   Instagram,
@@ -26,6 +25,8 @@ export function Footer() {
       { label: "Fixed Income", href: "/services" },
       { label: "Multi-Asset", href: "/services" },
       { label: "Ethical Products", href: "/services" },
+      { label: "Financial Advisory", href: "/services" },
+      { label: "Equity Investment", href: "/services" },
     ],
     legal: [
       { label: "Privacy Policy", href: "/privacy" },
@@ -112,8 +113,8 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-white mb-6">Services</h3>
             <ul className="flex flex-col gap-3 text-sm">
-              {footerLinks.services.map((link, idx) => (
-                <li key={idx}>
+              {footerLinks.services.map((link) => (
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="group text-white/70 hover:text-[#D4AF37] transition-colors flex items-center gap-2"

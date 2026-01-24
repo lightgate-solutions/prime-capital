@@ -365,3 +365,10 @@
   outline: 2px solid rgba(212, 175, 55, 0.5);
   outline-offset: 2px;
 }
+
+/* Responsive background position for carousel images */
+@media (min-width: 768px) {
+  .carousel-bg-position {
+    background-position: center 30%;
+  }
+}

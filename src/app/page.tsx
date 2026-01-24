@@ -3,42 +3,50 @@
 import {
   ArrowRight,
   BarChart3,
-  BrainCircuit,
   ChartCandlestick,
-  ChevronDown,
-  Eye,
-  Gem,
-  House,
+  ChevronLeft,
+  ChevronRight,
   Landmark,
   Mail,
   MapPin,
   NotebookTabs,
   Phone,
-  PlayCircle,
   Scale,
   Shield,
   ShieldCheck,
-  Target,
   TrendingUp,
-  Users,
-  Zap,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { CustomCards } from "@/components/custom-cards";
 import { InvestmentApproach } from "@/components/investment-approach";
-import OrbitalLogos from "@/components/orbiting-logos";
 import { RecentNewsWrapper } from "@/components/recent-news-wrapper";
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
+  const missionImageRef = useRef<HTMLDivElement>(null);
+  const missionCardRef = useRef<HTMLDivElement>(null);
+  const visionImageRef = useRef<HTMLDivElement>(null);
+  const visionCardRef = useRef<HTMLDivElement>(null);
+  const servicesSectionRef = useRef<HTMLElement>(null);
+  const servicesCursorRef = useRef<HTMLDivElement>(null);
+  const servicesCardsRef = useRef<HTMLDivElement>(null);
+  const whyChooseSectionRef = useRef<HTMLElement>(null);
+  const whyChooseCursorRef = useRef<HTMLDivElement>(null);
+  const whyChooseCardsRef = useRef<HTMLDivElement>(null);
+  const whyChooseScrollRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isServicesHovering, setIsServicesHovering] = useState(false);
+  const [isWhyChooseHovering, setIsWhyChooseHovering] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -53,6 +61,266 @@ export default function HomePage() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
     };
+  }, []);
+
+  // Mission & Vision animations
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Mission Image - slide in from left
+      if (missionImageRef.current) {
+        gsap.fromTo(
+          missionImageRef.current,
+          { x: -100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: missionImageRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      // Mission Card - slide in from right
+      if (missionCardRef.current) {
+        gsap.fromTo(
+          missionCardRef.current,
+          { x: 100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: missionCardRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      // Vision Card - slide in from left
+      if (visionCardRef.current) {
+        gsap.fromTo(
+          visionCardRef.current,
+          { x: -100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: visionCardRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+
+      // Vision Image - slide in from right
+      if (visionImageRef.current) {
+        gsap.fromTo(
+          visionImageRef.current,
+          { x: 100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: visionImageRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  // Services section cursor and animations
+  useEffect(() => {
+    if (!servicesSectionRef.current || !servicesCursorRef.current) return;
+
+    const section = servicesSectionRef.current;
+    const cursor = servicesCursorRef.current;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      gsap.to(cursor, {
+        x: x,
+        y: y,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    };
+
+    const handleMouseEnter = () => setIsServicesHovering(true);
+    const handleMouseLeave = () => setIsServicesHovering(false);
+
+    section.addEventListener("mousemove", handleMouseMove);
+    section.addEventListener("mouseenter", handleMouseEnter);
+    section.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      section.removeEventListener("mousemove", handleMouseMove);
+      section.removeEventListener("mouseenter", handleMouseEnter);
+      section.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!servicesSectionRef.current || !servicesCardsRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const cards = servicesCardsRef.current?.querySelectorAll("article");
+      if (cards) {
+        gsap.fromTo(
+          cards,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: servicesCardsRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+    }, servicesSectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Why Choose Us section cursor and animations
+  useEffect(() => {
+    if (!whyChooseSectionRef.current || !whyChooseCursorRef.current) return;
+
+    const section = whyChooseSectionRef.current;
+    const cursor = whyChooseCursorRef.current;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      gsap.to(cursor, {
+        x: x,
+        y: y,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    };
+
+    const handleMouseEnter = () => setIsWhyChooseHovering(true);
+    const handleMouseLeave = () => setIsWhyChooseHovering(false);
+
+    section.addEventListener("mousemove", handleMouseMove);
+    section.addEventListener("mouseenter", handleMouseEnter);
+    section.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      section.removeEventListener("mousemove", handleMouseMove);
+      section.removeEventListener("mouseenter", handleMouseEnter);
+      section.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!whyChooseSectionRef.current || !whyChooseCardsRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const cards = whyChooseCardsRef.current?.querySelectorAll("article");
+      if (cards) {
+        gsap.fromTo(
+          cards,
+          { x: 100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: whyChooseCardsRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      }
+    }, whyChooseSectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Carousel navigation functions
+  const scrollToSlide = (index: number) => {
+    if (!whyChooseScrollRef.current || !whyChooseCardsRef.current) return;
+    const container = whyChooseScrollRef.current;
+    const cards = whyChooseCardsRef.current;
+    const firstCard = cards.querySelector("article");
+    
+    if (!firstCard) return;
+    
+    const slideWidth = firstCard.offsetWidth;
+    const targetScroll = index * slideWidth;
+    
+    container.scrollTo({
+      left: targetScroll,
+      behavior: "smooth",
+    });
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    const nextIndex = (currentSlide + 1) % whyChooseUs.length;
+    scrollToSlide(nextIndex);
+  };
+
+  const prevSlide = () => {
+    const prevIndex = (currentSlide - 1 + whyChooseUs.length) % whyChooseUs.length;
+    scrollToSlide(prevIndex);
+  };
+
+  // Track current slide on scroll
+  useEffect(() => {
+    if (!whyChooseScrollRef.current || !whyChooseCardsRef.current) return;
+
+    const container = whyChooseScrollRef.current;
+    const cards = whyChooseCardsRef.current;
+    const firstCard = cards.querySelector("article");
+    
+    if (!firstCard) return;
+    
+    const handleScroll = () => {
+      const slideWidth = firstCard.offsetWidth;
+      const scrollLeft = container.scrollLeft;
+      const slideIndex = Math.round(scrollLeft / slideWidth);
+      
+      if (slideIndex >= 0 && slideIndex < whyChooseUs.length) {
+        setCurrentSlide(slideIndex);
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
   const services = [
@@ -94,111 +362,61 @@ export default function HomePage() {
     },
   ];
 
-  const investmentPillars = [
-    {
-      icon: BrainCircuit,
-      title: "Unwavering Integrity & Transparency ",
-      description:
-        "Clear reporting, ethical conduct, and strict regulatory compliance.",
-    },
-    {
-      icon: House,
-      title: "The Gold Standard of Excellence",
-      description:
-        "Professional expertise, disciplined research, and premium service delivery.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Disciplined Risk Management ",
-      description:
-        "A long-term, risk-aware investment philosophy focused on capital preservation.",
-    },
-    {
-      icon: Zap,
-      title: "Client-First Partnerships",
-      description:
-        "Bespoke solutions aligned with individual goals and aspirations.",
-    },
-    {
-      icon: Zap,
-      title: "Future-Ready Innovation",
-      description:
-        "Technology-enabled insights, sustainable practices, and modern portfolio design.",
-    },
-    {
-      icon: Zap,
-      title: "SEC-Regulated Assurance",
-      description:
-        "Confidence that your investments are managed within a robust regulatory framework.",
-    },
-  ];
-
   const whyChooseUs = [
     {
-      icon: Gem,
+      image: "/goldbars.png",
       title: "Gold Standard Excellence",
       description:
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      icon: Eye,
+      image: "/transparency.png",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
     },
     {
-      icon: Shield,
+      image: "/sec-bird-png.png",
       title: "SEC-Regulated Assurance",
       description:
         "Managed within a robust regulatory framework, strictly in accordance with the Investments & Securities Act.",
     },
     {
-      icon: Users,
+      image: "/client-handshake.png",
       title: "Client-First Partnerships",
       description:
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
   ];
 
-  const stats = [
-    { value: "₦50B+", label: "Assets Under Management" },
-    { value: "2,500+", label: "Active Clients" },
-    { value: "15+", label: "Years of Excellence" },
-    { value: "98%", label: "Client Retention" },
-  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#0A1628] overflow-x-hidden">
       <Navigation />
-      {/* Hero Section - Light & Sophisticated */}
+      {/* Hero Section - Modern with Background Image */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FDFCFA] via-[#F5F2ED] to-[#FDFCFA]"
+        className="relative min-h-screen flex items-center justify-start overflow-hidden"
+        style={{
+          backgroundImage: `url(/hero-image.png)`,
+          backgroundSize: "cover",
+          backgroundPosition: "75% center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
-        {/* Geometric Background Pattern */}
-        <div className="absolute inset-0 z-0 opacity-[0.03]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-              linear-gradient(to right, #0A1628 1px, transparent 1px),
-              linear-gradient(to bottom, #0A1628 1px, transparent 1px)
-            `,
-              backgroundSize: "60px 60px",
-            }}
-          />
-        </div>
+        {/* Dark overlay - darker on left, lighter on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/90 via-[#0A1628]/70 to-[#0A1628]/50 z-0" />
 
-        {/* Animated Accent Elements */}
+        {/* Subtle animated accent elements */}
         <div
-          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/8 rounded-full blur-[120px]"
+          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[120px] z-0"
           style={{
             transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * 0.015}px)`,
             transition: "transform 0.5s ease-out",
           }}
         />
         <div
-          className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-[#0A1628]/5 rounded-full blur-[100px]"
+          className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-[100px] z-0"
           style={{
             transform: `translate(${-mousePosition.x * 0.01}px, ${-mousePosition.y * 0.01}px)`,
             transition: "transform 0.5s ease-out",
@@ -206,47 +424,39 @@ export default function HomePage() {
         />
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <div className="text-center">
+        <div className="relative z-10 px-4 sm:px-6 lg:px-12 xl:px-20 pt-32 pb-20">
+          <div className="max-w-3xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#0A1628] text-white text-sm font-semibold px-6 py-3 rounded-full mb-8 shadow-elevated">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold px-6 py-3 rounded-full mb-8 shadow-elevated">
               <ShieldCheck className="h-4 w-4" />
               <span>SEC Registered & Regulated Financial Institution</span>
             </div>
 
             {/* Main Headline */}
-            <p>Preserving</p>
             <h1
-              className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-8 tracking-tight text-[#0A1628]"
+              className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 tracking-tight text-white leading-tight drop-shadow-2xl"
               style={{
-                transform: `translateY(${scrollY * 0.2}px)`,
-                opacity: 1 - scrollY * 0.002,
+                transform: `translateY(${scrollY * 0.1}px)`,
+                opacity: 1 - scrollY * 0.001,
               }}
             >
-              Wealth,
-              <span className="relative inline-block">
-                <span className="relative z-10 ">Trust,</span>
-                <span className="absolute -bottom-2 left-0 right-0 h-3 bg-[#D4AF37]/20 -z-10" />
-              </span>{" "}
-              & Value
+              At Prime Capital — We Preserve Trust, Wealth & Value
             </h1>
 
-            <p className="text-lg md:text-xl text-[#0A1628]/60 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed drop-shadow-lg">
               Prime Capital & Investment Limited is a Fund and Portfolio
               Management firm built on{" "}
-              <span className="font-semibold">
-                confidentiality, disciplined expertise, unwavering integrity,
-                and a clear commitment to long-term wealth creation and
-                preservation.
+              <span className="font-semibold text-white">
+                disciplined expertise, unwavering integrity, and a clear commitment to long-term wealth creation.
               </span>
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-6">
               <Link href="/contact">
                 <button
                   type="button"
-                  className="group relative hover:cursor-pointer px-10 py-5 bg-[#0A1628] text-white rounded-full font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 shadow-elevated-lg hover:shadow-2xl"
+                  className="group relative hover:cursor-pointer px-10 py-5 bg-[#D4AF37] text-[#0A1628] rounded-full font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 shadow-elevated-lg hover:shadow-2xl"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     Start Investing
@@ -258,41 +468,65 @@ export default function HomePage() {
               <Link href="/about">
                 <button
                   type="button"
-                  className="group hover:cursor-pointer px-10 py-5 border-2 border-[#0A1628]/20 text-[#0A1628] rounded-full font-bold text-lg hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition-all duration-300 flex items-center gap-2"
+                  className="group hover:cursor-pointer px-10 py-5 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:border-[#D4AF37] hover:bg-[#D4AF37]/20 backdrop-blur-sm transition-all duration-300 flex items-center gap-2"
                 >
                   <NotebookTabs className="h-5 w-5" />
-                  More about us
+                  Our Philosophy
                 </button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* About Brief Section */}
+      <section className="py-24 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
+        {/* Enhanced Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[200px]" />
+          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#0A1628]/8 rounded-full blur-[200px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#D4AF37]/5 to-[#0A1628]/5 rounded-full blur-[250px]" />
+        </div>
 
-            <p className="text-lg md:text-xl text-[#0A1628]/60 mb-12 max-w-3xl mx-auto leading-relaxed">
+        <div className="max-w-7xl mx-auto relative z-10 space-y-32">
+          {/* About Us Subsection */}
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 bg-[#0A1628] text-white text-xs font-semibold px-5 py-2 rounded-full mb-8 tracking-wider uppercase">
+              Our Foundation
+            </div>
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-[#0A1628] leading-tight">
+              About Us
+            </h2>
+            <p className="text-xl md:text-2xl text-[#0A1628]/70 leading-relaxed mb-8 font-light">
+              We exist to help investors navigate complexity with confidence.
+              Through professional fund management, bespoke portfolio
+              solutions, and robust risk management, we transform financial
+              aspirations into enduring value.
+            </p>
+            <p className="text-lg text-[#0A1628]/60 mb-12">
               At the heart of our identity are the colors that define our
               promise:
             </p>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <div className="p-4 shadow shadow-black bg-muted/50 border border-border">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
-                    <div className="h-4 w-4 rounded-full bg-primary" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              <div className="group p-8 rounded-3xl bg-white border-2 border-[#D4AF37]/30 shadow-elevated-lg hover:shadow-2xl hover:border-[#D4AF37] transition-all duration-500 hover:-translate-y-2">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-[#D4AF37] to-[#D4AF37]/80 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="h-6 w-6 rounded-full bg-white" />
                   </div>
-                  <h4 className="font-bold">Gold</h4>
+                  <h4 className="font-display text-2xl font-bold text-[#0A1628]">Gold</h4>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-[#0A1628]/70 leading-relaxed">
                   Represents excellence, confidence, and premium quality in
                   every mandate.
                 </p>
               </div>
-
-              <div className="p-4 shadow shadow-black bg-white border border-border shadow-sm">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center border border-border">
-                    <div className="h-4 w-4 rounded-full bg-white border border-muted-foreground/20" />
+              <div className="group p-8 rounded-3xl bg-gradient-to-br from-white to-[#F5F2ED] border-2 border-[#0A1628]/20 shadow-elevated-lg hover:shadow-2xl hover:border-[#0A1628]/40 transition-all duration-500 hover:-translate-y-2">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-12 w-12 rounded-2xl bg-white border-2 border-[#0A1628]/30 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="h-6 w-6 rounded-full bg-[#0A1628]/10 border-2 border-[#0A1628]/30" />
                   </div>
-                  <h4 className="font-bold">White</h4>
+                  <h4 className="font-display text-2xl font-bold text-[#0A1628]">White</h4>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-base text-[#0A1628]/70 leading-relaxed">
                   Symbolizes absolute transparency, integrity, and clarity in
                   every relationship.
                 </p>
@@ -300,18 +534,73 @@ export default function HomePage() {
             </div>
           </div>
 
-          <p className="md:text-lg text-[#0A1628]/60 mb-6 max-w-3xl mx-auto leading-normal text-center mt-12">
-            Together, these values define a modern, dependable, and
-            client-focused institution trusted to steward wealth across market
-            cycles.
-          </p>
+          {/* Mission Section */}
+          <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden group">
+            <div
+              ref={missionImageRef}
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image
+                src="/mission.png"
+                alt="Growth"
+                width={1200}
+                height={600}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            {/* Gradient overlay on the right side to avoid center text */}
+            <div className="absolute inset-0 bg-gradient-to-l from-[#D4AF37] via-[#D4AF37]/95 md:from-[#D4AF37]/95 md:via-[#D4AF37]/80 via-[#D4AF37]/40 to-[#0A1628]/80 md:to-transparent" />
+            {/* Text content positioned on the right to avoid center image text */}
+            <div
+              ref={missionCardRef}
+              className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 flex items-center justify-end p-8 md:p-12 z-10"
+            >
+              <div className="max-w-md text-right lg:text-left">
+                <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+                  Our Mission
+                </h3>
+                <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
+                  Grow and protect client wealth through disciplined
+                  strategies.
+                </p>
+              </div>
+            </div>
+          </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-            <ChevronDown className="h-8 w-8 text-[#0A1628]/40" />
+          {/* Vision Section */}
+          <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden group">
+            <div
+              ref={visionImageRef}
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image
+                src="/vision.png"
+                width={1200}
+                height={600}
+                alt="Wealth"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            {/* Gradient overlay that merges text card into image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/80 via-[#0A1628]/40 to-transparent" />
+            {/* Text content positioned on the left */}
+            <div
+              ref={visionCardRef}
+              className="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 flex items-center p-8 md:p-12 z-10"
+            >
+              <div className="max-w-md">
+                <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+                  Our Vision
+                </h3>
+                <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
+                  To be one of the most trusted partners in wealth management.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
       <section className="py-8 md:py-16 px-4 sm:px-6 lg:px-8 bg-white relative">
         <div className="absolute inset-0 opacity-[0.02]">
           <div
@@ -331,7 +620,17 @@ export default function HomePage() {
 
       <InvestmentApproach />
       {/* Services Section - Asymmetric Layout */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#0A1628] relative overflow-hidden">
+      <section
+        ref={servicesSectionRef}
+        className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#0A1628] relative overflow-hidden"
+      >
+        {/* Cursor effect */}
+        <div
+          ref={servicesCursorRef}
+          className="pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full border-2 border-[#D4AF37] bg-[#D4AF37]/20 transition-opacity duration-300"
+          style={{ opacity: isServicesHovering ? 1 : 0 }}
+        />
+
         {/* Background Decoration */}
         <div className="absolute top-1/4 right-0 w-1/3 h-96 bg-[#D4AF37]/10 blur-[150px] rounded-full" />
 
@@ -361,76 +660,227 @@ export default function HomePage() {
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => {
-              const Icon = service.icon;
+          <div
+            ref={servicesCardsRef}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {services.map((service) => {
               return (
-                <Card
-                  key={index}
-                  className="group bg-white/5 border-white/10 hover:border-[#D4AF37] transition-all duration-300 hover:-translate-y-1 backdrop-blur-sm shadow-elevated hover:shadow-elevated-lg"
+                <article
+                  key={service.title}
+                  className="group relative transition-transform duration-500 ease-out hover:-translate-y-2 h-full"
                 >
-                  <CardContent className="pt-8">
-                    <div className="h-14 w-14 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center mb-6 group-hover:bg-[#D4AF37] transition-all duration-300 group-hover:scale-110">
-                      <Icon className="h-7 w-7 text-[#D4AF37] group-hover:text-[#0A1628] transition-colors duration-300" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-[#D4AF37] transition-colors">
+                  {/* Card with paper texture effect */}
+                  <div className="relative bg-white/5 border border-[#D4AF37]/20 md:border-t md:border-l md:border-r-0 md:border-b-0 p-6 h-full">
+                    {/* Top torn edge effect */}
+                    <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
+
+                    {/* Title */}
+                    <h3 className="font-display text-xl tracking-tight mb-3 text-white group-hover:text-[#D4AF37] transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-white/70 leading-relaxed text-sm">
+
+                    {/* Divider line */}
+                    <div className="w-12 h-px bg-[#D4AF37]/60 mb-4 group-hover:w-full transition-all duration-500" />
+
+                    {/* Description */}
+                    <p className="text-sm text-white/70 leading-relaxed">
                       {service.description}
                     </p>
-                  </CardContent>
-                </Card>
+
+                    {/* Bottom right corner fold effect */}
+                    <div className="absolute bottom-0 right-0 w-6 h-6 overflow-hidden">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 bg-[#0A1628] rotate-45 translate-x-4 translate-y-4 border-t border-l border-[#D4AF37]/30" />
+                    </div>
+                  </div>
+
+                  {/* Shadow/depth layer */}
+                  <div className="absolute inset-0 -z-10 translate-x-1 translate-y-1 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </article>
               );
             })}
           </div>
         </div>
       </section>
       {/* Investment Approach - Light Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
+      <section
+        ref={whyChooseSectionRef}
+        className="py-20 md:py-32 px-0 md:px-4 lg:px-8 bg-[#FDFCFA] relative overflow-hidden"
+      >
+        {/* Cursor effect */}
+        <div
+          ref={whyChooseCursorRef}
+          className="pointer-events-none absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full border-2 border-[#D4AF37] bg-[#D4AF37]/20 transition-opacity duration-300"
+          style={{ opacity: isWhyChooseHovering ? 1 : 0 }}
+        />
+
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#D4AF37]/8 rounded-full blur-[150px]" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0A1628]/5 rounded-full blur-[150px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 bg-[#0A1628] text-white text-sm font-bold px-5 py-2 rounded-full mb-6">
               Why Us ?
             </div>
             <h2 className="font-display text-5xl md:text-7xl font-bold mb-6 text-[#0A1628]">
-              Why Choose Prime Capital & Investment Limited
+              Why Choose Prime Capital
             </h2>
             <p className="text-xl text-[#0A1628]/60 max-w-4xl mx-auto leading-relaxed">
-              Choosing a wealth manager is a decision of trust. Clients choose
-              Prime Capital & Investment Limited because we offer:
+              Choosing a wealth manager is a decision of trust. We build
+              enduring financial partnerships designed to empower confidence,
+              stability, and prosperity.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {investmentPillars.map((pillar, index) => {
-              return (
-                <div
-                  key={index}
-                  className="group flex gap-6 p-8 rounded-2xl bg-white border border-[#0A1628]/5 hover:border-[#D4AF37] transition-all duration-300 shadow-elevated hover:shadow-elevated-lg hover:-translate-y-1"
-                >
-                  <div>
-                    <h3 className="text-2xl font-display font-bold mb-3 text-[#0A1628] group-hover:text-[#D4AF37] transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-[#0A1628]/70 leading-relaxed">
-                      {pillar.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
+
+        {/* Horizontal Scroll Carousel - Full Width */}
+        <div className="relative -mx-4 sm:-mx-6 md:mx-0 overflow-hidden">
+            {/* Navigation Arrows */}
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Carousel Container */}
+            <div
+              ref={whyChooseScrollRef}
+              className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              <div
+                ref={whyChooseCardsRef}
+                className="flex w-full"
+              >
+                {/* Slides */}
+                {whyChooseUs.map((item) => {
+                  return (
+                    <article
+                      key={item.title}
+                      className="group relative flex-shrink-0 h-[600px] snap-start"
+                      style={{ minWidth: "100%", width: "100%" }}
+                    >
+                      {/* Card with image as background */}
+                      <div
+                        className="relative w-full h-full carousel-bg-position"
+                        style={{ 
+                          backgroundImage: `url(${item.image})`,
+                          backgroundSize: "cover",
+                          backgroundRepeat: "no-repeat"
+                        }}
+                      >
+                        {/* Stronger gradient overlay for better text visibility */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 via-[#0A1628]/70 to-[#0A1628]/40" />
+
+                        {/* Content overlay */}
+                        <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
+                          <div className="max-w-2xl">
+                            {/* Title */}
+                            <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                              {item.title}
+                            </h3>
+
+                            {/* Divider line */}
+                            <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
+
+                            {/* Description */}
+                            <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Dot Indicators */}
+            <div className="flex justify-center gap-3 mt-8 px-4 sm:px-6 md:px-0">
+              {whyChooseUs.map((item, index) => (
+                <button
+                  type="button"
+                  key={`${item.title}-${index}`}
+                  onClick={() => scrollToSlide(index)}
+                  className={`h-3 rounded-full transition-all duration-300 ${
+                    currentSlide === index
+                      ? "w-8 bg-[#D4AF37]"
+                      : "w-3 bg-[#0A1628]/30 hover:bg-[#0A1628]/50"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
       </section>
 
       {/* Recent News Section */}
       <RecentNewsWrapper />
+
+      {/* CTA Section */}
+      <section className="pt-20 md:pt-32 pb-0 lg:py-0 bg-[#0A1628] text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            <div className="px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-20 text-center lg:text-left flex flex-col justify-center">
+              <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
+                Ready to Secure Your Future?
+              </h2>
+              <p className="text-xl mb-10 text-white/90">
+                Join a modern, dependable, and client-focused institution trusted to
+                steward wealth across market cycles.
+              </p>
+              <div className="flex flex-row flex-wrap gap-6 justify-center lg:justify-start">
+                <Link href="/contact">
+                  <button
+                    type="button"
+                    className="group hover:cursor-pointer bg-white text-[#0A1628] hover:bg-white/90 px-10 py-5 rounded-full font-bold text-lg transition-colors shadow-elevated-lg hover:shadow-2xl flex items-center gap-2"
+                  >
+                    Get Started Now
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </Link>
+                <Link href="/about">
+                  <button
+                    type="button"
+                    className="hover:cursor-pointer bg-transparent border-2 border-white/30 hover:border-white text-white px-10 py-5 rounded-full font-bold text-lg transition-colors"
+                  >
+                    Learn More
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="relative h-[50vh] lg:h-full w-[100vw] left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:w-[calc((100vw-1280px)/2+640px)] lg:translate-x-0">
+              <Image
+                src="/group-ai-phptp.png"
+                width={1200}
+                height={800}
+                alt="Prime Capital Team"
+                className="w-full h-full object-cover"
+                quality={95}
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -461,7 +911,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
-                      Phone
+                      Telephone
                     </h4>
                     <p className="text-[#0A1628]/70">+234 (0) 9 123 4567</p>
                   </div>

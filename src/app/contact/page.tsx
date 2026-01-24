@@ -56,7 +56,7 @@ export default function ContactPage() {
       details: [
         "+234 (0) 9 123 4567",
         "+234 (0) 800 PRIME CAP",
-        "Mon - Fri: 8:00 AM - 5:00 PM",
+        "Mon - Fri: 9:00 AM - 5:00 PM",
       ],
     },
     {
@@ -72,7 +72,8 @@ export default function ContactPage() {
       icon: Clock,
       title: "Business Hours",
       details: [
-        "Monday - Friday: 8:00 AM - 5:00 PM",
+        "Our office time is 9:00am-5:00pm",
+        "Monday - Friday",
         "Saturday - Sunday: Closed",
         "Public Holidays: Closed",
       ],

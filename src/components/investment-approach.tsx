@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Dot, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useState } from "react";
 
 type FAQItem = {
@@ -16,50 +16,22 @@ const defaultFAQs = [
   {
     question: "Strategic Discovery & Alignment",
     answer:
-      "We begin with a deep understanding of each client’s financial position, objectives, and risk tolerance. This ensures every portfolio is aligned with clear goals and realistic expectations.",
+      "We begin with a deep understanding of each client's financial position, objectives, and risk tolerance, ensuring every portfolio is aligned with clear goals.",
   },
   {
-    question: "Disciplined Asset Allocation & Diversification",
+    question: "Disciplined Asset Allocation",
     answer:
-      "We construct resilient portfolios using a Total Portfolio Approach (TPA), ensuring assets work collectively rather than in isolation. Diversification spans equities, fixed income, and alternative assets to manage risk and enhance returns.",
+      "We construct resilient portfolios using a Total Portfolio Approach (TPA), ensuring assets work collectively across equities, fixed income, and alternatives.",
   },
   {
-    question: "Integrated Risk Management & Transparency",
-    answer: (
-      <span>
-        <span>
-          Risk management is continuous. We view risk management as an active,
-          24/7 commitment. Represented by our commitment to "White"
-          transparency, we provide clear, real-time insights into your
-          portfolio's performance. Our risk framework includes:
-        </span>
-        <br />
-        <span>
-          <span className="pt-2 flex items-center">
-            <span className="font-bold">ESG Integration</span>
-          </span>
-          <span className="ml-4 text-balance">
-            Systematically screening investments for environmental, social, and
-            governance factors to ensure sustainable, long-term returns.
-          </span>
-        </span>
-        <span>
-          <span className="pt-2 flex items-center">
-            <span className="font-bold">Dynamic Rebalancing</span>
-          </span>
-          <span className="ml-4 text-balance">
-            Regularly adjusting your holdings to maintain your target risk
-            profile, preventing market volatility from causing unauthorized
-            deviations from your plan.
-          </span>
-        </span>
-      </span>
-    ),
+    question: "Integrated Risk Management",
+    answer:
+      "Risk management is a 24/7 commitment. We provide clear, real-time insights and ESG integration to ensure sustainable, long-term returns.",
   },
   {
     question: "Innovation-Led Stewardship",
     answer:
-      "We enhance human expertise with advanced analytics, AI-enabled insights, and scenario modeling—stress-testing portfolios across market cycles while optimizing tax efficiency and legacy outcomes.",
+      "We enhance human expertise with advanced analytics, AI-enabled insights, and scenario modeling to stress-test portfolios across market cycles.",
   },
 ];
 
@@ -72,7 +44,7 @@ export const InvestmentApproach = ({
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <section className="relative p-4 min-h-screen flex justify-center overflow-hidden bg-gradient-to-br from-[#FDFCFA] via-[#F5F2ED] to-[#FDFCFA]">
+    <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-[#FDFCFA] via-[#F5F2ED] to-[#FDFCFA]">
       {/* Geometric Background Pattern */}
       <div className="absolute inset-0 z-0 opacity-[0.03]">
         <div
@@ -86,22 +58,15 @@ export const InvestmentApproach = ({
           }}
         />
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-12 gap-16">
           {/* Left Column - Title */}
           <div className="lg:col-span-4">
-            <h2
-              className="text-[40px] leading-tight font-normal text-[#202020] tracking-tight sticky top-10"
-              style={{
-                fontFamily: "var(--font-figtree), Figtree",
-                fontWeight: "400",
-                fontSize: "40px",
-              }}
-            >
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A1628] leading-tight tracking-tight sticky top-10">
               {title}
             </h2>
-            <p className="md:text-lg text-[#0A1628]/60 mb-6 max-w-3xl mx-auto leading-normal text-left pt-16">
-              At Prime Capital & Investment Limited, we believe that exceptional
+            <p className="md:text-lg text-[#0A1628]/60 mb-6 max-w-3xl mx-auto leading-relaxed text-left pt-16">
+              At Prime Capital & Investment Limited, we believe that
               wealth management is the result of a rigorous, systematic process
               that balances data-driven innovation with timeless investment
               principles.
@@ -113,7 +78,7 @@ export const InvestmentApproach = ({
             <div className="space-y-0">
               {faqs.map((faq, index) => (
                 <div
-                  key={index}
+                  key={faq.question}
                   className="border-b border-[#e5e5e5] last:border-b-0"
                 >
                   <button
@@ -122,13 +87,7 @@ export const InvestmentApproach = ({
                     className="w-full relative flex items-center justify-between py-6 text-left group hover:opacity-70 transition-opacity duration-150"
                     aria-expanded={openIndex === index}
                   >
-                    <span
-                      className="text-lg leading-7 text-[#202020] pr-8"
-                      style={{
-                        fontFamily: "var(--font-figtree), Figtree",
-                        fontWeight: "400",
-                      }}
-                    >
+                    <span className="text-lg md:text-xl leading-7 text-[#0A1628] pr-8 font-semibold">
                       {faq.question}
                     </span>
                     <motion.div
@@ -142,7 +101,7 @@ export const InvestmentApproach = ({
                       className="flex-shrink-0"
                     >
                       <Plus
-                        className="w-6 h-6 text-[#202020]"
+                        className="w-6 h-6 text-[#0A1628]"
                         strokeWidth={1.5}
                       />
                     </motion.div>
@@ -170,12 +129,7 @@ export const InvestmentApproach = ({
                         className="overflow-hidden"
                       >
                         <div className="pb-6 pr-12">
-                          <p
-                            className="text-lg leading-6 text-[#666666]"
-                            style={{
-                              fontFamily: "var(--font-figtree), Figtree",
-                            }}
-                          >
+                          <p className="text-base md:text-lg leading-relaxed text-[#0A1628]/70">
                             {faq.answer}
                           </p>
                         </div>
@@ -187,12 +141,6 @@ export const InvestmentApproach = ({
             </div>
           </div>
         </div>
-        <p className="md:text-lg text-[#0A1628]/60 mb-6 max-w-3xl mx-auto leading-normal text-left pt-16">
-          By combining professional guidance with disciplined automation, Prime
-          Capital & Investment Limited delivers a sophisticated investment
-          experience that helps you flourish in today’s complex financial
-          environment.
-        </p>
       </div>
     </section>
   );

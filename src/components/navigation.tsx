@@ -4,19 +4,32 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(true);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      // Only check hero position on home page
+      if (isHomePage) {
+        const heroHeight = window.innerHeight;
+        setIsOverHero(window.scrollY < heroHeight * 0.8);
+      } else {
+        setIsOverHero(false);
+      }
     };
     window.addEventListener("scroll", handleScroll);
+    // Check on mount
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -49,11 +62,15 @@ export function Navigation() {
               <div className="absolute inset-0 rounded-full bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
             </div>
             <div>
-              <span className="font-display text-xl font-bold text-[#0A1628] tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">
+              <span className={`font-display text-xl font-bold tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300 ${
+                isHomePage && isOverHero ? "text-white" : "text-[#0A1628]"
+              }`}>
                 Prime Capital
               </span>
-              <p className="text-[10px] text-[#0A1628]/50 uppercase tracking-widest">
-                Wealth Management
+              <p className={`text-[10px] uppercase tracking-widest ${
+                isHomePage && isOverHero ? "text-white/70" : "text-[#0A1628]/50"
+              }`}>
+                Investment LTD
               </p>
             </div>
           </Link>
@@ -64,10 +81,16 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative text-sm font-semibold text-[#0A1628]/70 hover:text-[#0A1628] transition-colors duration-300"
+                className={`group relative text-sm font-semibold transition-colors duration-300 ${
+                  isHomePage && isOverHero 
+                    ? "text-white/90 hover:text-white" 
+                    : "text-[#0A1628]/70 hover:text-[#0A1628]"
+                }`}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#D4AF37] group-hover:w-full transition-all duration-300" />
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${
+                  isHomePage && isOverHero ? "bg-white" : "bg-[#D4AF37]"
+                }`} />
               </Link>
             ))}
           </div>
@@ -75,7 +98,11 @@ export function Navigation() {
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
             <Button
-              className="group relative px-6 py-3 bg-[#0A1628] text-white rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 overflow-hidden shadow-elevated"
+              className={`group relative px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 overflow-hidden shadow-elevated ${
+                isHomePage && isOverHero 
+                  ? "bg-[#D4AF37] text-[#0A1628] hover:bg-[#D4AF37]/90" 
+                  : "bg-[#0A1628] text-white hover:bg-[#0A1628]/90"
+              }`}
               asChild
             >
               <Link href="/contact">
@@ -87,7 +114,9 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="lg:hidden p-2 text-[#0A1628] hover:text-[#D4AF37] transition-colors relative group"
+            className={`lg:hidden p-2 hover:text-[#D4AF37] transition-colors relative group ${
+              isHomePage && isOverHero ? "text-white" : "text-[#0A1628]"
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
