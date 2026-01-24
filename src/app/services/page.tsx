@@ -271,6 +271,32 @@ export default function ServicesPage() {
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Auto-play carousel
+  useEffect(() => {
+    if (!advantageScrollRef.current || !advantageCardsRef.current) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => {
+        const nextIndex = (prev + 1) % whyChooseUs.length;
+        const container = advantageScrollRef.current;
+        const cards = advantageCardsRef.current;
+        const firstCard = cards?.querySelector("article");
+
+        if (container && cards && firstCard) {
+          const slideWidth = firstCard.offsetWidth;
+          const targetScroll = nextIndex * slideWidth;
+          container.scrollTo({
+            left: targetScroll,
+            behavior: "smooth",
+          });
+        }
+        return nextIndex;
+      });
+    }, 5000); // 5 seconds - standard carousel timing
+
+    return () => clearInterval(interval);
+  }, [whyChooseUs.length]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />

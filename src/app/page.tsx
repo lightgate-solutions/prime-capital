@@ -389,6 +389,32 @@ export default function HomePage() {
     },
   ];
 
+  // Auto-play carousel
+  useEffect(() => {
+    if (!whyChooseScrollRef.current || !whyChooseCardsRef.current) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => {
+        const nextIndex = (prev + 1) % whyChooseUs.length;
+        const container = whyChooseScrollRef.current;
+        const cards = whyChooseCardsRef.current;
+        const firstCard = cards?.querySelector("article");
+
+        if (container && cards && firstCard) {
+          const slideWidth = firstCard.offsetWidth;
+          const targetScroll = nextIndex * slideWidth;
+          container.scrollTo({
+            left: targetScroll,
+            behavior: "smooth",
+          });
+        }
+        return nextIndex;
+      });
+    }, 5000); // 5 seconds - standard carousel timing
+
+    return () => clearInterval(interval);
+  }, [whyChooseUs.length]);
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FDFCFA] text-[#0A1628] overflow-x-hidden">
       <Navigation />
@@ -492,9 +518,6 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10 space-y-32">
           {/* About Us Subsection */}
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-[#0A1628] text-white text-xs font-semibold px-5 py-2 rounded-full mb-8 tracking-wider uppercase">
-              Our Foundation
-            </div>
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-[#0A1628] leading-tight">
               About Us
             </h2>
@@ -720,11 +743,8 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-[#0A1628]/20 border-2 border-[#0A1628] text-[#0A1628] text-sm font-bold px-5 py-2 rounded-full mb-6">
-              Why Us ?
-            </div>
             <h2 className="font-display text-5xl md:text-7xl font-bold mb-6 text-[#0A1628]">
-              Why Choose Prime Capital
+              Why Choose Prime Capital?
             </h2>
             <p className="text-xl text-[#0A1628]/60 max-w-4xl mx-auto leading-relaxed">
               Choosing a wealth manager is a decision of trust. We build

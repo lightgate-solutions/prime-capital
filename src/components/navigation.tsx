@@ -83,14 +83,12 @@ export function Navigation() {
                 href={link.href}
                 className={`group relative text-sm font-semibold transition-colors duration-300 ${
                   isHomePage && isOverHero 
-                    ? "text-white/90 hover:text-white" 
-                    : "text-[#0A1628]/70 hover:text-[#0A1628]"
+                    ? "text-white/90 hover:text-[#D4AF37]" 
+                    : "text-[#0A1628]/70 hover:text-[#D4AF37]"
                 }`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${
-                  isHomePage && isOverHero ? "bg-white" : "bg-[#D4AF37]"
-                }`} />
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-[#D4AF37]`} />
               </Link>
             ))}
           </div>
