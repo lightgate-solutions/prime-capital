@@ -590,9 +590,7 @@ export default function AboutPage() {
                     We are registered with and regulated by the Securities and
                     Exchange Commission (SEC), Nigeria, and operate strictly in
                     accordance with the Investments & Securities Act (ISA) 2025,
-                    as amended and applicable SEC Rules. All pooled and
-                    discretionary products are subject to regulatory approval or
-                    “no objection” where required.
+                    as amended and applicable SEC Rules.
                   </p>
                 </div>
               </div>

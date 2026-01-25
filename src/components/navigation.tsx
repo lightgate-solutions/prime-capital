@@ -112,7 +112,7 @@ export function Navigation() {
               asChild
             >
               <Link href="/contact">
-                <span className="relative z-10">Start Investing</span>
+                <span className="relative z-10">Contact Us</span>
               </Link>
             </Button>
           </div>
@@ -157,7 +157,7 @@ export function Navigation() {
                 asChild
               >
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                  Start Investing
+                  Contact Us
                 </Link>
               </Button>
             </div>

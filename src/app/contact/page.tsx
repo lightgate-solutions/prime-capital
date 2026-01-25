@@ -53,7 +53,7 @@ export default function ContactPage() {
       icon: Phone,
       title: "Telephone",
       details: [
-        "+234 (0) 9 123 4567",
+        "+234 (0) 811 183 7348",
         "+234 (0) 800 PRIME CAP",
         "Mon - Fri: 9:00 AM - 5:00 PM",
       ],
@@ -282,16 +282,18 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="rounded-3xl overflow-hidden h-64 relative border border-border shadow-2xl">
-                <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-muted flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                    <p className="font-bold">Maitama, Abuja</p>
-                    <p className="text-sm text-muted-foreground">
-                      No. 3, Sankuru Close
-                    </p>
-                  </div>
-                </div>
+              <div className="rounded-3xl overflow-hidden h-[400px] md:h-[500px] relative border border-border shadow-2xl">
+                <iframe
+                  src="https://www.google.com/maps?q=No.+3,+Sankuru+Close,+Maitama,+Abuja,+Nigeria&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                  title="Prime Capital Office Location - No. 3, Sankuru Close, Maitama, Abuja, Nigeria"
+                />
               </div>
             </div>
           </div>

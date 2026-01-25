@@ -470,7 +470,7 @@ export default function HomePage() {
                 opacity: 1 - scrollY * 0.001,
               }}
             >
-              We Preserve Trust, Wealth & Value
+              We Build Trust & Preserve Wealth
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed drop-shadow-lg">
@@ -949,7 +949,7 @@ export default function HomePage() {
                     <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
                       Telephone
                     </h4>
-                    <p className="text-[#0A1628]/70">+234 (0) 9 123 4567</p>
+                    <p className="text-[#0A1628]/70">+234 (0) 811 183 7348</p>
                   </div>
                 </div>
 
