@@ -676,8 +676,7 @@ export default function HomePage() {
             </div>
 
             <div className="relative hidden md:block">
-              <div className="aspect-square rounded-full border-2 border-[#D4AF37]/30 absolute -inset-4 animate-[spin_30s_linear_infinite]" />
-              <div className="aspect-square rounded-full border border-[#D4AF37]/15 absolute -inset-8 animate-[spin_40s_linear_infinite_reverse]" />
+              {/* Decorative element removed to reduce distraction from text */}
             </div>
           </div>
 
