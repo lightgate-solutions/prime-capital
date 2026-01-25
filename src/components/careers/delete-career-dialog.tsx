@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast } from "sonner";
 import {
   AlertDialog,
@@ -15,7 +16,6 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { Trash2 } from "lucide-react";
 import { deleteCareer } from "@/lib/actions/careers";
 
 interface DeleteCareerDialogProps {

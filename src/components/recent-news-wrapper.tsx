@@ -1,15 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SignalsSection } from "./recent-news";
-import type { Article } from "@/lib/types/articles";
+import { type ArticleSummary, SignalsSection } from "./recent-news";
 
 function SkeletonCard() {
   return (
     <article className="relative flex-shrink-0 w-80 animate-pulse">
       <div className="relative bg-card border border-border/50 md:border-t md:border-l md:border-r-0 md:border-b-0 p-8 h-full">
         <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
-        
+
         <div className="flex items-baseline justify-between mb-8">
           <div className="h-3 w-16 bg-muted rounded" />
           <div className="h-3 w-20 bg-muted rounded" />
@@ -46,7 +45,7 @@ function SkeletonCard() {
 }
 
 export function RecentNewsWrapper() {
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles, setArticles] = useState<ArticleSummary[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

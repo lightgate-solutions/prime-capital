@@ -1,20 +1,20 @@
-import { notFound } from "next/navigation";
-import Link from "next/link";
 import {
-  Calendar,
-  MapPin,
-  DollarSign,
   ArrowLeft,
-  Mail,
   Briefcase,
+  Calendar,
+  DollarSign,
+  Mail,
+  MapPin,
 } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { JobTypeBadge } from "@/components/careers/job-type-badge";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { JobTypeBadge } from "@/components/careers/job-type-badge";
-import { getCareerBySlug } from "@/db/queries/careers";
-import type { JobType } from "@/lib/types/careers";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { getCareerBySlug } from "@/db/queries/careers";
+import type { JobType } from "@/lib/types/careers";
 
 interface CareerPageProps {
   params: Promise<{
@@ -32,13 +32,13 @@ export default async function CareerPage({ params }: CareerPageProps) {
 
   // Check if deadline is approaching (within 7 days)
   const isDeadlineApproaching = career.applicationDeadline
-    ? new Date(career.applicationDeadline).getTime() - new Date().getTime() <
+    ? new Date(career.applicationDeadline).getTime() - Date.now() <
       7 * 24 * 60 * 60 * 1000
     : false;
 
   // Check if deadline has passed
   const isDeadlinePassed = career.applicationDeadline
-    ? new Date(career.applicationDeadline).getTime() < new Date().getTime()
+    ? new Date(career.applicationDeadline).getTime() < Date.now()
     : false;
 
   return (

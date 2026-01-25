@@ -1,17 +1,16 @@
+import { Briefcase } from "lucide-react";
 import { Suspense } from "react";
-import Link from "next/link";
-import { Briefcase, Search } from "lucide-react";
+import { CareerCard } from "@/components/careers/career-card";
+import { CareerSearch } from "@/components/careers/career-search";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Card, CardContent } from "@/components/ui/card";
-import { Pagination } from "@/components/ui/pagination";
 import { EmptyState } from "@/components/ui/empty-state";
-import { CareerCard } from "@/components/careers/career-card";
-import { CareerSearch } from "@/components/careers/career-search";
+import { Pagination } from "@/components/ui/pagination";
 import {
+  getFeaturedCareers,
   getPublishedCareers,
   getPublishedCareersCount,
-  getFeaturedCareers,
 } from "@/db/queries/careers";
 import type { JobType } from "@/lib/types/careers";
 

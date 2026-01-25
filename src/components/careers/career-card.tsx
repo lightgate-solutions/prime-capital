@@ -1,3 +1,4 @@
+import { Calendar, MapPin } from "lucide-react";
 import Link from "next/link";
 import {
   Card,
@@ -5,9 +6,8 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { JobTypeBadge } from "./job-type-badge";
 import type { JobType } from "@/lib/types/careers";
-import { MapPin, Calendar, DollarSign } from "lucide-react";
+import { JobTypeBadge } from "./job-type-badge";
 
 interface CareerCardProps {
   slug: string;
@@ -32,7 +32,7 @@ export function CareerCard({
 }: CareerCardProps) {
   // Check if deadline is approaching (within 7 days)
   const isDeadlineApproaching = applicationDeadline
-    ? new Date(applicationDeadline).getTime() - new Date().getTime() <
+    ? new Date(applicationDeadline).getTime() - Date.now() <
       7 * 24 * 60 * 60 * 1000
     : false;
 

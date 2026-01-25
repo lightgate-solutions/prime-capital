@@ -6,8 +6,6 @@ export async function GET() {
     const articles = await getPublishedArticles({
       limit: 8,
       offset: 0,
-      sortBy: "publishedAt",
-      sortOrder: "desc",
     });
 
     return NextResponse.json(articles);

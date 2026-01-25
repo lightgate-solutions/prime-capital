@@ -1,20 +1,20 @@
 "use client";
 
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Placeholder from "@tiptap/extension-placeholder";
 import Link from "@tiptap/extension-link";
+import Placeholder from "@tiptap/extension-placeholder";
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 import {
   Bold,
-  Italic,
-  List,
-  ListOrdered,
   Heading2,
   Heading3,
-  Quote,
+  Italic,
   Link2,
-  Undo,
+  List,
+  ListOrdered,
+  Quote,
   Redo,
+  Undo,
 } from "lucide-react";
 import { useCallback } from "react";
 

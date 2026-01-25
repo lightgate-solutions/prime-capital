@@ -1,14 +1,14 @@
+import { Briefcase, Calendar, Edit, MapPin, Plus } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
-import { getAdminCareers, getAdminCareersCount } from "@/db/queries/careers";
+import { CareerSearch } from "@/components/careers/career-search";
+import { DeleteCareerDialog } from "@/components/careers/delete-career-dialog";
+import { JobTypeBadge } from "@/components/careers/job-type-badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Pagination } from "@/components/ui/pagination";
-import { CareerSearch } from "@/components/careers/career-search";
-import { JobTypeBadge } from "@/components/careers/job-type-badge";
-import { DeleteCareerDialog } from "@/components/careers/delete-career-dialog";
-import { Plus, Edit, Briefcase, MapPin, Calendar } from "lucide-react";
+import { getAdminCareers, getAdminCareersCount } from "@/db/queries/careers";
 import type { JobType } from "@/lib/types/careers";
 
 interface AdminCareersPageProps {

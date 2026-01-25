@@ -66,9 +66,9 @@ export const InvestmentApproach = ({
               {title}
             </h2>
             <p className="md:text-lg text-[#0A1628]/60 mb-6 max-w-3xl mx-auto leading-relaxed text-left pt-16">
-              At Prime Capital & Investment Limited, we believe that
-              wealth management is the result of a rigorous, systematic process
-              that balances data-driven innovation with timeless investment
+              At Prime Capital & Investment Limited, we believe that wealth
+              management is the result of a rigorous, systematic process that
+              balances data-driven innovation with timeless investment
               principles.
             </p>
           </div>

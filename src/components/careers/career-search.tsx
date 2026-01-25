@@ -1,9 +1,9 @@
 "use client";
 
+import { Search } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useRef } from "react";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
 
 export function CareerSearch({
   placeholder = "Search careers...",

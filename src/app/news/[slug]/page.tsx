@@ -1,12 +1,12 @@
-import { notFound } from "next/navigation";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
-import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
+import { notFound } from "next/navigation";
+import { CategoryBadge } from "@/components/articles/category-badge";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { CategoryBadge } from "@/components/articles/category-badge";
+import { Button } from "@/components/ui/button";
 import { getArticleBySlug } from "@/db/queries/articles";
 import type { ArticleCategory } from "@/lib/types/articles";
-import { Button } from "@/components/ui/button";
 
 interface ArticlePageProps {
   params: Promise<{

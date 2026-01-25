@@ -1,3 +1,4 @@
+import { Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
 import {
   Card,
@@ -5,9 +6,8 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { CategoryBadge } from "./category-badge";
 import type { ArticleCategory } from "@/lib/types/articles";
-import { Calendar, Clock, User } from "lucide-react";
+import { CategoryBadge } from "./category-badge";
 
 interface ArticleCardProps {
   slug: string;

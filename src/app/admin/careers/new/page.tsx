@@ -1,6 +1,6 @@
-import { CareerForm } from "@/components/careers/career-form";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { CareerForm } from "@/components/careers/career-form";
 import { Button } from "@/components/ui/button";
 
 export default function NewCareerPage() {

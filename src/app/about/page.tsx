@@ -1,21 +1,15 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
 "use client";
 
-import {
-  Briefcase,
-  Scale,
-  Shield,
-  Target,
-  Zap,
-} from "lucide-react";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cn } from "@/lib/utils";
+import { Briefcase, Scale, Shield, Target, Zap } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,7 +143,12 @@ export default function AboutPage() {
   }, []);
 
   useEffect(() => {
-    if (!philosophySectionRef.current || !philosophyHeaderRef.current || !philosophyCardsRef.current) return;
+    if (
+      !philosophySectionRef.current ||
+      !philosophyHeaderRef.current ||
+      !philosophyCardsRef.current
+    )
+      return;
 
     const ctx = gsap.context(() => {
       // Header slide in from left
@@ -291,12 +290,13 @@ export default function AboutPage() {
               About <span className="">Prime Capital</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed mb-8">
-              A Fund and Portfolio Management firm built on disciplined expertise,
-              unwavering integrity, trust, and a clear commitment to long-term
-              wealth creation.
+              A Fund and Portfolio Management firm built on disciplined
+              expertise, unwavering integrity, trust, and a clear commitment to
+              long-term wealth creation.
             </p>
             <p className="text-base md:text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-12">
-              At the heart of our identity are the colors that define our promise:
+              At the heart of our identity are the colors that define our
+              promise:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -308,7 +308,9 @@ export default function AboutPage() {
                     <div className="h-7 w-7 rounded-full bg-white shadow-inner" />
                   </div>
                   <div>
-                    <h4 className="font-display text-2xl font-bold text-[#0A1628] mb-2">Gold</h4>
+                    <h4 className="font-display text-2xl font-bold text-[#0A1628] mb-2">
+                      Gold
+                    </h4>
                     <p className="text-sm text-[#0A1628]/70 leading-relaxed">
                       Represents excellence, confidence, and premium quality in
                       every mandate.
@@ -325,10 +327,12 @@ export default function AboutPage() {
                     <div className="h-7 w-7 rounded-full bg-[#0A1628]/5 border-2 border-[#0A1628]/20" />
                   </div>
                   <div>
-                    <h4 className="font-display text-2xl font-bold text-[#0A1628] mb-2">White</h4>
+                    <h4 className="font-display text-2xl font-bold text-[#0A1628] mb-2">
+                      White
+                    </h4>
                     <p className="text-sm text-[#0A1628]/70 leading-relaxed">
-                      Symbolizes absolute transparency, integrity, and clarity in
-                      every relationship.
+                      Symbolizes absolute transparency, integrity, and clarity
+                      in every relationship.
                     </p>
                   </div>
                 </div>
@@ -374,8 +378,7 @@ export default function AboutPage() {
                   Our Mission
                 </h3>
                 <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
-                  Grow and protect client wealth through disciplined
-                  strategies.
+                  Grow and protect client wealth through disciplined strategies.
                 </p>
               </div>
             </div>
@@ -416,7 +419,10 @@ export default function AboutPage() {
       </section>
 
       {/* Corporate Philosophy */}
-      <section ref={philosophySectionRef} className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white relative">
+      <section
+        ref={philosophySectionRef}
+        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white relative"
+      >
         <div className="absolute inset-0 opacity-[0.02]">
           <div
             className="absolute inset-0"

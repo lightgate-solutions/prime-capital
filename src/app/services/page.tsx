@@ -1,23 +1,16 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <> */
 "use client";
 
-import {
-  AnimatePresence,
-  motion,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
   CheckCircle2,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Gem,
-  Shield,
-  ShieldCheck,
-  Zap,
 } from "lucide-react";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
@@ -232,7 +225,7 @@ export default function ServicesPage() {
 
     const slideWidth = firstCard.offsetWidth;
     const targetScroll = index * slideWidth;
-    
+
     container.scrollTo({
       left: targetScroll,
       behavior: "smooth",
@@ -246,7 +239,8 @@ export default function ServicesPage() {
   };
 
   const prevSlide = () => {
-    const prevIndex = (currentSlide - 1 + whyChooseUs.length) % whyChooseUs.length;
+    const prevIndex =
+      (currentSlide - 1 + whyChooseUs.length) % whyChooseUs.length;
     scrollToSlide(prevIndex);
   };
 
@@ -295,7 +289,7 @@ export default function ServicesPage() {
     }, 5000); // 5 seconds - standard carousel timing
 
     return () => clearInterval(interval);
-  }, [whyChooseUs.length]);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -312,7 +306,8 @@ export default function ServicesPage() {
             meet diverse client needs for wealth creation and preservation,
             blending disciplined investment strategies with innovative and
             transparent offerings. We provide access to a range of
-            professionally managed funds and bespoke portfolios. Our Offerings Include:
+            professionally managed funds and bespoke portfolios. Our Offerings
+            Include:
           </p>
         </div>
       </section>
@@ -391,23 +386,27 @@ export default function ServicesPage() {
                                   >
                                     <div className="px-6 pb-6 pt-2 border-t border-border/50">
                                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
-                                        {subsection.features.map((feature, idx) => (
-                                          <motion.div
-                                            key={idx}
-                                            initial={{ opacity: 0, y: -5 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -5 }}
-                                            transition={{
-                                              duration: 0.25,
-                                              delay: idx * 0.03,
-                                              ease: [0.4, 0, 0.2, 1],
-                                            }}
-                                            className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                                          >
-                                            <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                                            <span className="leading-relaxed">{feature}</span>
-                                          </motion.div>
-                                        ))}
+                                        {subsection.features.map(
+                                          (feature, idx) => (
+                                            <motion.div
+                                              key={idx}
+                                              initial={{ opacity: 0, y: -5 }}
+                                              animate={{ opacity: 1, y: 0 }}
+                                              exit={{ opacity: 0, y: -5 }}
+                                              transition={{
+                                                duration: 0.25,
+                                                delay: idx * 0.03,
+                                                ease: [0.4, 0, 0.2, 1],
+                                              }}
+                                              className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                            >
+                                              <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                                              <span className="leading-relaxed">
+                                                {feature}
+                                              </span>
+                                            </motion.div>
+                                          ),
+                                        )}
                                       </div>
                                     </div>
                                   </motion.div>
@@ -468,94 +467,91 @@ export default function ServicesPage() {
 
         {/* Horizontal Scroll Carousel - Full Width */}
         <div className="relative -mx-4 sm:-mx-6 md:mx-0 overflow-hidden">
-            {/* Navigation Arrows */}
-            <button
-              type="button"
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <button
-              type="button"
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
+          {/* Navigation Arrows */}
+          <button
+            type="button"
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            type="button"
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
 
-            {/* Carousel Container */}
-            <div
-              ref={advantageScrollRef}
-              className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            >
-              <div
-                ref={advantageCardsRef}
-                className="flex w-full"
-              >
-                {/* Slides */}
-                {whyChooseUs.map((item) => {
-                  return (
-                    <article
-                      key={item.title}
-                      className="group relative flex-shrink-0 h-[600px] snap-start"
-                      style={{ minWidth: "100%", width: "100%" }}
+          {/* Carousel Container */}
+          <div
+            ref={advantageScrollRef}
+            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            <div ref={advantageCardsRef} className="flex w-full">
+              {/* Slides */}
+              {whyChooseUs.map((item) => {
+                return (
+                  <article
+                    key={item.title}
+                    className="group relative flex-shrink-0 h-[600px] snap-start"
+                    style={{ minWidth: "100%", width: "100%" }}
+                  >
+                    {/* Card with image as background */}
+                    <div
+                      className="relative w-full h-full carousel-bg-position"
+                      style={{
+                        backgroundImage: `url(${item.image})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                      }}
                     >
-                      {/* Card with image as background */}
-                      <div
-                        className="relative w-full h-full carousel-bg-position"
-                        style={{ 
-                          backgroundImage: `url(${item.image})`,
-                          backgroundSize: "cover",
-                          backgroundRepeat: "no-repeat"
-                        }}
-                      >
-                        {/* Stronger gradient overlay for better text visibility */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 via-[#0A1628]/70 to-[#0A1628]/40" />
+                      {/* Stronger gradient overlay for better text visibility */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 via-[#0A1628]/70 to-[#0A1628]/40" />
 
-                        {/* Content overlay */}
-                        <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
-                          <div className="max-w-2xl">
-                            {/* Title */}
-                            <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
-                              {item.title}
-                            </h3>
+                      {/* Content overlay */}
+                      <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
+                        <div className="max-w-2xl">
+                          {/* Title */}
+                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                            {item.title}
+                          </h3>
 
-                            {/* Divider line */}
-                            <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
+                          {/* Divider line */}
+                          <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
 
-                            {/* Description */}
-                            <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
-                              {item.description}
-                            </p>
-                          </div>
+                          {/* Description */}
+                          <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
+                            {item.description}
+                          </p>
                         </div>
                       </div>
-                    </article>
-                  );
-                })}
-              </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
+          </div>
 
-            {/* Dot Indicators */}
-            <div className="flex justify-center gap-3 mt-8 px-4 sm:px-6 md:px-0">
-              {whyChooseUs.map((item, index) => (
-                <button
-                  type="button"
-                  key={`${item.title}-${index}`}
-                  onClick={() => scrollToSlide(index)}
-                  className={`h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === index
-                      ? "w-8 bg-[#D4AF37]"
-                      : "w-3 bg-[#0A1628]/30 hover:bg-[#0A1628]/50"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+          {/* Dot Indicators */}
+          <div className="flex justify-center gap-3 mt-8 px-4 sm:px-6 md:px-0">
+            {whyChooseUs.map((item, index) => (
+              <button
+                type="button"
+                key={`${item.title}-${index}`}
+                onClick={() => scrollToSlide(index)}
+                className={`h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index
+                    ? "w-8 bg-[#D4AF37]"
+                    : "w-3 bg-[#0A1628]/30 hover:bg-[#0A1628]/50"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 

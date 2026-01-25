@@ -163,11 +163,7 @@ export function CustomCards() {
   );
 }
 
-function SignalCard({
-  signal,
-}: {
-  signal: { date: string; title: string; note: string };
-}) {
+function SignalCard({ signal }: { signal: { title: string; note: string } }) {
   return (
     <article
       className={cn(
