@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     }
 
     // Send email using Resend
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: process.env.RESEND_SENDER_EMAIL as string,
       to: process.env.CONTACT_EMAIL as string,
       subject: `New Contact Inquiry: ${subject}`,
@@ -85,11 +85,19 @@ export async function POST(request: Request) {
       `,
     });
 
+    if (error) {
+      console.error("Error sending contact email:", error);
+      return NextResponse.json(
+        { error: "Failed to send email" },
+        { status: 500 },
+      );
+    }
+
     return NextResponse.json(
       {
         success: true,
         message: "Email sent successfully",
-        id: data.id,
+        id: data?.id,
       },
       { status: 200 },
     );
