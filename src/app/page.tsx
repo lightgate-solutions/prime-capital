@@ -470,7 +470,7 @@ export default function HomePage() {
                 opacity: 1 - scrollY * 0.001,
               }}
             >
-              We Build Trust & Preserve Wealth
+              We Build Wealth & Preserve Trust
             </h1>
 
             <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed drop-shadow-lg">
@@ -924,7 +924,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 text-[#0A1628]">
-                Get in <span className="text-[#D4AF37]">Touch</span>
+                Get in <span className="">Touch</span>
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-6 p-6 rounded-xl bg-[#F5F2ED] border border-[#0A1628]/5 hover:border-[#D4AF37] transition-all duration-300 shadow-elevated hover:shadow-elevated-lg">
