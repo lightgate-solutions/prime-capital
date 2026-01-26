@@ -34,68 +34,37 @@ export default function ServicesPage() {
   const services = [
     {
       title: "Money Market Instruments",
-      description:
-        "Investments in securities with short-term maturities, providing liquidity and capital preservation.",
+      description: "Investments in securities with short-term maturities",
       features: [
         "Treasury Bills (T-Bills)",
         "Commercial Papers (CPs)",
         "Certificates of Deposit (CDs)",
         "Bankers' Acceptances (BAs)",
-        "High liquidity and low risk",
-        "Competitive short-term yields",
       ],
     },
     {
       title: "Fixed Income Securities",
       description:
-        "Stable income-oriented portfolios investing in high-quality debt instruments.",
-      features: [
-        "FGN Bonds & State Bonds",
-        "High-quality corporate debt",
-        "Regular interest income",
-        "Capital preservation focus",
-        "Diversified credit exposure",
-        "Professional duration management",
-      ],
+        "Stable income-oriented portfolios investing in government bonds and high-quality corporate debt",
+      features: ["FGN Bonds & State Bonds"],
     },
     {
       title: "Multi-Asset Portfolios",
       description:
-        "Balanced strategies dynamically allocating across asset classes to capture opportunities.",
-      features: [
-        "Dynamic asset allocation",
-        "Equities and fixed income mix",
-        "Risk-adjusted return focus",
-        "Market cycle adaptation",
-        "Diversification across sectors",
-        "Continuous portfolio rebalancing",
-      ],
+        "Balanced strategies for dynamically allocating assets across classes to manage risk and capture opportunities.",
+      features: [],
     },
     {
       title: "Ethical & Shari'ah Products",
       description:
-        "Investment products aligned with ethical and Islamic investment principles.",
-      features: [
-        "Shari'ah-compliant screening",
-        "Interest-free instruments",
-        "Ethical sector focus",
-        "Socially responsible investing",
-        "Transparent underlying assets",
-        "Expert Shari'ah advisory oversight",
-      ],
+        "Investment products aligned with ethical investment principles.",
+      features: [],
     },
     {
       title: "Discretionary Portfolios",
       description:
         "Tailored mandates for retail and qualified investors, aligned with individual risk profiles.",
-      features: [
-        "Bespoke investment strategy",
-        "Professional fund management",
-        "Personalized risk parameters",
-        "Regular performance reporting",
-        "Fiduciary-first approach",
-        "Direct access to fund managers",
-      ],
+      features: [],
     },
     {
       title: "Alternative Investments",
@@ -106,14 +75,12 @@ export default function ServicesPage() {
         "Private equity opportunities",
         "Venture capital access",
         "Infrastructure projects",
-        "Low correlation with public markets",
-        "Long-term value creation",
       ],
     },
     {
       title: "Financial Advisory",
       description:
-        "Financial Advisory (Conventional & Sharia-Compliant) - Independent, objective advice across both conventional finance and Sharia-compliant finance, ensuring full compliance with applicable regulations and ethical standards.",
+        " Our Financial Advisory services are designed to help individuals, corporates, and institutions make sound, compliant, and sustainable financial decisions aligned with their goals, risk appetite, and ethical preferences. ",
       hasSubsections: true,
       subsections: [
         {
@@ -146,9 +113,7 @@ export default function ServicesPage() {
           title: "Sharia Advisory & Compliance",
           features: [
             "Sharia screening of investments",
-            "Ongoing Sharia compliance monitoring",
             "Advisory in line with AAOIFI and Islamic finance best practices",
-            "Oversight by qualified Sharia advisors (where applicable)",
           ],
         },
       ],
@@ -157,7 +122,7 @@ export default function ServicesPage() {
     {
       title: "Equity",
       description:
-        "Equity Investment Services - Professionally managed equity investment solutions across the Nigerian and selected global markets, tailored to meet both conventional and Sharia-compliant investment objectives.",
+        "Equity Investment Services - Professionally managed equity investment solutions across Nigeria and selected global markets, tailored to meet both conventional and Sharia-compliant investment objectives.",
       hasSubsections: true,
       subsections: [
         {
@@ -431,17 +396,19 @@ export default function ServicesPage() {
                         )}
                       </div>
                     ) : (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-muted/30 p-6 rounded-2xl border border-border">
-                        {service.features.map((feature, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center gap-3 text-sm text-muted-foreground"
-                          >
-                            <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
+                      service.features.length > 0 && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-muted/30 p-6 rounded-2xl border border-border">
+                          {service.features.map((feature, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center gap-3 text-sm text-muted-foreground"
+                            >
+                              <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )
                     )}
                   </CardContent>
                 </Card>

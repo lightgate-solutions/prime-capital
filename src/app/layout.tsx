@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type React from "react";
 import "./globals.css";
 import { Outfit, Playfair_Display } from "next/font/google";
+import { Toaster } from "sonner";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
 const playfair = Playfair_Display({
@@ -19,7 +20,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "PrimeCapital - Leading Financial Services in Nigeria",
+  title: "Prime Capital - Leading Financial Services in Nigeria",
   description:
     "Prime Capital offers brokerage, investment advisory, and asset management services. Regulated by the Nigerian SEC.",
   icons: {
@@ -45,6 +46,7 @@ export default function RootLayout({
     >
       <body className={`antialiased font-body`}>
         <SmoothScroll>{children}</SmoothScroll>
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );

@@ -4,10 +4,10 @@
 import { Clock, Mail, MapPin, Phone, Send, ShieldCheck } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -19,19 +19,49 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(
-      "Thank you for contacting Prime Capital. Our team will get back to you shortly.",
-    );
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast.success(
+        "Thank you for contacting Prime Capital. Our team will get back to you shortly.",
+        {
+          duration: 5000,
+        },
+      );
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast.error(
+        "There was an error sending your message. Please try again or contact us directly at info@primecapital.ng",
+        {
+          duration: 7000,
+        },
+      );
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -47,25 +77,21 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: "Abuja Office",
-      details: ["No. 3, Sankuru Close", "Maitama, Abuja", "Nigeria"],
+      details: [
+        "No. 3, Sankuru Close, Off Rima Street,",
+        "Maitama, Abuja",
+        "Nigeria",
+      ],
     },
     {
       icon: Phone,
       title: "Telephone",
-      details: [
-        "+234 (0) 811 183 7348",
-        "+234 (0) 800 PRIME CAP",
-        "Mon - Fri: 9:00 AM - 5:00 PM",
-      ],
+      details: ["+234 (0) 811 183 7348", "Mon - Fri: 9:00 AM - 5:00 PM"],
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: [
-        "info@primecapital.ng",
-        "advisory@primecapital.ng",
-        "compliance@primecapital.ng",
-      ],
+      details: ["info@primecapital.ng"],
     },
     {
       icon: Clock,
@@ -76,24 +102,6 @@ export default function ContactPage() {
         "Saturday - Sunday: Closed",
         "Public Holidays: Closed",
       ],
-    },
-  ];
-
-  const departments = [
-    {
-      name: "Investment Advisory",
-      email: "advisory@primecapital.ng",
-      phone: "+234 (0) 9 123 4568",
-    },
-    {
-      name: "Portfolio Management",
-      email: "portfolios@primecapital.ng",
-      phone: "+234 (0) 9 123 4569",
-    },
-    {
-      name: "Compliance & Legal",
-      email: "compliance@primecapital.ng",
-      phone: "+234 (0) 9 123 4570",
     },
   ];
 
@@ -222,9 +230,11 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6 text-lg font-bold shadow-lg shadow-primary/20"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-6 text-lg font-bold shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Submit Inquiry <Send className="ml-2 h-5 w-5" />
+                  {isSubmitting ? "Sending..." : "Submit Inquiry"}{" "}
+                  <Send className="ml-2 h-5 w-5" />
                 </Button>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/50 p-4 rounded-xl border border-border">
                   <ShieldCheck className="h-4 w-4 text-primary" />
@@ -257,31 +267,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="pt-8 border-t border-border">
-                <h3 className="text-2xl font-bold mb-6">Departmental Access</h3>
-                <div className="space-y-4">
-                  {departments.map((dept, index) => (
-                    <Card
-                      key={index}
-                      className="border-none bg-muted/30 hover:bg-muted/50 transition-colors"
-                    >
-                      <CardContent className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <div>
-                          <h4 className="font-bold text-lg">{dept.name}</h4>
-                          <p className="text-sm text-muted-foreground">
-                            {dept.email}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-2 text-primary font-medium">
-                          <Phone className="h-4 w-4" />
-                          {dept.phone}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-
               <div className="rounded-3xl overflow-hidden h-[400px] md:h-[500px] relative border border-border shadow-2xl">
                 <iframe
                   src="https://www.google.com/maps?q=No.+3,+Sankuru+Close,+Maitama,+Abuja,+Nigeria&output=embed"
@@ -292,7 +277,7 @@ export default function ContactPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-full"
-                  title="Prime Capital Office Location - No. 3, Sankuru Close, Maitama, Abuja, Nigeria"
+                  title="Prime Capital Office Location - No. 3, Sankuru Close, Off Rima Street, Maitama, Abuja, Nigeria"
                 />
               </div>
             </div>

@@ -342,7 +342,7 @@ export default function HomePage() {
       icon: BarChart3,
       title: "Multi-Asset Portfolios",
       description:
-        "Balanced strategies dynamically allocating across asset classes to manage risk and capture opportunities.",
+        " Balanced strategies for dynamically allocating assets across classes to manage risk and capture opportunities.",
     },
     {
       icon: Scale,
@@ -425,7 +425,7 @@ export default function HomePage() {
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-start overflow-hidden"
         style={{
-          backgroundImage: `url(/hero-image.png)`,
+          backgroundImage: `url(/hero-image.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "75% center",
           backgroundRepeat: "no-repeat",
@@ -592,7 +592,8 @@ export default function HomePage() {
                   Our Mission
                 </h3>
                 <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
-                  Grow and protect client wealth through disciplined strategies.
+                  Grow and protect client wealth through innovative and
+                  disciplined strategies.
                 </p>
               </div>
             </div>
@@ -613,7 +614,7 @@ export default function HomePage() {
               />
             </div>
             {/* Gradient overlay that merges text card into image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/80 via-[#0A1628]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/80 via-transparent to-transparent" />
             {/* Text content positioned on the left */}
             <div
               ref={visionCardRef}
@@ -856,15 +857,6 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="pt-20 md:pt-32 pb-0 lg:py-0 bg-[#0A1628] text-white relative overflow-hidden">
         {/* Mobile & Tablet background image */}
-        <div
-          className="absolute inset-0 lg:hidden z-0"
-          style={{
-            backgroundImage: "url('/group-ai-phptp.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        />
         {/* Mobile & Tablet background overlay for text readability */}
         <div className="absolute inset-0 bg-[#0A1628]/80 lg:hidden z-0" />
 
@@ -903,17 +895,6 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="relative h-[50vh] lg:h-full w-[100vw] left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:w-[calc((100vw-1280px)/2+640px)] lg:translate-x-0 hidden lg:block">
-              <Image
-                src="/group-ai-phptp.png"
-                width={1200}
-                height={800}
-                alt="Prime Capital Team"
-                className="w-full h-full object-cover"
-                quality={95}
-                priority
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -936,7 +917,8 @@ export default function HomePage() {
                       Abuja Office
                     </h4>
                     <p className="text-[#0A1628]/70">
-                      No. 3, Sankuru Close, Maitama, Abuja, Nigeria
+                      No. 3, Sankuru Close, Off Rima street, Maitama, Abuja,
+                      Nigeria
                     </p>
                   </div>
                 </div>
@@ -977,7 +959,7 @@ export default function HomePage() {
                 marginHeight={0}
                 marginWidth={0}
                 id="gmap_canvas"
-                src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=No.%203,%20Sankuru%20Close,%20Maitama,%20Abuja%20Abuja+()&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=No.%203,%20Sankuru%20Close,%20Off%20Rima%20Street,%20Maitama,%20Abuja%20Abuja+()&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
               ></iframe>{" "}
               <script
                 type="text/javascript"

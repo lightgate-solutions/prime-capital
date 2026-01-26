@@ -9,6 +9,14 @@ import { useEffect, useRef, useState } from "react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -225,18 +233,24 @@ export default function AboutPage() {
       role: "Director",
       bio: "A distinguished capital markets professional with over 37 years of experience across regulation, financial services, and corporate leadership.",
       photo: "/ceo.jpg",
+      fullInfo:
+        "Mounir Haliru Gwarzo is a distinguished capital markets professional with over 37 years of experience across regulation, financial services, and corporate leadership. He holds a BSc in Economics from Bayero University, Kano, an MBA from Robert Kennedy College, York St. John University (UK), and is an alumnus of two prestigious Business schools namely: INSEAD The Business school of the world, Paris and SAID Business School, University of Oxford. He previously served as Director-General and Chief Executive Officer of the Securities and Exchange Commission (2015–2020), following his role as Executive Commissioner of the Commission.He was Chairman of African and Middle East Regional Committee of the International Organization of Securities Commission (IOSCO), Member of the Board and Management committee. He is also a Fellow of the Chartered Institute of Stockbrokers of Nigeria. Mr. Gwarzo’s career spans senior roles across the public and private sectors, including The Nigerian Stock Exchange, Century Merchant Bank, Federal Mortgage Bank of Nigeria, and Media Trust Limited, where he served as Group Chief Executive Officer. He brings extensive experience as both a capital market regulator and operator, with deep expertise in Nigeria’s primary and secondary markets.",
     },
     {
-      name: "Bahir Haliru Tahir",
-      role: "Non-Executive Director",
+      name: "Bashir Haliru Tahir",
+      role: "Director",
       bio: "Contributes strategic oversight, governance insight, and risk management expertise. Founder of a real estate construction company and aviation professional with over 15 years of experience.",
       photo: "/haliru.jpeg",
+      fullInfo:
+        "Haliru Bashir Tahir serves as a Non-Executive Director on the Board of Prime Capital & Investment Limited, where he contributes strategic oversight, governance insight, and risk management expertise. He holds a degree in Aerospace and Occupational Safety from Embry-Riddle Aeronautical University, Florida. He is the Founder of a real estate construction company focused on the development of modern and sustainable residential properties in Abuja, reflecting a strong commitment to long-term value creation and responsible development. With over 15 years of experience in the aviation sector, Mr. Tahir has held senior roles as a corporate pilot, aviation safety professional, and aircraft management specialist. His background brings a strong perspective on operational leadership, safety standards, and risk management, which supports effective board-level decision-making at Prime Capital & Investment Limited.",
     },
     {
       name: "Maryam Ibrahim Buwai",
-      role: "Non-Executive Director",
+      role: "Director",
       bio: "Seasoned governance and management professional with over 18 years of leadership experience in institutional administration and executive oversight.",
       photo: "/maryam.jpeg",
+      fullInfo:
+        "Maryam Ibrahim Buwai is a seasoned governance and management professional with over 18 years of leadership experience in institutional administration and executive oversight. She holds a BSc in Management Sciences from Usmanu Danfodio University, Sokoto. She has built a distinguished career within Nigeria’s hospitality and tourism sector, with particular expertise in the commercialization of public tourism and hospitality assets, contributing to sustainable operational and financial outcomes. As a Non-Executive Director at Prime Capital & Investment Limited, Ms. Buwai provides independent oversight and strategic input, supporting strong governance, effective risk management, and operational efficiency. Her objective judgment strengthens board decision-making, regulatory compliance, and long-term investor confidence.",
     },
   ];
 
@@ -247,6 +261,8 @@ export default function AboutPage() {
       bio: "Former Director-General of the SEC (2015–2020). Fellow of the Chartered Institute of Stockbrokers of Nigeria. Alumnus of INSEAD and Oxford SAID Business School.",
       icon: Briefcase,
       photo: "/ceo.jpg",
+      fullInfo:
+        "Mounir Haliru Gwarzo is a distinguished capital markets professional with over 37 years of experience across regulation, financial services, and corporate leadership. He holds a BSc in Economics from Bayero University, Kano, an MBA from Robert Kennedy College, York St. John University (UK), and is an alumnus of two prestigious Business schools namely: INSEAD The Business school of the world, Paris and SAID Business School, University of Oxford. He previously served as Director-General and Chief Executive Officer of the Securities and Exchange Commission (2015–2020), following his role as Executive Commissioner of the Commission.He was Chairman of African and Middle East Regional Committee of the International Organization of Securities Commission (IOSCO), Member of the Board and Management committee. He is also a Fellow of the Chartered Institute of Stockbrokers of Nigeria. Mr. Gwarzo’s career spans senior roles across the public and private sectors, including The Nigerian Stock Exchange, Century Merchant Bank, Federal Mortgage Bank of Nigeria, and Media Trust Limited, where he served as Group Chief Executive Officer. He brings extensive experience as both a capital market regulator and operator, with deep expertise in Nigeria’s primary and secondary markets.",
     },
     {
       name: "Buhari Suleiman Alfa",
@@ -254,6 +270,8 @@ export default function AboutPage() {
       bio: "Legal and compliance professional with expertise in corporate governance. Holds an LLM in Business and Commercial Law.",
       icon: Scale,
       photo: "/buhar.jpeg",
+      fullInfo:
+        "Buhari Suleiman Alfa is a legal and compliance professional with expertise in corporate governance, regulatory compliance, and company secretarial practice. He holds a LLB (Hons) and a LLM in Business and Commercial Law from Bayero University, Kano. He has previously served as Managing Associate at DalaHill Law Practice and Senior Legal Officer at Abuja Investments Company Limited, with experience spanning legal advisory, compliance oversight, and corporate secretarial functions. He is a member of the Nigerian Bar Association and the Chartered Institute of Loan and Risk Management. At Prime Capital & Investment Limited, he provides strategic legal guidance while ensuring full compliance with applicable laws, regulations, and corporate governance standards.",
     },
     {
       name: "Saidu Safiyanu",
@@ -261,6 +279,8 @@ export default function AboutPage() {
       bio: "Information technology professional with expertise in network design and systems implementation. B.Eng. in Electrical Engineering.",
       icon: Zap,
       photo: "/saidu.jpg",
+      fullInfo:
+        "Saidu Safiyanu is an information technology professional with expertise in network design, systems implementation, and IT infrastructure support. He holds a B.Eng. in Electrical Engineering and a Diploma in Computer Engineering from Ahmadu Bello University, Zaria. He previously served as a Senior Systems Programmer (Network Engineer) at Ahmadu Bello University, Zaria, and as a Junior Network Engineer in network infrastructure and security roles. His experience spans the design, implementation, and maintenance of large-scale network systems in structured environments, supporting secure and reliable operations at Prime Capital & Investment Limited.",
     },
     {
       name: "Saadah Sambo",
@@ -268,6 +288,8 @@ export default function AboutPage() {
       bio: "Investment professional with expertise in research and portfolio management. First-Class Honours in Business Entrepreneurship.",
       icon: Target,
       photo: "/saadah.jpeg",
+      fullInfo:
+        "Saadah Sambo is an investment professional with strong expertise in investment research, portfolio management, and business strategy. She holds a First-Class Honours degree in Business Entrepreneurship from Effat University, Jeddah, Saudi Arabia, and a Master’s degree in Business Management from the University of Essex, United Kingdom. She is also an alumna of the Noble Hall Leadership Academy, Abuja. She gained early professional exposure through her NYSC internship at CardinalStone Asset Management Limited, where she developed practical experience in investment analysis and asset management operations. At Prime Capital & Investment Limited, she supports investment decision-making through research, portfolio support, and business management functions.",
     },
     {
       name: "Husseinat Alabi",
@@ -275,6 +297,8 @@ export default function AboutPage() {
       bio: "Legal and compliance professional with experience supporting legal, administrative, and regulatory operations.",
       icon: Scale,
       photo: "/hussaina.jpeg",
+      fullInfo:
+        "Husseinat Alabi is a legal and compliance professional with experience supporting legal, administrative, and regulatory compliance operations. She holds a LLB from the University of Ilorin and a B.L (Second-Class Upper Division) from the Nigerian Law School. She gained practical experience through her NYSC legal internship at the Gas Aggregation Company of Nigeria and as a Legal Intern at Omaplex Law Firm, where she supported legal documentation, compliance processes, and administrative functions. At Prime Capital & Investment Limited, she supports legal and compliance activities in line with regulatory and governance requirement",
     },
   ];
 
@@ -395,7 +419,7 @@ export default function AboutPage() {
                 width={1200}
                 height={600}
                 alt="Wealth"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover object-right brightness-110 transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             {/* Gradient overlay that merges text card into image */}
@@ -489,7 +513,10 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section
+        id="team"
+        className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-muted/30"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -501,29 +528,54 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             {directors.map((leader, index) => (
-              <Card
-                key={index}
-                className="hover:shadow-xl transition-all duration-300 border-none bg-background"
-              >
-                <CardContent className="pt-8">
-                  <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                    <Image
-                      src={leader.photo}
-                      width={200}
-                      height={200}
-                      alt={`photo of ${leader.name}`}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">{leader.name}</h3>
-                  <p className="text-primary font-semibold mb-4">
-                    {leader.role}
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {leader.bio}
-                  </p>
-                </CardContent>
-              </Card>
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <Card className="hover:shadow-xl transition-all duration-300 border-none bg-background cursor-pointer group">
+                    <CardContent className="pt-8">
+                      <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center mb-6 overflow-hidden">
+                        <Image
+                          src={leader.photo}
+                          width={200}
+                          height={200}
+                          alt={`photo of ${leader.name}`}
+                          className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-2">{leader.name}</h3>
+                      <p className="text-primary font-semibold mb-4">
+                        {leader.role}
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3">
+                        {leader.bio}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[500px] h-11/12 overflow-auto">
+                  <DialogHeader>
+                    <div className="flex flex-col items-center text-center mb-4">
+                      <div className="h-32 w-32 rounded-full bg-primary/10 flex items-center justify-center mb-4 overflow-hidden">
+                        <Image
+                          src={leader.photo}
+                          width={200}
+                          height={200}
+                          alt={`photo of ${leader.name}`}
+                          className="rounded-full object-cover"
+                        />
+                      </div>
+                      <DialogTitle className="text-3xl font-bold">
+                        {leader.name}
+                      </DialogTitle>
+                      <p className="text-primary font-semibold mt-1">
+                        {leader.role}
+                      </p>
+                    </div>
+                    <DialogDescription className="text-base text-foreground leading-relaxed">
+                      {leader.fullInfo}
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
 
@@ -538,35 +590,60 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {management.map((leader, index) => {
               return (
-                <Card
-                  key={index}
-                  className="hover:shadow-lg transition-all duration-300"
-                >
-                  <CardContent className="pt-8">
-                    <div className="flex items-start gap-6">
-                      <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                        <Image
-                          src={leader.photo}
-                          width={200}
-                          height={200}
-                          alt={`photo of ${leader.name}`}
-                          className="rounded-full"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-1">
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                      <CardContent className="pt-8">
+                        <div className="flex items-start gap-6">
+                          <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center shrink-0 overflow-hidden">
+                            <Image
+                              src={leader.photo}
+                              width={200}
+                              height={200}
+                              alt={`photo of ${leader.name}`}
+                              className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold mb-1">
+                              {leader.name}
+                            </h3>
+                            <p className="text-sm text-primary font-medium mb-4">
+                              {leader.role}
+                            </p>
+                            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                              {leader.bio}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[500px] h-11/12 overflow-auto">
+                    <DialogHeader>
+                      <div className="flex flex-col items-center text-center mb-4">
+                        <div className="h-32 w-32 rounded-full bg-primary/10 flex items-center justify-center mb-4 overflow-hidden">
+                          <Image
+                            src={leader.photo}
+                            width={200}
+                            height={200}
+                            alt={`photo of ${leader.name}`}
+                            className="rounded-full object-cover"
+                          />
+                        </div>
+                        <DialogTitle className="text-3xl font-bold">
                           {leader.name}
-                        </h3>
-                        <p className="text-sm text-primary font-medium mb-4">
+                        </DialogTitle>
+                        <p className="text-primary font-semibold mt-1">
                           {leader.role}
                         </p>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {leader.bio}
-                        </p>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                      <DialogDescription className="text-base text-foreground leading-relaxed">
+                        {leader.fullInfo}
+                      </DialogDescription>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
               );
             })}
           </div>

@@ -64,19 +64,17 @@ export function Navigation() {
             <div>
               <span
                 className={`font-display text-xl font-bold tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300 ${
-                  isHomePage && isOverHero ? "text-white" : "text-[#0A1628]"
+                  isHomePage && isOverHero ? "text-[#D4AF37]" : "text-[#D4AF37]"
                 }`}
               >
                 Prime Capital
               </span>
               <p
                 className={`text-[10px] uppercase tracking-widest ${
-                  isHomePage && isOverHero
-                    ? "text-white/70"
-                    : "text-[#0A1628]/50"
+                  isHomePage && isOverHero ? "text-[#D4AF37]" : "text-[#D4AF37]"
                 }`}
               >
-                Investment LTD
+                & Investment LTD
               </p>
             </div>
           </Link>

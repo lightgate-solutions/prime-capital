@@ -78,7 +78,9 @@ export function Footer() {
             <div className="flex flex-col gap-3 text-sm">
               <div className="flex items-center gap-3 text-white/70 hover:text-[#D4AF37] transition-colors group">
                 <MapPin className="h-4 w-4 shrink-0" />
-                <span>No. 3, Sankuru Close, Maitama, Abuja</span>
+                <span>
+                  No. 3, Sankuru Close, Off Rima Street, Maitama, Abuja
+                </span>
               </div>
               <div className="flex items-center gap-3 text-white/70 hover:text-[#D4AF37] transition-colors group">
                 <Phone className="h-4 w-4 shrink-0" />
