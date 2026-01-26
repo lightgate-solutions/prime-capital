@@ -423,7 +423,7 @@ export default function AboutPage() {
               />
             </div>
             {/* Gradient overlay that merges text card into image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/80 via-[#0A1628]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/80 via-transparent to-transparent" />
             {/* Text content positioned on the left */}
             <div
               ref={visionCardRef}
