@@ -46,24 +46,12 @@ export default function ServicesPage() {
       title: "Fixed Income Securities",
       description:
         "Stable income-oriented portfolios investing in government bonds and high-quality corporate debt",
-      features: ["FGN Bonds & State Bonds"],
+      features: ["FGN Bonds", "State Bonds", "Corporate Bonds"],
     },
     {
-      title: "Multi-Asset Portfolios",
-      description:
-        "Balanced strategies for dynamically allocating assets across classes to manage risk and capture opportunities.",
-      features: [],
-    },
-    {
-      title: "Ethical & Shari'ah Products",
+      title: "Ethical & Shari'ah Compliant Products",
       description:
         "Investment products aligned with ethical investment principles.",
-      features: [],
-    },
-    {
-      title: "Discretionary Portfolios",
-      description:
-        "Tailored mandates for retail and qualified investors, aligned with individual risk profiles.",
       features: [],
     },
     {
@@ -123,31 +111,8 @@ export default function ServicesPage() {
       title: "Equity",
       description:
         "Equity Investment Services - Professionally managed equity investment solutions across Nigeria and selected global markets, tailored to meet both conventional and Sharia-compliant investment objectives.",
-      hasSubsections: true,
-      subsections: [
-        {
-          title: "Conventional Equity Investments",
-          features: [
-            "Actively managed stock portfolios",
-            "Nigerian Exchange (NGX) listed equities",
-            "Sector-diversified investment strategies",
-            "Fundamental and technical analysis",
-            "Ongoing portfolio monitoring and rebalancing",
-            "Suitable for individuals, HNW investors, corporates, and institutions",
-          ],
-        },
-        {
-          title: "Sharia-Compliant Equity Investments",
-          features: [
-            "Sharia-screened stocks only",
-            "Exclusion of non-permissible sectors (alcohol, gambling, conventional banking)",
-            "Ethical and socially responsible investing",
-            "Oversight in line with Islamic finance standards",
-            "Profit-sharing and asset-backed investment principles",
-            "Suitable for ethical and faith-based investors",
-          ],
-        },
-      ],
+      hasSubsections: false,
+      subsections: [],
       features: [],
     },
   ];

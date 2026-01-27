@@ -271,7 +271,7 @@ export default function AboutPage() {
       icon: Scale,
       photo: "/buhar.jpeg",
       fullInfo:
-        "Buhari Suleiman Alfa is a legal and compliance professional with expertise in corporate governance, regulatory compliance, and company secretarial practice. He holds a LLB (Hons) and a LLM in Business and Commercial Law from Bayero University, Kano. He has previously served as Managing Associate at DalaHill Law Practice and Senior Legal Officer at Abuja Investments Company Limited, with experience spanning legal advisory, compliance oversight, and corporate secretarial functions. He is a member of the Nigerian Bar Association and the Chartered Institute of Loan and Risk Management. At Prime Capital & Investment Limited, he provides strategic legal guidance while ensuring full compliance with applicable laws, regulations, and corporate governance standards.",
+        "Buhari Suleiman Alfa is a legal and compliance professional with expertise in corporate governance, regulatory compliance, and company secretarial practice. He holds a LLB (Hons) and a master's in Business and Commercial Law from Bayero University, Kano. He has previously served as Managing Associate at DalaHill Law Practice and Senior Legal Officer at Abuja Investments Company Limited, with experience spanning legal advisory, compliance oversight, and corporate secretarial functions. He is a member of the Nigerian Bar Association and the Chartered Institute of Loan and Risk Management. At Prime Capital & Investment Limited, he provides strategic legal guidance while ensuring full compliance with applicable laws, regulations, and corporate governance standards.",
     },
     {
       name: "Saidu Safiyanu",
@@ -289,7 +289,7 @@ export default function AboutPage() {
       icon: Target,
       photo: "/saadah.jpeg",
       fullInfo:
-        "Saadah Sambo is an investment professional with strong expertise in investment research, portfolio management, and business strategy. She holds a First-Class Honours degree in Business Entrepreneurship from Effat University, Jeddah, Saudi Arabia, and a Master’s degree in Business Management from the University of Essex, United Kingdom. She is also an alumna of the Noble Hall Leadership Academy, Abuja. She gained early professional exposure through her NYSC internship at CardinalStone Asset Management Limited, where she developed practical experience in investment analysis and asset management operations. At Prime Capital & Investment Limited, she supports investment decision-making through research, portfolio support, and business management functions.",
+        "Saadah Sambo is an investment professional with strong expertise in investment research, portfolio management, and business strategy. She holds a First-Class Honours degree in Business Entrepreneurship from Effat University, Jeddah, Saudi Arabia, and a Master’s degree in Business Management from the University of Essex, United Kingdom. She gained early professional exposure through her NYSC internship at CardinalStone Asset Management Limited, where she developed practical experience in investment analysis and asset management operations. At Prime Capital & Investment Limited, she supports investment decision-making through research, portfolio support, and business management functions.",
     },
     {
       name: "Husseinat Alabi",
