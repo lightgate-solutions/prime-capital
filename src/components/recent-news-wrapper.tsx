@@ -57,6 +57,7 @@ export function RecentNewsWrapper() {
       })
       .catch((error) => {
         console.error("Error fetching recent news:", error);
+        setArticles([]);
         setLoading(false);
       });
   }, []);

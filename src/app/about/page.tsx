@@ -274,6 +274,15 @@ export default function AboutPage() {
         "Buhari Suleiman Alfa is a legal and compliance professional with expertise in corporate governance, regulatory compliance, and company secretarial practice. He holds a LLB (Hons) and a master's in Business and Commercial Law from Bayero University, Kano. He has previously served as Managing Associate at DalaHill Law Practice and Senior Legal Officer at Abuja Investments Company Limited, with experience spanning legal advisory, compliance oversight, and corporate secretarial functions. He is a member of the Nigerian Bar Association and the Chartered Institute of Loan and Risk Management. At Prime Capital & Investment Limited, he provides strategic legal guidance while ensuring full compliance with applicable laws, regulations, and corporate governance standards.",
     },
     {
+      name: "Oluwatosin Idowu",
+      role: "Senior Associate, Operations",
+      bio: "She is a qualified legal practitioner. She holds an LL.B from the University of Lagos. She is also a SEC-Sponsored Individual. She has several years of professional experience across private legal practice, corporate advisory, and public sector service, with a strong focus on legal compliance, due diligence, and corporate governance. Her experience includes company secretarial services, drafting and review of contracts and legal opinions, regulatory and statutory documentation, handling of confidential records, and client advisory and representation. At Prime Capital, she is supports funds operations and regulatory compliance.",
+      icon: Scale,
+      photo: "/tosin.jpeg",
+      fullInfo:
+        "She is a qualified legal practitioner. She holds an LL.B from the University of Lagos. She is also a SEC-Sponsored Individual. She has several years of professional experience across private legal practice, corporate advisory, and public sector service, with a strong focus on legal compliance, due diligence, and corporate governance. Her experience includes company secretarial services, drafting and review of contracts and legal opinions, regulatory and statutory documentation, handling of confidential records, and client advisory and representation. At Prime Capital, she is supports funds operations and regulatory compliance.",
+    },
+    {
       name: "Saidu Safiyanu",
       role: "IT Officer",
       bio: "Information technology professional with expertise in network design and systems implementation. B.Eng. in Electrical Engineering.",

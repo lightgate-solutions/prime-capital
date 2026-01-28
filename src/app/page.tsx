@@ -372,10 +372,9 @@ export default function HomePage() {
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      image: "/transparency.png",
-      title: "Absolute Transparency",
-      description:
-        "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
+      image: "/transparency.jpg",
+      title: "Our Financial Advisory Team",
+      description: "",
     },
     {
       image: "/sec-bird-png.png",
@@ -857,6 +856,15 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="pt-20 md:pt-32 pb-0 lg:py-0 bg-[#0A1628] text-white relative overflow-hidden">
         {/* Mobile & Tablet background image */}
+        <div
+          className="absolute inset-0 lg:hidden z-0"
+          style={{
+            backgroundImage: "url('/ready-photo.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
         {/* Mobile & Tablet background overlay for text readability */}
         <div className="absolute inset-0 bg-[#0A1628]/80 lg:hidden z-0" />
 
@@ -894,6 +902,17 @@ export default function HomePage() {
                   </button>
                 </Link>
               </div>
+            </div>
+            <div className="relative h-[50vh] lg:h-full w-[100vw] left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:w-[calc((100vw-1280px)/2+640px)] lg:translate-x-0 hidden lg:block">
+              <Image
+                src="/ready-photo.jpg"
+                width={1200}
+                height={800}
+                alt="Prime Capital Team"
+                className="w-full h-full object-cover"
+                quality={95}
+                priority
+              />
             </div>
           </div>
         </div>
