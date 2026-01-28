@@ -52,7 +52,12 @@ export default function ServicesPage() {
       title: "Ethical & Shari'ah Compliant Products",
       description:
         "Investment products aligned with ethical investment principles.",
-      features: [],
+      features: [
+        "Murabahah Investment",
+        "Ijara Investment",
+        "Sukuk (Islamic bond)",
+        "Mudarabah Investment",
+      ],
     },
     {
       title: "Alternative Investments",
@@ -60,7 +65,7 @@ export default function ServicesPage() {
         "Access to non-traditional assets for qualified investors seeking enhanced returns.",
       features: [
         "Real estate investments",
-        "Private equity opportunities",
+        "Private equity investments",
         "Venture capital access",
         "Infrastructure projects",
       ],
@@ -68,7 +73,7 @@ export default function ServicesPage() {
     {
       title: "Financial Advisory",
       description:
-        " Our Financial Advisory services are designed to help individuals, corporates, and institutions make sound, compliant, and sustainable financial decisions aligned with their goals, risk appetite, and ethical preferences. ",
+        " Our Financial Advisory services are designed to help individuals and corporate institutions make sound, compliant, and sustainable financial decisions aligned with their goals, risk appetite, and ethical preferences. ",
       hasSubsections: true,
       subsections: [
         {
@@ -77,7 +82,7 @@ export default function ServicesPage() {
             "Portfolio structuring and asset allocation",
             "Risk profiling and investment strategy design",
             "Advisory on equities, fixed income, and alternative assets",
-            "Sharia-compliant investment structuring (non-interest based)",
+            "Sharia-compliant investment (non-interest based)",
           ],
         },
         {
@@ -85,7 +90,7 @@ export default function ServicesPage() {
           features: [
             "Personal and family wealth planning",
             "Retirement and education planning",
-            "Estate and succession planning (including Sharia-aligned structures)",
+            "Estate and succession planning",
           ],
         },
         {
@@ -97,20 +102,13 @@ export default function ServicesPage() {
             "Sharia advisory for Islamic finance products",
           ],
         },
-        {
-          title: "Sharia Advisory & Compliance",
-          features: [
-            "Sharia screening of investments",
-            "Advisory in line with AAOIFI and Islamic finance best practices",
-          ],
-        },
       ],
       features: [],
     },
     {
       title: "Equity",
       description:
-        "Equity Investment Services - Professionally managed equity investment solutions across Nigeria and selected global markets, tailored to meet both conventional and Sharia-compliant investment objectives.",
+        "Equity Investment Services - Professionally managed equity investment solutions across Nigeria and selected global markets, tailored to meet both conventional and Ethical-compliant investment objectives.",
       hasSubsections: false,
       subsections: [],
       features: [],

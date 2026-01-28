@@ -342,7 +342,7 @@ export default function HomePage() {
       icon: BarChart3,
       title: "Multi-Asset Portfolios",
       description:
-        " Balanced strategies for dynamically allocating assets across classes to manage risk and capture opportunities.",
+        " Balanced strategies for allocating assets across classes in order to build opportunities and manage risks.",
     },
     {
       icon: Scale,
@@ -354,13 +354,13 @@ export default function HomePage() {
       icon: Landmark,
       title: "Discretionary & Non-Discretionary Portfolios",
       description:
-        "Tailored mandates for retail and qualified investors, aligned with individual risk profiles.",
+        "Tailored mandates for retail and qualified investors, aligned with their risk profiles.",
     },
     {
       icon: ChartCandlestick,
       title: "Alternative Investments",
       description:
-        "Access to real estate, private equity, venture capital, and infrastructure opportunities for qualified investors.",
+        "Access to real estate, private equity, venture capital, and infrastructure funds.",
     },
   ];
 
