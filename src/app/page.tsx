@@ -860,10 +860,10 @@ export default function HomePage() {
       <RecentNewsWrapper />
 
       {/* CTA Section */}
-      <section className="pt-20 md:pt-32 pb-0 lg:py-0 bg-[#0A1628] text-white relative overflow-hidden">
-        {/* Mobile & Tablet background image */}
+      <section className="py-20 md:py-32 lg:py-40 bg-[#0A1628] text-white relative overflow-hidden">
+        {/* Background image */}
         <div
-          className="absolute inset-0 lg:hidden z-0"
+          className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/ready-photo.jpg')",
             backgroundSize: "cover",
@@ -871,8 +871,8 @@ export default function HomePage() {
             backgroundRepeat: "no-repeat",
           }}
         />
-        {/* Mobile & Tablet background overlay for text readability */}
-        <div className="absolute inset-0 bg-[#0A1628]/80 lg:hidden z-0" />
+        {/* Background overlay for text readability */}
+        <div className="absolute inset-0 bg-[#0A1628]/80 lg:from-[#0A1628] lg:via-[#0A1628]/80 lg:to-transparent z-0" />
 
         {/* Desktop decorative elements */}
         <div className="absolute inset-0 opacity-10 hidden lg:block z-0">
@@ -880,45 +880,32 @@ export default function HomePage() {
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-            <div className="px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-20 text-center lg:text-left flex flex-col justify-center relative z-10">
-              <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
-                Ready to Secure Your Future?
-              </h2>
-              <p className="text-xl mb-10 text-white/90">
-                Join a modern, dependable, and client-focused institution
-                trusted to steward wealth across market cycles.
-              </p>
-              <div className="flex flex-row flex-wrap gap-6 justify-center lg:justify-start">
-                <Link href="/contact">
-                  <button
-                    type="button"
-                    className="group hover:cursor-pointer bg-white text-[#0A1628] hover:bg-white/90 px-10 py-5 rounded-full font-bold text-lg transition-colors shadow-elevated-lg hover:shadow-2xl flex items-center gap-2"
-                  >
-                    Get Started Now
-                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </Link>
-                <Link href="/about">
-                  <button
-                    type="button"
-                    className="hover:cursor-pointer bg-transparent border-2 border-white/30 hover:border-white text-white px-10 py-5 rounded-full font-bold text-lg transition-colors"
-                  >
-                    Learn More
-                  </button>
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-[50vh] lg:h-full w-[100vw] left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:w-[calc((100vw-1280px)/2+640px)] lg:translate-x-0 hidden lg:block">
-              <Image
-                src="/ready-photo.jpg"
-                width={1200}
-                height={800}
-                alt="Prime Capital Team"
-                className="w-full h-full object-cover"
-                quality={95}
-                priority
-              />
+          <div className="max-w-3xl px-4 sm:px-6 lg:px-8 xl:px-12 text-center lg:text-left flex flex-col justify-center relative z-10">
+            <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
+              Ready to Secure Your Future?
+            </h2>
+            <p className="text-xl mb-10 text-white/90">
+              Join a modern, dependable, and client-focused institution trusted
+              to steward wealth across market cycles.
+            </p>
+            <div className="flex flex-row flex-wrap gap-6 justify-center lg:justify-start">
+              <Link href="/contact">
+                <button
+                  type="button"
+                  className="group hover:cursor-pointer bg-white text-[#0A1628] hover:bg-white/90 px-10 py-5 rounded-full font-bold text-lg transition-colors shadow-elevated-lg hover:shadow-2xl flex items-center gap-2"
+                >
+                  Get Started Now
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+              <Link href="/about">
+                <button
+                  type="button"
+                  className="hover:cursor-pointer bg-transparent border-2 border-white/30 hover:border-white text-white px-10 py-5 rounded-full font-bold text-lg transition-colors"
+                >
+                  Learn More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
