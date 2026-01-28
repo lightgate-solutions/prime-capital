@@ -373,8 +373,9 @@ export default function HomePage() {
     },
     {
       image: "/transparency.jpg",
-      title: "Our Financial Advisory Team",
-      description: "",
+      title: "Absolute Transparency",
+      description:
+        "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
     },
     {
       image: "/sec-bird-png.png",
@@ -387,6 +388,11 @@ export default function HomePage() {
       title: "Client-First Partnerships",
       description:
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
+    },
+    {
+      image: "/advisory-team.jpg",
+      title: "Our Financial Advisory Team",
+      description: "",
     },
   ];
 
@@ -411,7 +417,7 @@ export default function HomePage() {
         }
         return nextIndex;
       });
-    }, 5000); // 5 seconds - standard carousel timing
+    }, 8000); // 5 seconds - standard carousel timing
 
     return () => clearInterval(interval);
   }, []);
