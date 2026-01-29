@@ -123,7 +123,7 @@ export default function ServicesPage() {
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      image: "/prime-1.jpg",
+      image: "/transparency.jpg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
@@ -141,7 +141,7 @@ export default function ServicesPage() {
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
     {
-      image: "/prime-3.jpg",
+      image: "/team.jpg",
       title: "Our Financial Advisory Team",
       description: "",
     },
