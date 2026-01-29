@@ -811,7 +811,7 @@ export default function HomePage() {
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/85 via-[#0A1628]/70 to-[#0A1628]/40" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/10 via-[#0A1628]/40 to-[#0A1628]/40" />
 
                       {/* Content overlay */}
                       <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
