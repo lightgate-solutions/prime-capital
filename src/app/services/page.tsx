@@ -442,6 +442,10 @@ export default function ServicesPage() {
                         backgroundImage: `url(${item.image})`,
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
+                        backgroundPosition:
+                          item.image === "/prime-1.jpg"
+                            ? "center 100%"
+                            : undefined,
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}

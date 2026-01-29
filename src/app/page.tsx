@@ -808,6 +808,10 @@ export default function HomePage() {
                         backgroundImage: `url(${item.image})`,
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
+                        backgroundPosition:
+                          item.image === "/prime-1.jpg"
+                            ? "center 100%"
+                            : undefined,
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}
@@ -860,7 +864,7 @@ export default function HomePage() {
       <RecentNewsWrapper />
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 lg:py-40 bg-[#0A1628] text-white relative overflow-hidden">
+      <section className="min-h-[600px] lg:min-h-[600px] flex items-end py-20 bg-[#0A1628] text-white relative overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 z-0"
@@ -872,19 +876,19 @@ export default function HomePage() {
           }}
         />
         {/* Background overlay for text readability */}
-        <div className="absolute inset-0 bg-[#0A1628]/50 lg:from-[#0A1628] lg:via-[#0A1628]/30 lg:to-transparent z-0" />
+        <div className="absolute inset-0 bg-[#0A1628]/20 lg:from-[#0A1628] lg:via-[#0A1628]/10 lg:to-transparent z-0" />
 
         {/* Desktop decorative elements */}
         <div className="absolute inset-0 opacity-10 hidden lg:block z-0">
           <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
         </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="max-w-3xl px-4 sm:px-6 lg:px-8 xl:px-12 text-center lg:text-left flex flex-col justify-center relative z-10">
-            <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-[#D4AF37]">
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="max-w-3xl px-4 sm:px-6 lg:px-8 xl:px-12 text-center lg:text-left flex flex-col relative z-10">
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 text-[#D4AF37]">
               Ready to Secure Your Future?
             </h2>
-            <p className="text-xl mb-10 text-[#D4AF37]/90">
+            <p className="text-lg mb-10 text-[#D4AF37]/90">
               Join a modern, dependable, and client-focused institution trusted
               to steward wealth across market cycles.
             </p>
