@@ -871,7 +871,6 @@ export default function HomePage() {
           style={{
             backgroundImage: "url('/ready-photo.jpg')",
             backgroundSize: "cover",
-            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         />
