@@ -810,7 +810,7 @@ export default function HomePage() {
                         backgroundRepeat: "no-repeat",
                         backgroundPosition:
                           item.image === "/prime-1.jpg"
-                            ? "center 85%"
+                            ? "center 100%"
                             : undefined,
                       }}
                     >
