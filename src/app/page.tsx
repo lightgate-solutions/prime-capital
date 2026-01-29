@@ -372,7 +372,7 @@ export default function HomePage() {
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      image: "/transparency.jpg",
+      image: "/prime-1.jpg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
@@ -390,7 +390,7 @@ export default function HomePage() {
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
     {
-      image: "/advisory-team.jpg",
+      image: "/prime-3.jpg",
       title: "Our Financial Advisory Team",
       description: "",
     },
@@ -811,13 +811,13 @@ export default function HomePage() {
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/10 via-[#0A1628]/40 to-[#0A1628]/40" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/10 via-[#0A1628]/10 to-[#0A1628]/10" />
 
                       {/* Content overlay */}
                       <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
                         <div className="max-w-2xl">
                           {/* Title */}
-                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-[#D4AF37] font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
                             {item.title}
                           </h3>
 
@@ -825,7 +825,7 @@ export default function HomePage() {
                           <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
 
                           {/* Description */}
-                          <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
+                          <p className="text-base md:text-lg text-[#D4AF37] leading-relaxed drop-shadow-md font-medium">
                             {item.description}
                           </p>
                         </div>
@@ -865,14 +865,14 @@ export default function HomePage() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/ready-photo.jpg')",
+            backgroundImage: "url('/prime-2.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
         />
         {/* Background overlay for text readability */}
-        <div className="absolute inset-0 bg-[#0A1628]/80 lg:from-[#0A1628] lg:via-[#0A1628]/80 lg:to-transparent z-0" />
+        <div className="absolute inset-0 bg-[#0A1628]/50 lg:from-[#0A1628] lg:via-[#0A1628]/30 lg:to-transparent z-0" />
 
         {/* Desktop decorative elements */}
         <div className="absolute inset-0 opacity-10 hidden lg:block z-0">
@@ -881,10 +881,10 @@ export default function HomePage() {
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl px-4 sm:px-6 lg:px-8 xl:px-12 text-center lg:text-left flex flex-col justify-center relative z-10">
-            <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
+            <h2 className="font-display text-4xl md:text-6xl font-bold mb-6 text-[#D4AF37]">
               Ready to Secure Your Future?
             </h2>
-            <p className="text-xl mb-10 text-white/90">
+            <p className="text-xl mb-10 text-[#D4AF37]/90">
               Join a modern, dependable, and client-focused institution trusted
               to steward wealth across market cycles.
             </p>

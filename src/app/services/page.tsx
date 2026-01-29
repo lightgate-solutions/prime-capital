@@ -123,9 +123,10 @@ export default function ServicesPage() {
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      image: "/transparency.jpg",
-      title: "Our Financial Advisory Team",
-      description: "",
+      image: "/prime-1.jpg",
+      title: "Absolute Transparency",
+      description:
+        "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
     },
     {
       image: "/sec-bird-png.png",
@@ -138,6 +139,11 @@ export default function ServicesPage() {
       title: "Client-First Partnerships",
       description:
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
+    },
+    {
+      image: "/prime-3.jpg",
+      title: "Our Financial Advisory Team",
+      description: "",
     },
   ];
 
@@ -213,7 +219,7 @@ export default function ServicesPage() {
         }
         return nextIndex;
       });
-    }, 5000); // 5 seconds - standard carousel timing
+    }, 8000); // 5 seconds - standard carousel timing
 
     return () => clearInterval(interval);
   }, []);
@@ -439,13 +445,13 @@ export default function ServicesPage() {
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/10 via-[#0A1628]/40 to-[#0A1628]/40" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/10 via-[#0A1628]/10 to-[#0A1628]/10" />
 
                       {/* Content overlay */}
                       <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
                         <div className="max-w-2xl">
                           {/* Title */}
-                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-white font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-[#D4AF37] font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
                             {item.title}
                           </h3>
 
@@ -453,7 +459,7 @@ export default function ServicesPage() {
                           <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
 
                           {/* Description */}
-                          <p className="text-base md:text-lg text-white leading-relaxed drop-shadow-md font-medium">
+                          <p className="text-base md:text-lg text-[#D4AF37] leading-relaxed drop-shadow-md font-medium">
                             {item.description}
                           </p>
                         </div>
