@@ -372,7 +372,7 @@ export default function HomePage() {
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      image: "/prime-1.jpg",
+      image: "/prime-4.jpg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
