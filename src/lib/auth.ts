@@ -12,7 +12,11 @@ import {
 
 export const auth = betterAuth({
   appName: "Prime Capital",
-  trustedOrigins: ["http://localhost:3000", "https://*.primecapital.ng"],
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://*.primecapital.ng",
+    "https://primecapital.ng",
+  ],
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: {
