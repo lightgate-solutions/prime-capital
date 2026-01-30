@@ -37,7 +37,7 @@ const signUpSchema = z
       .email({ error: "Email is required" })
       .min(1, "Email is required")
       .refine(
-        (email) => ["elameendaiyabu@gmail.com"].includes(email),
+        (email) => ["safiyanusaidu2@gmail.com"].includes(email),
         "This email is not allowed to sign up.",
       ),
     name: z.string({ error: "Name is required" }).min(1, "Name is required"),

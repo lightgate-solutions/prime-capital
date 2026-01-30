@@ -15,7 +15,7 @@ export default async function AdminLayout({
     redirect("/auth/login");
   }
 
-  if (session.user.email !== "elameendaiyabu@gmail.com") {
+  if (session.user.email !== "safiyanusaidu2@gmail.com") {
     redirect("/");
   }
 

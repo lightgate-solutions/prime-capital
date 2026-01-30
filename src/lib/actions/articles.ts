@@ -27,7 +27,7 @@ async function requireAdmin() {
 
   if (
     session.user.email !==
-      (process.env.ADMIN_EMAIL || "elameendaiyabu@gmail.com") &&
+      (process.env.ADMIN_EMAIL || "safiyanusaidu2@gmail.com") &&
     (session.user as any).role !== "admin"
   ) {
     throw new Error("Forbidden: Admin access required");

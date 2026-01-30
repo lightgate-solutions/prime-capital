@@ -74,7 +74,7 @@ export const auth = betterAuth({
       create: {
         before: async (user) => {
           const adminEmail =
-            process.env.ADMIN_EMAIL || "elameendaiyabu@gmail.com";
+            process.env.ADMIN_EMAIL || "safiyanusaidu2@gmail.com";
           const allowedEmails = [adminEmail];
           if (!allowedEmails.includes(user.email)) {
             return false;
