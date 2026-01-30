@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ResetPasswordForm } from "@/components/auth/reset-password-form";
 import { Logo } from "@/components/logo";
 
@@ -9,7 +10,9 @@ export default function ResetPage() {
           <Logo size="lg" />
           <h1 className="text-2xl font-bold text-foreground">Reset Password</h1>
         </div>
-        <ResetPasswordForm />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ResetPasswordForm />
+        </Suspense>
       </div>
     </div>
   );
