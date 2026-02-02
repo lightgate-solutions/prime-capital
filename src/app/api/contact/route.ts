@@ -1,7 +1,22 @@
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
+/** biome-ignore-all lint/style/noNonNullAssertion: <> */
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+
+const SES_CONFIG = {
+  accessKeyId: process.env.AWS_SES_ACCESS_KEY!,
+  secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY!,
+};
+
+const sesClient = new SESv2Client({
+  region: process.env.AWS_SES_REGION!,
+  credentials: SES_CONFIG,
+});
+
+const transporter = nodemailer.createTransport({
+  SES: { sesClient, SendEmailCommand },
+});
 
 export async function POST(request: Request) {
   try {
@@ -17,7 +32,7 @@ export async function POST(request: Request) {
     }
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const info = await transporter.sendMail({
       from: process.env.RESEND_SENDER_EMAIL as string,
       to: process.env.CONTACT_EMAIL as string,
       subject: `New Contact Inquiry: ${subject}`,
@@ -78,26 +93,84 @@ export async function POST(request: Request) {
 
             <div style="text-align: center; margin-top: 20px; color: #888; font-size: 12px;">
               <p>This email was sent from the Prime Capital contact form.</p>
-              <p style="margin: 5px 0;">Prime Capital | No. 3, Sankuru Close, Maitama, Abuja, Nigeria</p>
+              <p style="margin: 5px 0;">Prime Capital | No. 3, Sankuru Close, off Rima Street, Maitama, Abuja, Nigeria</p>
             </div>
           </body>
         </html>
       `,
     });
 
-    if (error) {
-      console.error("Error sending contact email:", error);
+    if (info.rejected) {
+      console.error("Error sending contact email:", info.response);
       return NextResponse.json(
         { error: "Failed to send email" },
         { status: 500 },
       );
     }
 
+    // Wait 1 second before sending acknowledgment email
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Send acknowledgment email to user
+    const acknowledgmentResult = await transporter.sendMail({
+      from: process.env.RESEND_SENDER_EMAIL as string,
+      to: email,
+      subject: "Thank you for contacting Prime Capital",
+      html: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Thank You for Your Inquiry</title>
+          </head>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+              <h1 style="color: white; margin: 0; font-size: 24px;">Thank You for Reaching Out</h1>
+            </div>
+
+            <div style="background-color: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e0e0e0;">
+              <div style="background-color: white; padding: 20px; border-radius: 8px;">
+                <p style="color: #333; margin-top: 0;">Dear ${name},</p>
+
+                <p style="color: #333;">Thank you for contacting Prime Capital. We have received your inquiry regarding <strong>${subject}</strong>.</p>
+
+                <p style="color: #333;">Our team will review your message and get back to you shortly.</p>
+
+                <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #D4AF37; border-radius: 4px;">
+                  <p style="margin: 0; color: #555; font-size: 14px;">
+                    <strong>Your Message:</strong><br>
+                    <span style="white-space: pre-wrap;">${message}</span>
+                  </p>
+                </div>
+
+                <p style="color: #333;">If you have any urgent concerns, please feel free to call us directly.</p>
+
+                <p style="color: #333; margin-bottom: 0;">Best regards,<br><strong style="color: #D4AF37;">Prime Capital Team</strong></p>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px; color: #888; font-size: 12px;">
+              <p>Prime Capital | No. 3, Sankuru Close, off Rima Street, Maitama, Abuja, Nigeria</p>
+              <p style="margin: 5px 0;">This is an automated response. Please do not reply to this email.</p>
+            </div>
+          </body>
+        </html>
+      `,
+    });
+
+    if (acknowledgmentResult.rejected) {
+      console.error(
+        "Error sending acknowledgment email:",
+        acknowledgmentResult.response,
+      );
+      // Don't fail the request if acknowledgment fails
+    }
+
     return NextResponse.json(
       {
         success: true,
         message: "Email sent successfully",
-        id: data?.id,
       },
       { status: 200 },
     );
