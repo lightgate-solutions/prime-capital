@@ -456,13 +456,16 @@ export default function ServicesPage() {
                   >
                     {/* Card with image as background */}
                     <div
-                      className="relative w-full h-full carousel-bg-position bg-[#0A1628]"
+                      className="relative w-full h-full carousel-bg-position bg-white md:bg-[#0A1628]"
                       style={{
                         backgroundImage: `url(${isMobile ? item.mobilePic : item.image})`,
                         backgroundSize:
                           isMobile && !hasDedicatedMobile ? "contain" : "cover",
                         backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center",
+                        backgroundPosition:
+                          !isMobile && !hasDedicatedMobile
+                            ? "center 10%"
+                            : "center",
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}

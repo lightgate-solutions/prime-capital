@@ -828,7 +828,10 @@ export default function HomePage() {
                         backgroundSize:
                           isMobile && !hasDedicatedMobile ? "contain" : "cover",
                         backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center",
+                        backgroundPosition:
+                          !isMobile && !hasDedicatedMobile
+                            ? "center 10%"
+                            : "center",
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}
