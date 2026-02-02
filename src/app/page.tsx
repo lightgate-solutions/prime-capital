@@ -372,13 +372,13 @@ export default function HomePage() {
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      image: "/transparency.jpg",
+      image: "/transparency.svg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
     },
     {
-      image: "/sec-bird-png.png",
+      image: "/sec.svg",
       title: "SEC-Regulated Assurance",
       description:
         "Managed within a robust regulatory framework, strictly in accordance with the Investments & Securities Act.",
@@ -390,7 +390,7 @@ export default function HomePage() {
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
     {
-      image: "/team.jpg",
+      image: "/team.svg",
       title: "Our Financial Advisory Team",
       description: "",
     },
@@ -864,14 +864,16 @@ export default function HomePage() {
       <RecentNewsWrapper />
 
       {/* CTA Section */}
-      <section className="min-h-[600px] lg:min-h-[600px] flex items-end py-20 bg-[#0A1628] text-white relative overflow-hidden">
+      <section className="min-h-[600px] lg:min-h-[800px] flex items-end py-20 text-white relative overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/ready-photo.jpg')",
+            backgroundImage: "url('/ready.svg')",
             backgroundSize: "cover",
+            backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
+            height: "800px",
           }}
         />
         {/* Background overlay for text readability */}
@@ -884,10 +886,10 @@ export default function HomePage() {
         </div>
         <div className="max-w-7xl mx-auto relative z-10 w-full">
           <div className="max-w-3xl px-4 sm:px-6 lg:px-8 xl:px-12 text-center lg:text-left flex flex-col relative z-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-6 text-[#D4AF37]">
+            <h2 className="font-display text-2xl md:text-5xl font-bold mb-6 text-[#D4AF37]">
               Ready to Secure Your Future?
             </h2>
-            <p className="text-lg mb-10 text-[#D4AF37]/90">
+            <p className="text-2xl mb-10 text-[#D4AF37]/90">
               Join a modern, dependable, and client-focused institution trusted
               to steward wealth across market cycles.
             </p>

@@ -123,13 +123,13 @@ export default function ServicesPage() {
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
-      image: "/transparency.jpg",
+      image: "/transparency.svg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
     },
     {
-      image: "/sec-bird-png.png",
+      image: "/sec.svg",
       title: "SEC-Regulated Assurance",
       description:
         "Managed within a robust regulatory framework, strictly in accordance with the Investments & Securities Act.",
@@ -141,7 +141,7 @@ export default function ServicesPage() {
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
     {
-      image: "/team.jpg",
+      image: "/team.svg",
       title: "Our Financial Advisory Team",
       description: "",
     },
