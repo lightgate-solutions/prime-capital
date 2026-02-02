@@ -813,23 +813,22 @@ export default function HomePage() {
             <div ref={whyChooseCardsRef} className="flex w-full">
               {/* Slides */}
               {whyChooseUs.map((item) => {
+                const hasDedicatedMobile = item.mobilePic !== item.image;
                 return (
                   <article
                     key={item.title}
-                    className="group relative flex-shrink-0 h-[600px] snap-start"
+                    className="group relative flex-shrink-0 h-[400px] md:h-[600px] snap-start"
                     style={{ minWidth: "100%", width: "100%" }}
                   >
                     {/* Card with image as background */}
                     <div
-                      className="relative w-full h-full carousel-bg-position"
+                      className="relative w-full h-full carousel-bg-position bg-white md:bg-[#0A1628]"
                       style={{
                         backgroundImage: `url(${isMobile ? item.mobilePic : item.image})`,
-                        backgroundSize: "cover",
+                        backgroundSize:
+                          isMobile && !hasDedicatedMobile ? "contain" : "cover",
                         backgroundRepeat: "no-repeat",
-                        backgroundPosition:
-                          item.image === "/prime-1.jpg"
-                            ? "center 100%"
-                            : undefined,
+                        backgroundPosition: "center",
                       }}
                     >
                       {/* Stronger gradient overlay for better text visibility */}
