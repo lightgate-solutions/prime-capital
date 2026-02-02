@@ -48,6 +48,7 @@ export default function HomePage() {
   const [isServicesHovering, setIsServicesHovering] = useState(false);
   const [isWhyChooseHovering, setIsWhyChooseHovering] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -62,6 +63,18 @@ export default function HomePage() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
     };
+  }, []);
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px is the md breakpoint in Tailwind
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Mission & Vision animations
@@ -367,30 +380,35 @@ export default function HomePage() {
   const whyChooseUs = [
     {
       image: "/goldbars.png",
+      mobilePic: "/goldbars.png",
       title: "Gold Standard Excellence",
       description:
         "Professional expertise, disciplined research, and premium service delivery define our commitment to quality.",
     },
     {
       image: "/transparency.svg",
+      mobilePic: "/transparency-mobile.jpg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
     },
     {
       image: "/sec.svg",
+      mobilePic: "/sec.svg",
       title: "SEC-Regulated Assurance",
       description:
         "Managed within a robust regulatory framework, strictly in accordance with the Investments & Securities Act.",
     },
     {
       image: "/client-handshake.png",
+      mobilePic: "/client-handshake.png",
       title: "Client-First Partnerships",
       description:
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
     {
       image: "/team.svg",
+      mobilePic: "/team-mobile.jpg",
       title: "Our Financial Advisory Team",
       description: "",
     },
@@ -805,7 +823,7 @@ export default function HomePage() {
                     <div
                       className="relative w-full h-full carousel-bg-position"
                       style={{
-                        backgroundImage: `url(${item.image})`,
+                        backgroundImage: `url(${isMobile ? item.mobilePic : item.image})`,
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition:
@@ -864,12 +882,12 @@ export default function HomePage() {
       <RecentNewsWrapper />
 
       {/* CTA Section */}
-      <section className="min-h-[600px] lg:min-h-[800px] flex items-end py-20 text-white relative overflow-hidden">
+      <section className="min-h-[800px] lg:min-h-[800px] flex items-end py-20 text-white relative overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/ready.svg')",
+            backgroundImage: `url(${isMobile ? "/ready-mobile.jpg" : "/ready.svg"})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
