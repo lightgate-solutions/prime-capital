@@ -884,7 +884,7 @@ export default function HomePage() {
       <section className="relative bg-[#FDFCFA] overflow-hidden">
         {/* Image container with proper aspect ratio */}
         <div className="relative w-full">
-          <div className="relative w-full aspect-[9/16] md:aspect-[16/9] lg:aspect-[16/9]">
+          <div className="relative w-full aspect-[9/16] md:aspect-[16/10] lg:aspect-[16/11]">
             <Image
               src={isMobile ? "/ready-mobile.jpg" : "/ready.svg"}
               alt="Ready to Secure Your Future"
