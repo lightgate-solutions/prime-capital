@@ -821,7 +821,7 @@ export default function HomePage() {
                     {/* Card with image using Next.js Image for proper aspect ratio preservation */}
                     <div className="relative w-full bg-white">
                       {/* Image Container - aspect ratio maintained */}
-                      <div className="relative w-full aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/9]">
+                      <div className="relative w-full aspect-[16/10] md:aspect-[16/10] lg:aspect-[16/11]">
                         <Image
                           src={isMobile ? item.mobilePic : item.image}
                           alt={item.title}
