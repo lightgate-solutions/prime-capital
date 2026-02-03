@@ -366,9 +366,40 @@
   outline-offset: 2px;
 }
 
-/* Responsive background position for carousel images */
-@media (min-width: 768px) {
-  .carousel-bg-position {
-    background-position: center 30%;
-  }
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Carousel image containment - ensure full image visibility */
+.carousel-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* CTA section with proper image display */
+.cta-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
 }

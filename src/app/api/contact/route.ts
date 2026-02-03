@@ -1,4 +1,5 @@
 /** biome-ignore-all lint/style/noNonNullAssertion: <> */
+/** biome-ignore-all lint/complexity/noUselessLoneBlockStatements: <> */
 
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
 import { NextResponse } from "next/server";
@@ -108,6 +109,9 @@ export async function POST(request: Request) {
       );
     }
 
+    {
+      /**
+
     // Wait 1 second before sending acknowledgment email
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -165,6 +169,8 @@ export async function POST(request: Request) {
         acknowledgmentResult.response,
       );
       // Don't fail the request if acknowledgment fails
+    }
+  **/
     }
 
     return NextResponse.json(

@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Footer } from "@/components/footer";
@@ -126,7 +127,7 @@ export default function ServicesPage() {
     },
     {
       image: "/transparency.svg",
-      mobilePic: "/transparency-mobile.jpg",
+      mobilePic: "/transparency.svg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
@@ -140,14 +141,14 @@ export default function ServicesPage() {
     },
     {
       image: "/client-handshake.png",
-      mobilePic: "/client-handshake.png",
+      mobilePic: "/client.svg",
       title: "Client-First Partnerships",
       description:
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
     },
     {
       image: "/team.svg",
-      mobilePic: "/team-mobile.jpg",
+      mobilePic: "/team.svg",
       title: "Our Financial Advisory Team",
       description: "",
     },
@@ -442,50 +443,50 @@ export default function ServicesPage() {
           <div
             ref={advantageScrollRef}
             className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <div ref={advantageCardsRef} className="flex w-full">
               {/* Slides */}
               {whyChooseUs.map((item) => {
-                const hasDedicatedMobile = item.mobilePic !== item.image;
                 return (
                   <article
                     key={item.title}
-                    className="group relative flex-shrink-0 h-[400px] md:h-[600px] snap-start"
+                    className="group relative flex-shrink-0 snap-start"
                     style={{ minWidth: "100%", width: "100%" }}
                   >
-                    {/* Card with image as background */}
-                    <div
-                      className="relative w-full h-full carousel-bg-position bg-white md:bg-[#0A1628]"
-                      style={{
-                        backgroundImage: `url(${isMobile ? item.mobilePic : item.image})`,
-                        backgroundSize:
-                          isMobile && !hasDedicatedMobile ? "contain" : "cover",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition:
-                          !isMobile && !hasDedicatedMobile
-                            ? "center 10%"
-                            : "center",
-                      }}
-                    >
-                      {/* Stronger gradient overlay for better text visibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/10 via-[#0A1628]/10 to-[#0A1628]/10" />
+                    {/* Card with image using Next.js Image for proper aspect ratio preservation */}
+                    <div className="relative w-full bg-white">
+                      {/* Image Container - aspect ratio maintained */}
+                      <div className="relative w-full aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/9]">
+                        <Image
+                          src={isMobile ? item.mobilePic : item.image}
+                          alt={item.title}
+                          fill
+                          className="object-contain"
+                          sizes="100vw"
+                          priority={false}
+                        />
+                      </div>
 
-                      {/* Content overlay */}
-                      <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
+                      {/* Gradient overlay at bottom for text */}
+                      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/80 to-transparent" />
+
+                      {/* Content overlay - positioned at bottom */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-12 z-10">
                         <div className="max-w-2xl">
                           {/* Title */}
-                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-[#D4AF37] font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                          <h3 className="font-display text-2xl md:text-3xl lg:text-4xl tracking-tight mb-3 md:mb-4 text-[#D4AF37] font-bold drop-shadow-lg">
                             {item.title}
                           </h3>
 
                           {/* Divider line */}
-                          <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
+                          <div className="w-12 h-px bg-[#D4AF37] mb-4 md:mb-6 group-hover:w-full transition-all duration-500" />
 
                           {/* Description */}
-                          <p className="text-base md:text-lg text-[#D4AF37] leading-relaxed drop-shadow-md font-medium">
-                            {item.description}
-                          </p>
+                          {item.description && (
+                            <p className="text-sm md:text-base lg:text-lg text-white/90 leading-relaxed drop-shadow-md font-medium">
+                              {item.description}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>

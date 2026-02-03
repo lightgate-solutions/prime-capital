@@ -387,7 +387,7 @@ export default function HomePage() {
     },
     {
       image: "/transparency.svg",
-      mobilePic: "/transparency-mobile.jpg",
+      mobilePic: "/transparency.svg",
       title: "Absolute Transparency",
       description:
         "Represented by our 'White' value, we ensure full transparency in disclosures, reporting, and decision-making.",
@@ -408,7 +408,7 @@ export default function HomePage() {
     },
     {
       image: "/team.svg",
-      mobilePic: "/team-mobile.jpg",
+      mobilePic: "/team.svg",
       title: "Our Financial Advisory Team",
       description: "",
     },
@@ -790,7 +790,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            className="absolute left-4 top-1/3 -translate-y-1/2 z-20 h-4 w-4 md:h-12 md:w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -798,7 +798,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            className="absolute right-4 top-1/3 -translate-y-1/2 z-20 h-4 w-4 md:h-12 md:w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
             aria-label="Next slide"
           >
             <ChevronRight className="h-6 w-6" />
@@ -808,50 +808,47 @@ export default function HomePage() {
           <div
             ref={whyChooseScrollRef}
             className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide w-full"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <div ref={whyChooseCardsRef} className="flex w-full">
               {/* Slides */}
               {whyChooseUs.map((item) => {
-                const hasDedicatedMobile = item.mobilePic !== item.image;
                 return (
                   <article
                     key={item.title}
-                    className="group relative flex-shrink-0 h-[400px] md:h-[600px] snap-start"
+                    className="group relative flex-shrink-0 snap-start"
                     style={{ minWidth: "100%", width: "100%" }}
                   >
-                    {/* Card with image as background */}
-                    <div
-                      className="relative w-full h-full carousel-bg-position bg-white md:bg-[#0A1628]"
-                      style={{
-                        backgroundImage: `url(${isMobile ? item.mobilePic : item.image})`,
-                        backgroundSize:
-                          isMobile && !hasDedicatedMobile ? "contain" : "cover",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition:
-                          !isMobile && !hasDedicatedMobile
-                            ? "center 10%"
-                            : "center",
-                      }}
-                    >
-                      {/* Stronger gradient overlay for better text visibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/10 via-[#0A1628]/10 to-[#0A1628]/10" />
+                    {/* Card with image using Next.js Image for proper aspect ratio preservation */}
+                    <div className="relative w-full bg-white">
+                      {/* Image Container - aspect ratio maintained */}
+                      <div className="relative w-full aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/9]">
+                        <Image
+                          src={isMobile ? item.mobilePic : item.image}
+                          alt={item.title}
+                          fill
+                          className="object-contain"
+                          sizes="100vw"
+                          priority={false}
+                        />
+                      </div>
 
-                      {/* Content overlay */}
-                      <div className="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
+                      {/* Gradient overlay at bottom for text */}
+                      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/80 to-transparent" />
+
+                      {/* Content overlay - positioned at bottom */}
+                      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-10 lg:p-12 z-10">
                         <div className="max-w-2xl">
                           {/* Title */}
-                          <h3 className="font-display text-3xl md:text-4xl tracking-tight mb-4 text-[#D4AF37] font-bold drop-shadow-lg group-hover:text-[#D4AF37] transition-colors duration-300">
+                          <h3 className="font-display md:text-3xl lg:text-4xl tracking-tight mb-2 md:mb-4 text-[#D4AF37] font-bold drop-shadow-lg">
                             {item.title}
                           </h3>
 
-                          {/* Divider line */}
-                          <div className="w-12 h-px bg-[#D4AF37] mb-6 group-hover:w-full transition-all duration-500" />
-
                           {/* Description */}
-                          <p className="text-base md:text-lg text-[#D4AF37] leading-relaxed drop-shadow-md font-medium">
-                            {item.description}
-                          </p>
+                          {item.description && (
+                            <p className="text-xs md:text-base lg:text-lg text-white/90 leading-relaxed drop-shadow-md font-medium">
+                              {item.description}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -884,53 +881,54 @@ export default function HomePage() {
       <RecentNewsWrapper />
 
       {/* CTA Section */}
-      <section className="min-h-[800px] lg:min-h-[800px] flex items-end py-20 text-white relative overflow-hidden">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${isMobile ? "/ready-mobile.jpg" : "/ready.svg"})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            height: "800px",
-          }}
-        />
-        {/* Background overlay for text readability */}
-        <div className="absolute inset-0 bg-[#0A1628]/20 lg:from-[#0A1628] lg:via-[#0A1628]/10 lg:to-transparent z-0" />
+      <section className="relative bg-[#FDFCFA] overflow-hidden">
+        {/* Image container with proper aspect ratio */}
+        <div className="relative w-full">
+          <div className="relative w-full aspect-[9/16] md:aspect-[16/9] lg:aspect-[16/9]">
+            <Image
+              src={isMobile ? "/ready-mobile.jpg" : "/ready.svg"}
+              alt="Ready to Secure Your Future"
+              fill
+              className="object-cover object-top md:object-center"
+              sizes="100vw"
+              priority
+            />
+          </div>
 
-        {/* Desktop decorative elements */}
-        <div className="absolute inset-0 opacity-10 hidden lg:block z-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10 w-full">
-          <div className="max-w-3xl px-4 sm:px-6 lg:px-8 xl:px-12 text-center lg:text-left flex flex-col relative z-10">
-            <h2 className="font-display text-2xl md:text-5xl font-bold mb-6 text-[#D4AF37]">
-              Ready to Secure Your Future?
-            </h2>
-            <p className="text-2xl mb-10 text-[#D4AF37]/90">
-              Join a modern, dependable, and client-focused institution trusted
-              to steward wealth across market cycles.
-            </p>
-            <div className="flex flex-row flex-wrap gap-6 justify-center lg:justify-start">
-              <Link href="/contact">
-                <button
-                  type="button"
-                  className="group hover:cursor-pointer bg-white text-[#0A1628] hover:bg-white/90 px-10 py-5 rounded-full font-bold text-lg transition-colors shadow-elevated-lg hover:shadow-2xl flex items-center gap-2"
-                >
-                  Get Started Now
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-              <Link href="/about">
-                <button
-                  type="button"
-                  className="hover:cursor-pointer bg-transparent border-2 border-white/30 hover:border-white text-white px-10 py-5 rounded-full font-bold text-lg transition-colors"
-                >
-                  Learn More
-                </button>
-              </Link>
+          {/* Gradient overlay for text readability - stronger on mobile */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/95 via-[#0A1628]/50 to-[#0A1628]/10 md:from-[#0A1628]/90 md:via-[#0A1628]/20 md:to-transparent" />
+
+          {/* Content overlay - positioned lower on mobile to show faces */}
+          <div className="absolute bottom-0 left-0 right-0 pb-6 pt-32 md:py-16 lg:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+              <div className="max-w-3xl text-center lg:text-left">
+                <h2 className="font-display text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-6 text-[#D4AF37] drop-shadow-lg">
+                  Ready to Secure Your Future?
+                </h2>
+                <p className="text-sm md:text-xl lg:text-2xl mb-6 md:mb-10 text-white/90 drop-shadow-md">
+                  Join a modern, dependable, and client-focused institution
+                  trusted to steward wealth across market cycles.
+                </p>
+                <div className="flex flex-row gap-3 md:gap-6 justify-center lg:justify-start">
+                  <Link href="/contact">
+                    <button
+                      type="button"
+                      className="group hover:cursor-pointer bg-white text-[#0A1628] hover:bg-white/90 px-6 md:px-10 py-3 md:py-5 rounded-full font-bold text-sm md:text-lg transition-colors shadow-elevated-lg hover:shadow-2xl flex items-center justify-center gap-2"
+                    >
+                      Get Started Now
+                      <ArrowRight className="h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Link>
+                  <Link href="/about">
+                    <button
+                      type="button"
+                      className="hover:cursor-pointer bg-transparent border-2 border-white/30 hover:border-white text-white px-2 md:px-10 py-3 md:py-5 rounded-full font-bold text-sm md:text-lg transition-colors"
+                    >
+                      Learn More
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
