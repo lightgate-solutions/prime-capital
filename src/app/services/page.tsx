@@ -141,7 +141,7 @@ export default function ServicesPage() {
     },
     {
       image: "/client-handshake.png",
-      mobilePic: "/client.svg",
+      mobilePic: "/client-handshake.png",
       title: "Client-First Partnerships",
       description:
         "Bespoke solutions tailored to individual goals, risk profiles, and legacy aspirations.",
@@ -425,7 +425,7 @@ export default function ServicesPage() {
           <button
             type="button"
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            className="absolute left-4 top-1/3 -translate-y-1/2 z-20 h-4 w-4 md:h-12 md:w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -433,7 +433,7 @@ export default function ServicesPage() {
           <button
             type="button"
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 h-12 w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
+            className="absolute right-4 top-1/3 -translate-y-1/2 z-20 h-4 w-4 md:h-12 md:w-12 rounded-full bg-white/90 backdrop-blur-sm border-2 border-[#D4AF37] text-[#0A1628] flex items-center justify-center hover:bg-[#D4AF37] hover:text-white transition-all duration-300 shadow-elevated-lg hover:scale-110"
             aria-label="Next slide"
           >
             <ChevronRight className="h-6 w-6" />
@@ -471,19 +471,16 @@ export default function ServicesPage() {
                       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/80 to-transparent" />
 
                       {/* Content overlay - positioned at bottom */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 lg:p-12 z-10">
+                      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-10 lg:p-12 z-10">
                         <div className="max-w-2xl">
                           {/* Title */}
-                          <h3 className="font-display text-2xl md:text-3xl lg:text-4xl tracking-tight mb-3 md:mb-4 text-[#D4AF37] font-bold drop-shadow-lg">
+                          <h3 className="font-display md:text-3xl lg:text-4xl tracking-tight mb-2 md:mb-4 text-[#D4AF37] font-bold drop-shadow-lg">
                             {item.title}
                           </h3>
 
-                          {/* Divider line */}
-                          <div className="w-12 h-px bg-[#D4AF37] mb-4 md:mb-6 group-hover:w-full transition-all duration-500" />
-
                           {/* Description */}
                           {item.description && (
-                            <p className="text-sm md:text-base lg:text-lg text-white/90 leading-relaxed drop-shadow-md font-medium">
+                            <p className="text-xs md:text-base lg:text-lg text-white/90 leading-relaxed drop-shadow-md font-medium">
                               {item.description}
                             </p>
                           )}

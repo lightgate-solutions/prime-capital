@@ -541,7 +541,7 @@ export default function HomePage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#D4AF37]/5 to-[#0A1628]/5 rounded-full blur-[250px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10 space-y-32">
+        <div className="max-w-7xl mx-auto relative z-10 space-y-10 md:space-y-32">
           {/* About Us Subsection */}
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-[#0A1628] leading-tight">
@@ -590,7 +590,7 @@ export default function HomePage() {
           </div>
 
           {/* Mission Section */}
-          <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden group">
+          <div className="relative aspect-[16/12] md:aspect-auto md:h-[600px] rounded-3xl overflow-hidden group">
             <div
               ref={missionImageRef}
               className="absolute inset-0 w-full h-full"
@@ -604,17 +604,17 @@ export default function HomePage() {
               />
             </div>
             {/* Gradient overlay on the right side to avoid center text */}
-            <div className="absolute inset-0 bg-gradient-to-l from-[#D4AF37] via-[#D4AF37]/95 md:from-[#D4AF37]/95 md:via-[#D4AF37]/80 via-[#D4AF37]/40 to-[#0A1628]/80 md:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#D4AF37] md:from-[#D4AF37]/95 via-[#D4AF37]/40 to-[#0A1628]/80 md:to-transparent" />
             {/* Text content positioned on the right to avoid center image text */}
             <div
               ref={missionCardRef}
-              className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 flex items-center justify-end p-8 md:p-12 z-10"
+              className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 flex items-end md:items-center justify-end p-3 md:p-12 z-10"
             >
-              <div className="max-w-md text-right lg:text-left">
-                <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+              <div className="max-w-md text-right lg:text-left md:mb-0">
+                <h3 className="font-display text-xl md:text-5xl font-bold text-white mb-7 drop-shadow-lg">
                   Our Mission
                 </h3>
-                <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
+                <p className="text-xs md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
                   Grow and protect client wealth through innovative and
                   disciplined strategies.
                 </p>
@@ -623,7 +623,7 @@ export default function HomePage() {
           </div>
 
           {/* Vision Section */}
-          <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden group">
+          <div className="relative aspect-[16/12] md:aspect-auto md:h-[600px] rounded-3xl overflow-hidden group">
             <div
               ref={visionImageRef}
               className="absolute inset-0 w-full h-full"
@@ -641,13 +641,13 @@ export default function HomePage() {
             {/* Text content positioned on the left */}
             <div
               ref={visionCardRef}
-              className="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 flex items-center p-8 md:p-12 z-10"
+              className="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 flex items-end md:items-center p-3 md:p-12 z-10"
             >
-              <div className="max-w-md">
-                <h3 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+              <div className="max-w-md md:mb-0">
+                <h3 className="font-display text-xl md:text-5xl font-bold text-white mb-7 drop-shadow-lg">
                   Our Vision
                 </h3>
-                <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
+                <p className="text-xs md:text-xl text-white/95 leading-relaxed font-medium drop-shadow-md">
                   To be one of the most trusted partners in wealth management.
                 </p>
               </div>
