@@ -28,12 +28,7 @@ export function Footer() {
       { label: "Financial Advisory", href: "/services" },
       { label: "Equity Investment", href: "/services" },
     ],
-    legal: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
-      { label: "Regulatory Compliance", href: "/compliance" },
-      { label: "Risk Disclosure", href: "/risk-disclosure" },
-    ],
+    legal: [{ label: "Terms of Use", href: "/terms" }],
   };
 
   const socialLinks = [
@@ -63,10 +58,10 @@ export function Footer() {
                 <div className="absolute inset-0 rounded-full bg-[#D4AF37]/20 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300" />
               </div>
               <div>
-                <span className="font-display text-xl font-bold text-white tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">
+                <span className="font-display text-xl font-bold text-[#D4AF37] tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300">
                   Prime Capital
                 </span>
-                <p className="text-[10px] text-white/50 uppercase tracking-widest">
+                <p className="text-[10px] text-[#D4AF37] uppercase tracking-widest">
                   Wealth Management
                 </p>
               </div>
