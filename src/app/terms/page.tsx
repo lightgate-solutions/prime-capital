@@ -7,7 +7,7 @@ export default function TermsPage() {
       <Navigation />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mt-10 sm:mt-14 mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
             <span className="text-xs sm:text-sm font-medium text-[#0a1628] uppercase tracking-wider">
