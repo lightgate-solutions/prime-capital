@@ -289,7 +289,7 @@ export default function AboutPage() {
       icon: Zap,
       photo: "/saidu.jpg",
       fullInfo:
-        "Saidu Safiyanu is an information technology professional with expertise in network design, systems implementation, and IT infrastructure support. He holds a B.Eng. in Electrical Engineering and a Diploma in Computer Engineering from Ahmadu Bello University, Zaria. He previously served as a Senior Systems Programmer (Network Engineer) at Ahmadu Bello University, Zaria, and as a Junior Network Engineer in network infrastructure and security roles. His experience spans the design, implementation, and maintenance of large-scale network systems in structured environments, supporting secure and reliable operations at Prime Capital & Investment Limited.",
+        "Saidu Safiyanu is an information technology professional with expertise in network design, systems implementation, and IT infrastructure support. He holds a B.Eng. in Electrical Engineering and a Diploma in Computer Engineering from Ahmadu Bello University, Zaria. And also, professional training and certifications which includes CCNA, CCNP, HCIA, annd HCIP. He previously served as a Senior Systems Programmer (Network Engineer) at Ahmadu Bello University, Zaria, and as a Junior Network Engineer in network infrastructure and security roles. His experience spans the design, implementation, and maintenance of large-scale network systems in structured environments, supporting secure and reliable operations at Prime Capital & Investment Limited.",
     },
     {
       name: "Saadah Sambo",

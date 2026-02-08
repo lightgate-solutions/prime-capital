@@ -20,7 +20,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Prime Capital - A Financial Services firm in Nigeria",
+  title: "Prime Capital - Trusted Financial Services firm in Nigeria",
   description:
     "Prime Capital offers brokerage, investment advisory, and asset management services. Regulated by the Nigerian SEC.",
   icons: {
