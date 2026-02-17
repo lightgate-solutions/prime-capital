@@ -107,14 +107,6 @@ export default function ServicesPage() {
       ],
       features: [],
     },
-    {
-      title: "Equity",
-      description:
-        "Equity Investment Services - Professionally managed equity investment solutions across Nigeria and selected global markets, tailored to meet both conventional and Ethical-compliant investment objectives.",
-      hasSubsections: false,
-      subsections: [],
-      features: [],
-    },
   ];
 
   const whyChooseUs = [

@@ -37,6 +37,7 @@ export function Navigation() {
     { href: "/about", label: "About Us" },
     { href: "/news", label: "News" },
     { href: "/careers", label: "Careers" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
   return (
@@ -109,8 +110,8 @@ export function Navigation() {
               }`}
               asChild
             >
-              <Link href="/contact">
-                <span className="relative z-10">Contact Us</span>
+              <Link href="/register">
+                <span className="relative z-10">Register</span>
               </Link>
             </Button>
           </div>

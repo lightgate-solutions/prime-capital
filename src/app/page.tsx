@@ -29,6 +29,7 @@ import { Footer } from "@/components/footer";
 import { InvestmentApproach } from "@/components/investment-approach";
 import { Navigation } from "@/components/navigation";
 import { RecentNewsWrapper } from "@/components/recent-news-wrapper";
+import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -532,8 +533,38 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="py-4 md:py-10 pt-4 md:pt-10 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
+        <div className="pl-0 sm:pl-13">
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 sm:p-6">
+            <h2 className="font-display text-xl md:text-2xl font-bold mb-2 text-[#0A1628] leading-tight">
+              Overview
+            </h2>
+            <p className="">
+              At Prime Capital & Investment Limited, we believe that asset
+              management is more than generating returns — it is about
+              responsible stewardship of capital, disciplined risk management,
+              and contributing meaningfully to sustainable economic growth in
+              Nigeria.
+            </p>
+            <p>
+              In a rapidly evolving economic landscape, capital must be deployed
+              with clarity, prudence, and foresight. We recognize that
+              well-managed investment capital can strengthen institutions,
+              deepen markets, support productive enterprises, and create
+              longterm prosperity.
+            </p>
+            <p>
+              Our philosophy at Prime Capital is grounded in the conviction that
+              sustainable wealth creation comes from aligning strategy,
+              governance, and risk management with long-term national
+              development priorities.
+            </p>
+          </div>
+        </div>
+      </section>
       {/* About Brief Section */}
-      <section className="py-24 md:py-40 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
+      <section className="py-4 md:py-10 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
         {/* Enhanced Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[200px]" />
@@ -677,7 +708,7 @@ export default function HomePage() {
       {/* Services Section - Asymmetric Layout */}
       <section
         ref={servicesSectionRef}
-        className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-[#0A1628] relative overflow-hidden"
+        className="px-4 py-10 sm:px-6 lg:px-8 bg-[#0A1628] relative overflow-hidden"
       >
         {/* Cursor effect */}
         <div
@@ -690,7 +721,7 @@ export default function HomePage() {
         <div className="absolute top-1/4 right-0 w-1/3 h-96 bg-[#D4AF37]/10 blur-[150px] rounded-full" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div className="flex flex-col items-start gap-16 mb-20">
             <div>
               <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 border-2 border-[#D4AF37] text-[#D4AF37] text-sm font-bold px-5 py-2 rounded-full mb-6">
                 <Landmark className="h-4 w-4" />
@@ -702,55 +733,16 @@ export default function HomePage() {
                 preservation, blending disciplined investment strategies with
                 innovative and transparent offerings. We provide access to a
                 range of professionally managed funds and bespoke portfolios.
-                Our Offerings Include:
               </p>
             </div>
+
+            <Button>
+              Learn More <ArrowRight />
+            </Button>
 
             <div className="relative hidden md:block">
               {/* Decorative element removed to reduce distraction from text */}
             </div>
-          </div>
-
-          {/* Services Grid */}
-          <div
-            ref={servicesCardsRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {services.map((service) => {
-              return (
-                <article
-                  key={service.title}
-                  className="group relative transition-transform duration-500 ease-out hover:-translate-y-2 h-full"
-                >
-                  {/* Card with paper texture effect */}
-                  <div className="relative bg-white/5 border border-[#D4AF37]/20 md:border-t md:border-l md:border-r-0 md:border-b-0 p-6 h-full">
-                    {/* Top torn edge effect */}
-                    <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
-
-                    {/* Title */}
-                    <h3 className="font-display text-xl tracking-tight mb-3 text-white group-hover:text-[#D4AF37] transition-colors duration-300">
-                      {service.title}
-                    </h3>
-
-                    {/* Divider line */}
-                    <div className="w-12 h-px bg-[#D4AF37]/60 mb-4 group-hover:w-full transition-all duration-500" />
-
-                    {/* Description */}
-                    <p className="text-sm text-white/70 leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    {/* Bottom right corner fold effect */}
-                    <div className="absolute bottom-0 right-0 w-6 h-6 overflow-hidden">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 bg-[#0A1628] rotate-45 translate-x-4 translate-y-4 border-t border-l border-[#D4AF37]/30" />
-                    </div>
-                  </div>
-
-                  {/* Shadow/depth layer */}
-                  <div className="absolute inset-0 -z-10 translate-x-1 translate-y-1 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </article>
-              );
-            })}
           </div>
         </div>
       </section>
