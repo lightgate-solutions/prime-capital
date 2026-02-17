@@ -736,9 +736,11 @@ export default function HomePage() {
               </p>
             </div>
 
-            <Button>
-              Learn More <ArrowRight />
-            </Button>
+            <Link href="/services">
+              <Button>
+                Learn More <ArrowRight />
+              </Button>
+            </Link>
 
             <div className="relative hidden md:block">
               {/* Decorative element removed to reduce distraction from text */}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type React from "react";
 import "./globals.css";
 import { Outfit, Playfair_Display } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "sonner";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
@@ -45,6 +46,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`antialiased font-body`}>
+        <NextTopLoader showSpinner={false} />
         <SmoothScroll>{children}</SmoothScroll>
         <Toaster richColors position="top-right" />
       </body>
