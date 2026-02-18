@@ -540,14 +540,14 @@ export default function HomePage() {
             <h2 className="font-display text-xl md:text-2xl font-bold mb-2 text-[#0A1628] leading-tight">
               Overview
             </h2>
-            <p className="">
+            <p className="mt-2">
               At Prime Capital & Investment Limited, we believe that asset
               management is more than generating returns — it is about
               responsible stewardship of capital, disciplined risk management,
               and contributing meaningfully to sustainable economic growth in
               Nigeria.
             </p>
-            <p>
+            <p className="mt-3 md:mt-5 md:mb-5 mb-3">
               In a rapidly evolving economic landscape, capital must be deployed
               with clarity, prudence, and foresight. We recognize that
               well-managed investment capital can strengthen institutions,
