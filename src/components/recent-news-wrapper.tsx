@@ -70,7 +70,8 @@ export function RecentNewsWrapper() {
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
               Recent News
             </span>
-            <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
+
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-[#0A1628] leading-tight">
               LATEST UPDATES
             </h2>
           </div>

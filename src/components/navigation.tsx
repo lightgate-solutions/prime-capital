@@ -6,6 +6,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -102,18 +109,33 @@ export function Navigation() {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
-            <Button
-              className={`group relative px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 overflow-hidden shadow-elevated ${
-                isHomePage && isOverHero
-                  ? "bg-[#D4AF37] text-[#0A1628] hover:bg-[#D4AF37]/90"
-                  : "bg-[#0A1628] text-white hover:bg-[#0A1628]/90"
-              }`}
-              asChild
-            >
-              <Link href="/register">
-                <span className="relative z-10">Register</span>
-              </Link>
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  className={`group relative px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-all duration-300 overflow-hidden shadow-elevated ${
+                    isHomePage && isOverHero
+                      ? "bg-[#D4AF37] text-[#0A1628] hover:bg-[#D4AF37]/90"
+                      : "bg-[#0A1628] text-white hover:bg-[#0A1628]/90"
+                  }`}
+                  asChild
+                >
+                  <span className="relative z-10">Open Account</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-white">
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>
+                    <Link
+                      href="https://forms.gle/6YLKcR4g3fiPFEZ89"
+                      target="_blank"
+                    >
+                      Individual Account
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>Corporate Account</DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile Menu Button */}
@@ -151,14 +173,30 @@ export function Navigation() {
                   </span>
                 </Link>
               ))}
-              <Button
-                className="mt-4 w-full bg-[#0A1628] text-white hover:bg-[#0A1628]/90 rounded-full py-4 text-base font-bold shadow-elevated transition-all duration-300"
-                asChild
-              >
-                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                  Contact Us
-                </Link>
-              </Button>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    className="mt-4 w-full bg-[#0A1628] text-white hover:bg-[#0A1628]/90 rounded-full py-4 text-base font-bold shadow-elevated transition-all duration-300"
+                    asChild
+                  >
+                    <span className="relative z-10">Open Account</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white">
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem>
+                      <Link
+                        href="https://forms.gle/6YLKcR4g3fiPFEZ89"
+                        target="_blank"
+                      >
+                        Individual Account
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>Corporate Account</DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         )}

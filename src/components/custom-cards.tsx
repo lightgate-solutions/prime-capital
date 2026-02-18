@@ -137,7 +137,7 @@ export function CustomCards() {
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
           Our Corporate Philosophy
         </span>
-        <h2 className="mt-4 font-[var(--font-bebas)] text-5xl md:text-7xl tracking-tight">
+        <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-[#0A1628] leading-tight">
           Built on Trust
         </h2>
 
@@ -178,7 +178,7 @@ function SignalCard({ signal }: { signal: { title: string; note: string } }) {
         <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
 
         {/* Title */}
-        <h3 className="font-[var(--font-bebas)] text-xl tracking-tight mb-2 group-hover:text-accent transition-colors duration-300">
+        <h3 className="font-display text-xl tracking-tight mb-2 group-hover:text-accent transition-colors duration-300">
           {signal.title}
         </h3>
 

@@ -4,8 +4,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   ArrowRight,
-  BarChart3,
-  ChartCandlestick,
   ChevronLeft,
   ChevronRight,
   Landmark,
@@ -13,10 +11,7 @@ import {
   MapPin,
   NotebookTabs,
   Phone,
-  Scale,
-  Shield,
   ShieldCheck,
-  TrendingUp,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -339,45 +334,6 @@ export default function HomePage() {
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const services = [
-    {
-      icon: Shield,
-      title: "Money Market Instruments",
-      description:
-        "Investments in securities with short-term maturities, such as Treasury Bills (T-Bills), Commercial Papers (CPs), Certificates of Deposit (CDs) and Bankers' Acceptances (BAs).",
-    },
-    {
-      icon: TrendingUp,
-      title: "Fixed Income Securities",
-      description:
-        "Stable income-oriented portfolios investing in government (FGN & State) bonds and high-quality corporate debt.",
-    },
-    {
-      icon: BarChart3,
-      title: "Multi-Asset Portfolios",
-      description:
-        " Balanced strategies for allocating assets across classes in order to build opportunities and manage risks.",
-    },
-    {
-      icon: Scale,
-      title: "Ethical & Shari'ah-Compliant Products",
-      description:
-        "Solutions aligned with ethical and Islamic investment principles.",
-    },
-    {
-      icon: Landmark,
-      title: "Discretionary & Non-Discretionary Portfolios",
-      description:
-        "Tailored mandates for retail and qualified investors, aligned with their risk profiles.",
-    },
-    {
-      icon: ChartCandlestick,
-      title: "Alternative Investments",
-      description:
-        "Access to real estate, private equity, venture capital, and infrastructure funds.",
-    },
-  ];
-
   const whyChooseUs = [
     {
       image: "/goldbars.png",
@@ -537,7 +493,7 @@ export default function HomePage() {
       <section className="py-4 md:py-10 pt-4 md:pt-10 px-4 sm:px-6 lg:px-8 bg-[#FDFCFA] relative overflow-hidden">
         <div className="pl-0 sm:pl-13">
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 sm:p-6">
-            <h2 className="font-display text-xl md:text-2xl font-bold mb-2 text-[#0A1628] leading-tight">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-[#0A1628] leading-tight">
               Overview
             </h2>
             <p className="mt-2">
