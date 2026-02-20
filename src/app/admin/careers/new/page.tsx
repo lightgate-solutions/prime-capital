@@ -13,7 +13,7 @@ export default function NewCareerPage() {
             Back to Careers
           </Link>
         </Button>
-        <h1 className="text-3xl font-bold mb-2">Create New Career Posting</h1>
+        <h1 className="font-display text-3xl font-bold mb-2">Create New Career Posting</h1>
         <p className="text-muted-foreground">
           Fill in the details below to create a new job posting
         </p>

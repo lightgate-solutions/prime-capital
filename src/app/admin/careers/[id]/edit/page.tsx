@@ -28,7 +28,7 @@ export default async function EditCareerPage({ params }: EditCareerPageProps) {
             Back to Careers
           </Link>
         </Button>
-        <h1 className="text-3xl font-bold mb-2">Edit Career Posting</h1>
+        <h1 className="font-display text-3xl font-bold mb-2">Edit Career Posting</h1>
         <p className="text-muted-foreground">
           Update the career posting details below
         </p>

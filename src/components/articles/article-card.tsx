@@ -57,7 +57,7 @@ export function ArticleCard({
           <div className="flex items-center gap-2 mb-2">
             <CategoryBadge category={category} />
           </div>
-          <h3 className="text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="font-display text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
         </CardHeader>

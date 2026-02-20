@@ -242,7 +242,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
             Investment Products
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                 >
                   <CardContent className="pt-8">
                     <div className="mb-8">
-                      <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed text-lg">
@@ -291,7 +291,7 @@ export default function ServicesPage() {
                                 className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/30 transition-all duration-200 active:scale-[0.98]"
                                 aria-expanded={isOpen}
                               >
-                                <h4 className="font-bold text-lg text-foreground group-hover/subsection:text-primary transition-colors duration-200">
+                                <h4 className="font-display font-bold text-lg text-foreground group-hover/subsection:text-primary transition-colors duration-200">
                                   {subsection.title}
                                 </h4>
                                 <motion.div
@@ -401,7 +401,7 @@ export default function ServicesPage() {
       <section className="py-20 md:py-32 px-0 md:px-4 lg:px-8 bg-muted/50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
               The Prime Capital Advantage
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
@@ -508,7 +508,7 @@ export default function ServicesPage() {
       <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-foreground relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-1/4" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
             Ready to Optimise Your Portfolio?
           </h2>
           <p className="text-xl mb-10 text-secondary-foreground/80">

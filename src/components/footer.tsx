@@ -90,7 +90,7 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-bold text-white mb-6">Company</h3>
+            <h3 className="font-display font-bold text-white mb-6">Company</h3>
             <ul className="flex flex-col gap-3 text-sm">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
@@ -108,7 +108,7 @@ export function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-bold text-white mb-6">Services</h3>
+            <h3 className="font-display font-bold text-white mb-6">Services</h3>
             <ul className="flex flex-col gap-3 text-sm">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
@@ -126,7 +126,7 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="font-bold text-white mb-6">Legal</h3>
+            <h3 className="font-display font-bold text-white mb-6">Legal</h3>
             <ul className="flex flex-col gap-3 text-sm">
               {footerLinks.legal.map((link) => (
                 <li key={link.href}>

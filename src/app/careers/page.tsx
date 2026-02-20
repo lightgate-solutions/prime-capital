@@ -47,7 +47,7 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
       {/* Hero Section */}
       <section className="pt-28 pb-12 md:pt-36 md:pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
             Join Our <span className="text-primary">Team</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
@@ -70,7 +70,7 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
       {featuredCareers.length > 0 && !search && (
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold mb-10">Featured Positions</h2>
+            <h2 className="font-display text-3xl font-bold mb-10">Featured Positions</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {featuredCareers.map((career) => (
                 <CareerCard
@@ -93,7 +93,7 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
       {/* All Careers */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold mb-8">
+          <h2 className="font-display text-2xl font-bold mb-8">
             {search ? "Search Results" : "All Open Positions"}
           </h2>
           {careers.length === 0 ? (
@@ -136,7 +136,7 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
         <div className="max-w-4xl mx-auto">
           <Card className="border-2 border-primary/20 bg-linear-to-br from-background to-primary/5">
             <CardContent className="pt-10 pb-10 text-center">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+              <h3 className="font-display text-3xl md:text-4xl font-bold mb-4 text-balance">
                 Don't See the Right Fit?
               </h3>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">

@@ -319,7 +319,7 @@ export default function AboutPage() {
       <section className="pt-28 pb-20 md:pt-36 md:pb-32 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-background via-background to-primary/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
               About <span className="">Prime Capital</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed mb-8">
@@ -477,7 +477,7 @@ export default function AboutPage() {
         />
         <div className="max-w-7xl mx-auto relative z-10">
           <div ref={philosophyHeaderRef} className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
               Our Corporate Philosophy
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -503,7 +503,7 @@ export default function AboutPage() {
               >
                 <div className="relative bg-card border border-border/50 md:border-t md:border-l md:border-r-0 md:border-b-0 p-3">
                   <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
-                  <h3 className="font-[var(--font-bebas)] text-xl tracking-tight mb-2 group-hover:text-accent transition-colors duration-300">
+                  <h3 className="font-display text-xl tracking-tight mb-2 group-hover:text-accent transition-colors duration-300">
                     {item.title}
                   </h3>
                   <div className="w-12 h-px bg-accent/60 mb-2 group-hover:w-full transition-all duration-500" />
@@ -528,7 +528,7 @@ export default function AboutPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
               Board of Directors
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -550,7 +550,7 @@ export default function AboutPage() {
                           className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                       </div>
-                      <h3 className="text-2xl font-bold mb-2">{leader.name}</h3>
+                      <h3 className="font-display text-2xl font-bold mb-2">{leader.name}</h3>
                       <p className="text-primary font-semibold mb-4">
                         {leader.role}
                       </p>
@@ -572,7 +572,7 @@ export default function AboutPage() {
                           className="rounded-full object-cover"
                         />
                       </div>
-                      <DialogTitle className="text-3xl font-bold">
+                      <DialogTitle className="font-display text-3xl font-bold">
                         {leader.name}
                       </DialogTitle>
                       <p className="text-primary font-semibold mt-1">
@@ -589,7 +589,7 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
               Management Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -614,7 +614,7 @@ export default function AboutPage() {
                             />
                           </div>
                           <div>
-                            <h3 className="text-xl font-bold mb-1">
+                            <h3 className="font-display text-xl font-bold mb-1">
                               {leader.name}
                             </h3>
                             <p className="text-sm text-primary font-medium mb-4">
@@ -640,7 +640,7 @@ export default function AboutPage() {
                             className="rounded-full object-cover"
                           />
                         </div>
-                        <DialogTitle className="text-3xl font-bold">
+                        <DialogTitle className="font-display text-3xl font-bold">
                           {leader.name}
                         </DialogTitle>
                         <p className="text-primary font-semibold mt-1">
@@ -669,7 +669,7 @@ export default function AboutPage() {
                   <Shield className="h-12 w-12 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">
+                  <h3 className="font-display text-2xl font-bold mb-4">
                     Regulation & Compliance
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">

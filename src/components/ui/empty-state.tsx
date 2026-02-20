@@ -18,7 +18,7 @@ export function EmptyState({
       <div className="mb-4 text-muted-foreground">
         {icon || <FileX className="h-16 w-16" />}
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <h3 className="font-display text-xl font-semibold mb-2">{title}</h3>
       {description && (
         <p className="text-muted-foreground mb-4 max-w-md">{description}</p>
       )}

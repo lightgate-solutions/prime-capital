@@ -126,13 +126,20 @@ export function Navigation() {
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
                     <Link
-                      href="https://forms.gle/6YLKcR4g3fiPFEZ89"
+                      href="https://forms.gle/Mxu9fhggN8AtA93e6"
                       target="_blank"
                     >
                       Individual Account
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>Corporate Account</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href="https://forms.gle/iAPfcrcJrz2qiXK19"
+                      target="_blank"
+                    >
+                      Corporate Account
+                    </Link>
+                  </DropdownMenuItem>
                 </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -187,13 +194,20 @@ export function Navigation() {
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
                       <Link
-                        href="https://forms.gle/6YLKcR4g3fiPFEZ89"
+                        href="https://forms.gle/Mxu9fhggN8AtA93e6"
                         target="_blank"
                       >
                         Individual Account
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>Corporate Account</DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link
+                        href="https://forms.gle/iAPfcrcJrz2qiXK19"
+                        target="_blank"
+                      >
+                        Corporate Account
+                      </Link>
+                    </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>
               </DropdownMenu>

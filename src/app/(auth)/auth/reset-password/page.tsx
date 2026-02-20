@@ -8,7 +8,7 @@ export default function ResetPage() {
       <div className="w-full max-w-md space-y-8">
         <div className="flex flex-col items-center space-y-2">
           <Logo size="lg" />
-          <h1 className="text-2xl font-bold text-foreground">Reset Password</h1>
+          <h1 className="font-display text-2xl font-bold text-foreground">Reset Password</h1>
         </div>
         <Suspense fallback={<div>Loading...</div>}>
           <ResetPasswordForm />

@@ -46,7 +46,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               )}
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6 text-balance">
               {article.title}
             </h1>
 
@@ -97,7 +97,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           {/* Article Content */}
           <div
             className="prose prose-lg max-w-none
-              prose-headings:font-bold prose-headings:text-foreground
+              prose-headings:font-display prose-headings:font-bold prose-headings:text-foreground
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
               prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6

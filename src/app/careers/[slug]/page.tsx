@@ -75,7 +75,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
               )}
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6 text-balance">
               {career.title}
             </h1>
 
@@ -115,7 +115,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
 
           {/* Job Description */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">About This Position</h2>
+            <h2 className="font-display text-2xl font-bold mb-4">About This Position</h2>
             <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
               {career.description}
             </p>
@@ -123,7 +123,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
 
           {/* Requirements */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">Requirements</h2>
+            <h2 className="font-display text-2xl font-bold mb-4">Requirements</h2>
             <div className="prose prose-lg max-w-none">
               <div
                 className="text-muted-foreground leading-relaxed whitespace-pre-line"
@@ -134,7 +134,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
 
           {/* Qualifications */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">Qualifications</h2>
+            <h2 className="font-display text-2xl font-bold mb-4">Qualifications</h2>
             <div className="prose prose-lg max-w-none">
               <div
                 className="text-muted-foreground leading-relaxed whitespace-pre-line"
@@ -145,7 +145,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
 
           {/* Responsibilities */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">Key Responsibilities</h2>
+            <h2 className="font-display text-2xl font-bold mb-4">Key Responsibilities</h2>
             <div className="prose prose-lg max-w-none">
               <div
                 className="text-muted-foreground leading-relaxed whitespace-pre-line"
@@ -157,7 +157,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
           {/* Benefits (if provided) */}
           {career.benefits && (
             <section className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Benefits</h2>
+              <h2 className="font-display text-2xl font-bold mb-4">Benefits</h2>
               <div className="prose prose-lg max-w-none">
                 <div
                   className="text-muted-foreground leading-relaxed whitespace-pre-line"
@@ -172,7 +172,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
             <section className="mt-12">
               <Card className="border-2 border-primary/20 bg-linear-to-br from-background to-primary/5">
                 <CardContent className="pt-8 pb-8">
-                  <h2 className="text-2xl font-bold mb-4">How to Apply</h2>
+                  <h2 className="font-display text-2xl font-bold mb-4">How to Apply</h2>
 
                   {career.applicationInstructions && (
                     <p className="text-muted-foreground mb-6 leading-relaxed whitespace-pre-line">
@@ -227,7 +227,7 @@ export default async function CareerPage({ params }: CareerPageProps) {
             <section className="mt-12">
               <Card className="border-2 border-muted bg-muted/30">
                 <CardContent className="pt-8 pb-8 text-center">
-                  <h2 className="text-2xl font-bold mb-4">
+                  <h2 className="font-display text-2xl font-bold mb-4">
                     Application Closed
                   </h2>
                   <p className="text-muted-foreground mb-6">

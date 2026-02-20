@@ -898,7 +898,7 @@ export default function HomePage() {
                     <MapPin className="h-7 w-7 text-[#D4AF37]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
+                    <h4 className="font-display font-bold text-xl mb-2 text-[#0A1628]">
                       Abuja Office
                     </h4>
                     <p className="text-[#0A1628]/70">
@@ -913,7 +913,7 @@ export default function HomePage() {
                     <Phone className="h-7 w-7 text-[#D4AF37]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
+                    <h4 className="font-display font-bold text-xl mb-2 text-[#0A1628]">
                       Telephone
                     </h4>
                     <p className="text-[#0A1628]/70">+234 (0) 811 183 7348</p>
@@ -925,7 +925,7 @@ export default function HomePage() {
                     <Mail className="h-7 w-7 text-[#D4AF37]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl mb-2 text-[#0A1628]">
+                    <h4 className="font-display font-bold text-xl mb-2 text-[#0A1628]">
                       Email
                     </h4>
                     <p className="text-[#0A1628]/70">info@primecapital.ng</p>
@@ -958,7 +958,7 @@ export default function HomePage() {
       <section className="py-12 px-4 sm:px-6 lg:px-8 border-t border-[#0A1628]/10 bg-[#F5F2ED]">
         <div className="max-w-7xl mx-auto">
           <div className="p-8 rounded-2xl bg-white border border-[#0A1628]/5 shadow-elevated">
-            <h4 className="font-bold mb-4 flex items-center gap-2 text-[#D4AF37]">
+            <h4 className="font-display font-bold mb-4 flex items-center gap-2 text-[#D4AF37]">
               <ShieldCheck className="h-5 w-5" />
               Important Disclosure & Investor Warning
             </h4>

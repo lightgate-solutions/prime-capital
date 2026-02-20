@@ -30,7 +30,7 @@ export default async function EditArticlePage({
             Back to Articles
           </Link>
         </Button>
-        <h1 className="text-3xl font-bold mb-2">Edit Article</h1>
+        <h1 className="font-display text-3xl font-bold mb-2">Edit Article</h1>
         <p className="text-muted-foreground">
           Update the article details below
         </p>

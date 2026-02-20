@@ -53,7 +53,7 @@ export function CareerCard({
               </span>
             )}
           </div>
-          <h3 className="text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="font-display text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
         </CardHeader>

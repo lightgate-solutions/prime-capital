@@ -44,7 +44,7 @@ export default async function AdminCareersPage({
     <div className="container mx-auto py-8 px-4">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Manage Careers</h1>
+          <h1 className="font-display text-3xl font-bold mb-2">Manage Careers</h1>
           <p className="text-muted-foreground">
             Create, edit, and manage job postings
           </p>
@@ -108,7 +108,7 @@ export default async function AdminCareersPage({
                           </span>
                         )}
                       </div>
-                      <h3 className="text-xl font-bold mb-2">{career.title}</h3>
+                      <h3 className="font-display text-xl font-bold mb-2">{career.title}</h3>
                       <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground mb-2">
                         <div className="flex items-center gap-1">
                           <MapPin className="h-4 w-4" />

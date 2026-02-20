@@ -14,7 +14,7 @@ export default function TermsPage() {
               Legal
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a1628] mb-4 leading-tight">
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0a1628] mb-4 leading-tight">
             WEBSITE USE POLICY
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-[#d4af37] to-[#f4d03f] mx-auto rounded-full"></div>
@@ -26,7 +26,7 @@ export default function TermsPage() {
             {/* Introduction */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Introduction
                 </h2>
               </div>
@@ -51,7 +51,7 @@ export default function TermsPage() {
             {/* Regulatory Status */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Regulatory Status and No Offer Disclaimer
                 </h2>
               </div>
@@ -92,7 +92,7 @@ export default function TermsPage() {
             {/* Permitted Use */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Permitted Use of the Website
                 </h2>
               </div>
@@ -165,7 +165,7 @@ export default function TermsPage() {
             {/* Investment Risk */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Investment Risk Disclosure
                 </h2>
               </div>
@@ -190,7 +190,7 @@ export default function TermsPage() {
             {/* Intellectual Property */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Intellectual Property
                 </h2>
               </div>
@@ -213,7 +213,7 @@ export default function TermsPage() {
             {/* Data Protection */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Data Protection and Privacy
                 </h2>
               </div>
@@ -225,7 +225,7 @@ export default function TermsPage() {
                 </p>
 
                 <div className="bg-[#f5f2ed] rounded-xl p-4 sm:p-6 space-y-4">
-                  <h3 className="text-lg font-bold text-[#0a1628] flex items-center gap-2">
+                  <h3 className="font-display text-lg font-bold text-[#0a1628] flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#d4af37]"></span>
                     Collection of Personal Data
                   </h3>
@@ -237,7 +237,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="bg-[#f5f2ed] rounded-xl p-4 sm:p-6 space-y-4">
-                  <h3 className="text-lg font-bold text-[#0a1628] flex items-center gap-2">
+                  <h3 className="font-display text-lg font-bold text-[#0a1628] flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#d4af37]"></span>
                     Use of Personal Data
                   </h3>
@@ -273,7 +273,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="bg-[#f5f2ed] rounded-xl p-4 sm:p-6 space-y-4">
-                  <h3 className="text-lg font-bold text-[#0a1628] flex items-center gap-2">
+                  <h3 className="font-display text-lg font-bold text-[#0a1628] flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#d4af37]"></span>
                     Data Security
                   </h3>
@@ -285,7 +285,7 @@ export default function TermsPage() {
                 </div>
 
                 <div className="bg-[#f5f2ed] rounded-xl p-4 sm:p-6 space-y-4">
-                  <h3 className="text-lg font-bold text-[#0a1628] flex items-center gap-2">
+                  <h3 className="font-display text-lg font-bold text-[#0a1628] flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#d4af37]"></span>
                     Data Subject Rights
                   </h3>
@@ -306,7 +306,7 @@ export default function TermsPage() {
             {/* Cookies */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Cookies and Tracking Technologies
                 </h2>
               </div>
@@ -325,7 +325,7 @@ export default function TermsPage() {
             {/* Third-Party Links */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Third-Party Links
                 </h2>
               </div>
@@ -345,7 +345,7 @@ export default function TermsPage() {
             {/* Limitation of Liability */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Limitation of Liability
                 </h2>
               </div>
@@ -387,7 +387,7 @@ export default function TermsPage() {
             {/* Compliance */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Compliance and Monitoring
                 </h2>
               </div>
@@ -407,7 +407,7 @@ export default function TermsPage() {
             {/* Amendments */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Amendments
                 </h2>
               </div>
@@ -427,7 +427,7 @@ export default function TermsPage() {
             {/* Governing Law */}
             <div className="group">
               <div className="flex items-center gap-3 mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0a1628]">
+                <h2 className="font-display text-xl sm:text-2xl font-bold text-[#0a1628]">
                   Governing Law and Jurisdiction
                 </h2>
               </div>
