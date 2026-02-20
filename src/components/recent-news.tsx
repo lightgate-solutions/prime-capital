@@ -135,7 +135,7 @@ export function SignalsSection({ articles = [] }: RecentNewsProps) {
 
         {/* Section header */}
         <div ref={headerRef} className="mb-12">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-accent">
             Recent News
           </span>
 
@@ -158,7 +158,7 @@ export function SignalsSection({ articles = [] }: RecentNewsProps) {
               <NewsCard key={article.id} article={article} index={index} />
             ))
           ) : (
-            <p className="font-mono text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               No recent news available
             </p>
           )}
@@ -201,10 +201,10 @@ function NewsCard({
 
           {/* Issue number and category */}
           <div className="flex items-baseline justify-between mb-8">
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
               No. {String(index + 1).padStart(2, "0")}
             </span>
-            <time className="font-mono text-[10px] text-muted-foreground/60">
+            <time className="text-[10px] text-muted-foreground/60">
               {formattedDate}
             </time>
           </div>
@@ -212,14 +212,14 @@ function NewsCard({
           {/* Category badge */}
           {article.category && (
             <div className="mb-3">
-              <span className="inline-block px-2 py-1 font-mono text-[9px] uppercase tracking-wider bg-accent/10 text-accent border border-accent/20">
+              <span className="inline-block px-2 py-1 text-[9px] uppercase tracking-wider bg-accent/10 text-accent border border-accent/20">
                 {article.category}
               </span>
             </div>
           )}
 
           {/* Title */}
-          <h3 className="font-[var(--font-bebas)] text-4xl tracking-tight mb-4 group-hover:text-accent transition-colors duration-300 line-clamp-2">
+          <h3 className="font-display text-4xl tracking-tight mb-4 group-hover:text-accent transition-colors duration-300 line-clamp-2">
             {article.title}
           </h3>
 
@@ -227,14 +227,14 @@ function NewsCard({
           <div className="w-12 h-px bg-accent/60 mb-6 group-hover:w-full transition-all duration-500" />
 
           {/* Description */}
-          <p className="font-mono text-xs text-muted-foreground leading-relaxed line-clamp-3">
+          <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
             {article.excerpt}
           </p>
 
           {/* Read time */}
           {article.readTime && (
             <div className="mt-4 pt-4 border-t border-border/30">
-              <span className="font-mono text-[10px] text-muted-foreground/60">
+              <span className="text-[10px] text-muted-foreground/60">
                 {article.readTime}
               </span>
             </div>

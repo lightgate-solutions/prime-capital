@@ -134,7 +134,7 @@ export function CustomCards() {
 
       {/* Section header */}
       <div ref={headerRef} className="mb-10 pr-6 md:pr-12">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+        <span className="text-[10px] uppercase tracking-[0.3em] text-accent">
           Our Corporate Philosophy
         </span>
         <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-[#0A1628] leading-tight">
@@ -186,7 +186,7 @@ function SignalCard({ signal }: { signal: { title: string; note: string } }) {
         <div className="w-12 h-px bg-accent/60 mb-2 group-hover:w-full transition-all duration-500" />
 
         {/* Description */}
-        <p className="font-mono text-xs text-muted-foreground leading-relaxed">
+        <p className="text-xs text-muted-foreground leading-relaxed">
           {signal.note}
         </p>
 

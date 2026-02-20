@@ -67,7 +67,7 @@ export function RecentNewsWrapper() {
       <section className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-accent">
               Recent News
             </span>
 
