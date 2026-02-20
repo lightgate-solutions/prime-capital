@@ -42,7 +42,9 @@ export default async function AdminNewsPage({
     <div className="container mx-auto py-8 px-4">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="font-display text-3xl font-bold mb-2">Manage Articles</h1>
+          <h1 className="font-display text-3xl font-bold mb-2">
+            Manage Articles
+          </h1>
           <p className="text-muted-foreground">
             Create, edit, and manage your news articles
           </p>

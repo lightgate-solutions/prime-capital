@@ -550,7 +550,9 @@ export default function AboutPage() {
                           className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                       </div>
-                      <h3 className="font-display text-2xl font-bold mb-2">{leader.name}</h3>
+                      <h3 className="font-display text-2xl font-bold mb-2">
+                        {leader.name}
+                      </h3>
                       <p className="text-primary font-semibold mb-4">
                         {leader.role}
                       </p>

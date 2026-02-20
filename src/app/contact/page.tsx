@@ -128,7 +128,9 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="font-display text-3xl font-bold mb-6">Send Us a Message</h2>
+              <h2 className="font-display text-3xl font-bold mb-6">
+                Send Us a Message
+              </h2>
               <p className="text-muted-foreground mb-10 text-lg">
                 Fill out the form below and a member of our investment team will
                 contact you within one business day.
@@ -246,7 +248,9 @@ export default function ContactPage() {
 
             <div className="space-y-12">
               <div>
-                <h2 className="font-display text-3xl font-bold mb-8">Contact Information</h2>
+                <h2 className="font-display text-3xl font-bold mb-8">
+                  Contact Information
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   {contactInfo.map((info, index) => {
                     const Icon = info.icon;
@@ -255,7 +259,9 @@ export default function ContactPage() {
                         <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                           <Icon className="h-6 w-6" />
                         </div>
-                        <h3 className="font-display font-bold text-lg mb-2">{info.title}</h3>
+                        <h3 className="font-display font-bold text-lg mb-2">
+                          {info.title}
+                        </h3>
                         <div className="space-y-1 text-muted-foreground">
                           {info.details.map((detail, idx) => (
                             <p key={idx}>{detail}</p>

@@ -13,7 +13,9 @@ export default function NewArticlePage() {
             Back to Articles
           </Link>
         </Button>
-        <h1 className="font-display text-3xl font-bold mb-2">Create New Article</h1>
+        <h1 className="font-display text-3xl font-bold mb-2">
+          Create New Article
+        </h1>
         <p className="text-muted-foreground">
           Fill in the details below to create a new article
         </p>

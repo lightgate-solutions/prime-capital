@@ -70,7 +70,9 @@ export default async function CareersPage({ searchParams }: CareersPageProps) {
       {featuredCareers.length > 0 && !search && (
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <h2 className="font-display text-3xl font-bold mb-10">Featured Positions</h2>
+            <h2 className="font-display text-3xl font-bold mb-10">
+              Featured Positions
+            </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {featuredCareers.map((career) => (
                 <CareerCard
